@@ -12,13 +12,18 @@
     "serve": "serve dist --single",
     "test": "tyu"
   },
+  "repository": {
+    "url": "https://github.com/niktariy/CVsite",
+    "type": "git"
+  },
   "author": {
     "name": "niktariy",
     "email": "vervarpro@icloud.com"
   },
+  "keywords": ["cool", "useful", "stuff"],
+  "homepage": "https://my-cv-project.com",
   "dependencies": {
     "node-sass": "^4.9.2",
-    "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
     "offline-plugin": "^4.8.0",
     "promise-polyfill": "^6.0.2",

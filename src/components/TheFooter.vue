@@ -73,22 +73,6 @@ export default {
       padding: 25px 0
       flex-direction: row
       justify-content: space-between
-  
-  a
-    display: flex
-    align-items: center
-    border: none
-    height: auto
-    margin: 0 2%
-    padding-right: 10px
-    transition: all 0.18s ease-in-out
-    // color: $primary
-    // &:hover
-      // color: $primary
-    // &:active, &:focus
-      // color: $primaryDark
-    // &:focus
-      // outline-color: $primary
 
 .follow-list
   display: flex
@@ -105,13 +89,14 @@ export default {
       margin: 0
 
   &__link
-    width: 32px
-    height: 32px
+    display: block
+    width: 48px
+    height: 48px
     padding: 8px
     
     @media screen and (min-width: 560px)  // +breakpoint( 560px)
-      width: 40px
-      height: 40px
+      width: 56px
+      height: 56px
       
     &:hover img
       transform: translateY(-2px)
