@@ -1,0 +1,46 @@
+.header
+  &, &__wrapper
+    display: flex
+    align-items: center
+
+  justify-content: center
+
+  &__wrapper
+    justify-content: space-between
+
+  padding: 16px 0
+  // position: fixed
+  width: 100%
+  will-change: transform, padding, background-color
+  background-color: hsl(212, 52%, 96%) //$headerColor
+  z-index: 999
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2)
+  transform: translateY(0%)
+  transition: all .28s ease-in
+
+  &__logo
+    font-size: 24px
+    a
+      color: hsla(330, 88%, 15%, 1) //$secondaryDark
+      &:hover, &:focus
+        color: hsla(330, 48%, 32%, 1) //$secondary
+
+  .tab__item
+    &:first-child
+      margin-left: 0
+    &:last-child
+      margin-right: 0
+
+  &:not(.smaller)
+    .tab__link
+      color: #616161 //$textColor
+      &:hover
+        color: darken(#616161, 8%)
+
+  &.smaller
+    padding-top: 8px
+    padding-bottom: 8px
+    background-color: #fff
+    background-size: cover
+    @media screen and (min-width: 868px) //+breakpoint(868px)
+      opacity: 0.9

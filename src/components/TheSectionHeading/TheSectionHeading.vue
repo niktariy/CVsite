@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'l-footer',
+  name: 'section-heading',
   props: {
     sectionTitle: String,
     sectionLink: String,
