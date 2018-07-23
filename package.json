@@ -20,9 +20,15 @@
     "name": "niktariy",
     "email": "vervarpro@icloud.com"
   },
-  "keywords": ["cool", "useful", "stuff"],
+  "keywords": [
+    "cool",
+    "useful",
+    "stuff"
+  ],
   "homepage": "https://my-cv-project.com",
   "dependencies": {
+    "autoprefixer": "^9.0.1",
+    "node": "^10.7.0",
     "node-sass": "^4.9.2",
     "object-assign": "^4.1.1",
     "offline-plugin": "^4.8.0",
