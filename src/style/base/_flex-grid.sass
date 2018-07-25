@@ -1,0 +1,89 @@
+$grid-breakpoints: (sm: 620px, md: 900px, lg: 1200px, xl: 1550px)
+$column-gutter-breakpoints: (xs: 8px, sm: 16px)
+$grid-gutter-breakpoints: (xs: 4%, sm: 6%, xl: 8%)
+
+$max-width: 1440px
+$columns: 6
+
+@function breakpoint($breakpoint)
+  @if map-has-key($grid-breakpoints, $breakpoint)
+    @return map-get($grid-breakpoints, $breakpoint)
+  @else
+    @warn "breakpoint: could not find #{$breakpoint} in $grid-breakpoints map. Please make sure it is defined"
+
+@function column-gutter($breakpoint)
+  @if map-has-key($column-gutter-breakpoints, $breakpoint)
+    @return map-get($column-gutter-breakpoints, $breakpoint)
+  @else
+    @warn "gutter: could not find #{$breakpoint} in $gutter-breakpoints map. Please make sure it is defined"
+
+@function grid-gutter($breakpoint)
+  @if map-has-key($grid-gutter-breakpoints, $breakpoint)
+    @return map-get($grid-gutter-breakpoints, $breakpoint)
+  @else
+    @warn "grid-gutter: could not find #{$breakpoint} in $grid-breakpoints map. Please make sure it is defined"
+
+.grid
+  margin-left: grid-gutter("xs")
+  margin-right: grid-gutter("xs")
+  max-width: $max-width
+  width: calc(100% - #{grid-gutter("xs") * 2})
+  &__row
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    margin: 0 (column-gutter("xs") * -1)
+    +sm-up
+      margin: 0 (column-gutter("sm") * -1)
+
+  +sm-up
+    margin-left: grid-gutter("sm")
+    margin-right: grid-gutter("sm")
+    width: calc(100% - #{grid-gutter("sm") * 2})
+  +xl-up
+    margin-left: grid-gutter("xl")
+    margin-right: grid-gutter("xl")
+    width: calc(100% - #{grid-gutter("xl") * 2})
+
+[class*='col-']
+  position: relative
+  width: 100%
+  min-height: 1px
+  padding: 0 column-gutter("xs")
+
+  +sm-up
+    padding: 0 column-gutter("sm")
+
+@for $i from 1 through $columns
+  .col-xs-#{$i}
+    width: 100% * $i / $columns
+    flex-basis: 100% * $i / $columns
+
+@each $breakpoint in map-keys($grid-breakpoints)
+  @media (min-width: breakpoint($breakpoint))
+    .col-#{$breakpoint}-auto
+      flex: 0 0 auto
+      width: auto
+
+    @for $i from 1 through $columns
+      .col-#{$breakpoint}-#{$i}
+        width: 100% * $i / $columns
+        flex-basis: 100% * $i / $columns
+
+    .hidden-#{$breakpoint}-up
+      +hidden
+
+  @media (max-width: breakpoint($breakpoint) - 1)
+    .visible-#{$breakpoint}-up
+      +hidden
+
+=column-size($col-num)
+  width: 100% * $col-num / $columns
+  flex-basis: 100% * $col-num / $columns
+  max-width: 100% * $col-num / $columns
+
+.col-xs, .col-sm, .col-md, .col-lg, .col-xl
+  flex-basis: 0
+  flex: 1
+  flex-grow: 1
+  max-width: 100%

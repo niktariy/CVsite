@@ -1,0 +1,12 @@
+.grid-container
+  display: -ms-grid
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(274px, 1fr))
+  grid-gap: 16px 24px
+  &--two
+    display: -ms-grid
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(98%, 1fr))
+    grid-gap: 16px 8px
+    +md-up
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr))

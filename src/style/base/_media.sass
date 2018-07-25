@@ -1,0 +1,42 @@
+$extra_small: 619px
+$small: 620px
+$medium: 900px
+$large: 1200px
+$extra_large: 1550px
+$breakpoints: (xs: $extra_small, sm: $small, md: $medium, lg: $large, xl: $extra_large)
+
+=xs-only
+  @media screen and (max-width: #{$extra_small})
+    @content
+
+=sm-up
+  @media screen and (min-width: #{$small})
+    @content
+
+=sm-only
+  @media screen and (min-width: #{$small}) and (max-width: #{$medium - 1})
+    @content
+
+=md-up
+  @media screen and (min-width: #{$medium})
+    @content
+
+=md-only
+  @media screen and (min-width: #{$medium}) and (max-width: #{$large - 1})
+    @content
+
+=lg-up
+  @media screen and (min-width: #{$large})
+    @content
+
+=lg-only
+  @media screen and (min-width: #{$large}) and (max-width: #{$extra_large - 1})
+    @content
+
+=xl-up
+  @media screen and (min-width: #{$extra_large})
+    @content
+
+=breakpoint($point)
+  @media screen and (min-width: $point)
+    @content

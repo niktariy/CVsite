@@ -1,0 +1,90 @@
+=box-sizing($boxsizing)
+  -webkit-box-sizing: $boxsizing
+  -moz-box-sizing: $boxsizing
+  box-sizing: $boxsizing
+
+=appearance($value)
+  -webkit-appearance: $value
+  -moz-appearance: $value
+  appearance: $value
+
+=user-select($prop)
+  -webkit-user-select: $prop
+  -moz-user-select: $prop
+  -ms-user-select: $prop
+  user-select: $prop
+
+// Стилизация placeholder
+// пример: @include place($red);
+=place($cl)
+  &::-webkit-input-placeholder
+    color: $cl
+  &::-moz-placeholder
+    color: $cl
+  &:-moz-placeholder
+    color: $cl
+  &:-ms-input-placeholder
+    color: $cl
+
+=circle($w,$h,$r)
+  +br($r)
+  width: $w
+  height: $h
+
+// усечение элемента применять к текстовым тегам типа "span" "p" и т.д.
+// пример: @include truncate(110px);
+=truncate($truncation-boundary)
+  max-width: $truncation-boundary
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+// after||before content
+=cont($value:'', $full: false)
+  content: $value
+  display: block
+  position: absolute
+  @if $full
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+    z-index: -1
+
+// clearfix
+// пример: @include cfx;
+=cfx
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+=hidden
+  visibility: hidden
+  position: absolute !important
+  display: none !important
+  width: 1px !important
+  height: 1px !important
+  overflow: hidden
+  clip: rect(1px 1px 1px 1px)
+  // IE 6,7
+  clip: rect(1px, 1px, 1px, 1px)
+
+=opacity($opacity)
+  $opacity-ie: $opacity * 100
+  filter: alpha(opacity=$opacity-ie)
+  opacity: $opacity
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content

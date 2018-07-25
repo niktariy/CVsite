@@ -25,6 +25,7 @@
                 :class="'tab--'+item.name.toLowerCase()"
               > {{ item.name }} </a>
             </li>
+            <li class="menu__line"><span></span></li>
           </ul>
         </nav>
       </div>
@@ -91,5 +92,4 @@ export default {
 <style lang="sass" scoped>
   @import 'header'
   @import 'tabs'
-
 </style>
