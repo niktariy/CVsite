@@ -1,0 +1,43 @@
+// input--nao
+&--nao
+  overflow: hidden
+  padding-top: 1em
+  &__field
+    padding: 0.8em 0 0.25em
+    width: 100%
+    background: transparent
+    color: $primary
+  &__label
+    position: absolute
+    top: 0.8em
+    letter-spacing: 2px
+    left: 0
+    display: block
+    width: 100%
+    text-align: left
+    padding: 0
+    pointer-events: none
+    -webkit-transform-origin: 0 0
+    transform-origin: 0 0
+    +transition(transform 0.5s 0.15s, color 1s)
+    -webkit-transition-timing-function: ease-out
+    transition-timing-function: ease-out
+  &__field:focus + .input__label, &.input--filled .input__label
+    color: #333
+    +transform(translate3d(0, -1.5em, 0) scale3d(0.9, 0.9, 1))
+  &__field:focus ~ .graphic--nao, &.input--filled .graphic--nao
+    stroke: #333
+    +transform(translate3d(-66.6%, 0, 0))
+
+
+.graphic
+  position: absolute
+  top: 0
+  left: 0
+  fill: none
+  &--nao
+    stroke: $secondary
+    pointer-events: none
+    +transition(-webkit-transform 0.7s,transform 0.7s, stroke 0.7s)
+    -webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1)
+    transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1)

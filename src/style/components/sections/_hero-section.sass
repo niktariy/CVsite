@@ -1,0 +1,46 @@
+/*---------------- Hero Section ----------------*/
+@import "../../base/colors"
+@import "../../base/media"
+
+.hero
+  display: flex
+  flex-direction: column
+  justify-content: center
+  position: relative
+  min-height: 70vh
+  padding-bottom: 48px
+  background: $bgColor
+  text-align: center
+  overflow-x: hidden
+  z-index: 202!important
+  +md-up
+    min-height: 90vh
+    padding-bottom: 125px
+    &__content
+      text-align: left
+
+  &__container
+    overflow-y: visible
+    position: relative
+    padding-top: 170px
+
+    +md-up
+      position: static
+      padding-top: 125px
+
+  &__image
+    position: relative
+    $size: 60%
+    margin: 0 auto
+    +xs-only
+      transform: translate(12vw, 12vw)
+    +sm-up
+      right: -24%
+      bottom: -10%
+      width: $size
+    +md-up
+      position: absolute
+      right: 5%
+      bottom: 0
+      width: $size
+      height: $size + 20

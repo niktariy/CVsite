@@ -1,0 +1,66 @@
+/*---------------- About Section ----------------*/
+.about
+  &__info
+    @extend .flex-column
+    +align-items(center)
+    +justify-content(center)
+    padding: 0 21px
+    +sm-up
+      +align-items(flex-start)
+      +flex-dir(row)
+  
+  &__experience-container
+    +breakpoint(480px)
+      max-width: 70%
+      padding-left: 32px
+  &__experience-item
+    font-size: $font--14-18
+    margin-bottom: 4px
+  &__photo-container
+    margin-bottom: 24px
+    width: 100%
+    max-width: $photo-size
+    max-height: 272px
+    overflow: hidden
+    +breakpoint(480px)
+      width: 30%
+  &__photo
+    width: 100%
+    height: auto
+    object-fit: cover
+  
+  &__skills-list, &__experience-item
+    text-align: left
+  &__skills-list
+    margin-top: 32px
+    padding: 24px 16px
+    background: $white
+    +box-shadow(0,10px,24px,0, rgba($primaryDark, .2))
+    +sm-up
+      padding: 32px
+    +md-up
+      padding: 48px
+  
+  &__skill
+    padding: 0 16px
+    & i
+      color: $primary
+      font-size: 90px
+      height: 90px
+      width: 90px
+    & h4
+      margin: 0 0 8px
+      line-height: 1.25
+    & p
+      font-size: $font--14-16
+      position: relative
+      margin: 0
+      &::before
+        +cont('-')
+        width: 9px
+        height: 5px
+        top: 0
+        left: -10px
+    @media (max-width: 1000px)
+      &:last-child
+        margin-bottom: 0

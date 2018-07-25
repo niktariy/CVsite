@@ -1,0 +1,54 @@
+.input-upload
+  &:hover
+    box-shadow: 0 0 2px 0 $input-upload__shadow-color
+
+  .input__label
+    text-align: left
+
+  &__wrapper
+    border: 2px dashed $white
+    padding: 16px
+
+  &__content
+    align-items: center
+    justify-content: space-between
+
+    +xs-only
+      flex-direction: column
+
+  &__button
+    background-color: $white
+    +xs-only
+      margin-bottom: 16px
+
+  &__files
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin: 0 auto
+
+.uploaded-file
+  display: flex
+  flex-direction: column
+  align-items: center
+  position: relative
+  padding: 16px 24px
+  margin: 8px
+  will-change: box-shadow
+  border-radius: 2px
+  transition: box-shadow .28s ease
+
+  &:hover
+    box-shadow: 0 0 4px 0 rgba($secondaryLight, .4)
+
+  &__name
+    font-size: 12px
+  &__preview
+    width: 40px
+    height: auto
+  &__remove
+    position: absolute
+    top: 0
+    right: 0
+    padding: 8px
+    content: 'x'

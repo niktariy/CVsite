@@ -1,8 +1,6 @@
 <template>
   <section class="projects section--projects section">
-    <header class="grid">
-      <h2>Projects</h2>
-    </header>
+    <sectionHeading sectionTitle="Projects"></sectionHeading>
     <div class="grid">
       <div class="grid-container">
         <aside v-for="project in projects" :key="project.id"
@@ -11,27 +9,34 @@
              rel="noopener"
              target="_blank"
              tabindex="0">
-            <img class="card__image"
-                 alt="project.name"
-                 :src="'./src/img/projects/'+item.image"/>
+            <figure class="card__img-container">
+              <img class="card__img"
+                   alt="project.name"
+                   :src="'./src/img/projects/'+project.image"/>
+            </figure>
             <h4 class="card__title">{{ project.name }}</h4>
             <p class="card__description">{{ project.description }}</p>
             <span class="card__date">{{ project.date }}</span>
           </a>
-        </div>
+        </aside>
       </div>
     </div>
   </section>
 </template>
 <script>
+import sectionHeading from '../TheSectionHeading/TheSectionHeading';
+
 export default {
   name: '',
+  components: {
+    sectionHeading,
+  },
   data() {
     return {
       projects: [
         { name: 'NikiFilm',
           description: 'Photographer portfolio',
-          image: '',
+          image: 'NikiFilm.png',
           date: '',
           link: ''
         },
@@ -47,16 +52,19 @@ export default {
           date: '',
           link: ''
         },
-        { name: '',
-          description: '',
-          image: '',
-          date: '',
-          link: ''
-        },
+        // { name: '',
+        //   description: '',
+        //   image: '',
+        //   date: '',
+        //   link: ''
+        // },
       ],
       menuOpened: false,
     }
   },
 }
 </script>
-<style></style>
+<style lang="sass" scoped>
+@import "./src/style/components/sections/projects-section"
+@import "./src/style/components/card"
+</style>

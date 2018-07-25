@@ -1,0 +1,60 @@
+@import "../../base/colors"
+
+button
+  &.btn, &.btn--plain
+    border-radius: 2px
+    min-width: 88px
+    height: 36px
+    padding: 0 16px
+  &.btn
+    @import "type/big"
+  &.btn--send
+    margin: 0.5em auto
+    width: 60%
+  &.fab, &.fab--plain
+    border-radius: 50%
+    height: 48px
+    width: 48px
+
+  border: none
+  font:
+    family: "Avenir Next LT Pro", "Open Sans", sans-serif
+    size: 13.3333px
+    weight: 600
+  letter-spacing: 0.04em
+  text-transform: uppercase
+  text-align: center
+  outline: none
+  will-change: background-color, box-shadow, color
+  &:disabled
+    cursor: not-allowed
+
+@each $status, $color in $component-colors
+  .component--#{$status}
+    .btn, .fab
+      background-color: map_get($color, 'base')
+      color: $white
+      &:hover
+        box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
+      &:focus
+        background-color: map_get($color, 'dark')
+        box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
+      &:active
+        box-shadow: 0 0 0 0 transparent
+
+    .btn--plain, .fab--plain
+      background-color: $white
+      color: map_get($color, 'base')
+      &:hover
+        box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
+      &:focus
+        background-color: rgba(map_get($color, 'light'), .3)
+        box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
+      &:active
+        box-shadow: 0 0 0 0 transparent
+
+    button:disabled
+      $disabled-btn: mix(map_get($color, 'dark'), $whitesmoky, 10%)
+      background: desaturate($disabled-btn, 55%) !important
+      user-select: none
+      pointer-events: none

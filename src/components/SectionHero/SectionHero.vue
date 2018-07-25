@@ -1,29 +1,31 @@
 <template>
   <section class="hero">
     <div class="grid">
-      <div class="grid__row">
+      <div class="hero__container">
         <header>
-          <h1>Hello! I am Veronika Novikova</h1>
-          <h3>Design oriented front-end developer</h3>
-          <div class="row component component--primary">
-            <button class="btn btn--big">Contact me</button>
-            <button class="btn btn--big btn--white">See my works</button>
+          <h2>Hi! I am Veronika Novikova</h2>
+          <h1>Design oriented<br/>
+            <span>Front-end developer</span>
+          </h1>
+          <div class="btn-group">
+            <div class="component component--primary">
+              <button class="btn btn--big">Contact me</button>
+            </div>
+            <div class="component component--secondary">
+              <button class="btn btn--big btn--plain">See my works</button>
+            </div>
           </div>
         </header>
-        <img src="/src/img/Veronika.svg"
-             style="width: 96%; transform: translateX(24%);"/>
+        <img class="hero__image"
+             src="/src/img/Veronika.svg"/>
       </div>
     </div>
   </section>
 </template>
 <script>
-// import sectionHeading from '/src/components/TheSectionHeading/TheSectionHeading';
 
   export default {
     name: 'section--hero',
-    // components: {
-    //   sectionHeading,
-    // }
   }
 </script>
 

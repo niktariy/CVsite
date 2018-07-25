@@ -1,0 +1,19 @@
+/*---------------- Contacts Section ----------------*/
+.contacts
+  background-color: $whitesmoky
+  &__form-container
+    margin: 0 auto
+    max-width: 512px
+  &__form-description
+    text-align: center
+    font-weight: 500
+    margin-bottom: 8px
+  &__form
+    @extend .flex
+    +flex-direction(column)
+    +md-up
+      +align-items(flex-end)
+  &__available
+    text-align: center
+  &__button-send
+    margin: 16px auto 0

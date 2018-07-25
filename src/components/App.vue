@@ -4,8 +4,8 @@
 
     <main>
       <sectionHero/>
+      <sectionProjects/>
     </main>
-
     <lFooter/>
   </div>
 </template>
@@ -15,6 +15,7 @@
   import lFooter from './TheFooter/TheFooter';
   import sectionHeading from './TheSectionHeading/TheSectionHeading';
   import sectionHero from './SectionHero/SectionHero'
+  import sectionProjects from './SectionProjects/SectionProjects'
   export default {
     name: 'app',
     components: {
@@ -22,6 +23,7 @@
       lFooter,
       sectionHeading,
       sectionHero,
+      sectionProjects,
     }
   }
 
@@ -30,8 +32,8 @@
 <!-- Global CSS -->
 <style lang="sass">
 
-  @import "./src/style/base"
-  @import "./src/style/grid"
+  @import "./src/style/base/index"
+  @import "./src/style/components/button/button"
 
 </style>
 
