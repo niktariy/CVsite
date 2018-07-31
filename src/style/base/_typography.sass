@@ -1,14 +1,17 @@
 h1
   font:
-    family: 'Avenir Next LT Pro', Lato, "Open Sans", sans-serif
+    family: 'Avenir Next', Lato, "Open Sans", sans-serif
     weight: bold
     size: $font-h1
-  margin-bottom: 15px
+  margin-bottom: 16px
+  +sm-up
+    margin-bottom: 24px
+
 h2
   font:
-    family: 'Avenir Next LT Pro', Lato, "Open Sans", sans-serif
+    family: 'Avenir Next', Lato, "Open Sans", sans-serif
     size: $font-h2
-    weight: bold
+    weight: 400
 h3
   font-size: $font-h3
   font-weight: normal
@@ -22,7 +25,7 @@ h4
   color: $textColor
   line-height: 17px
   text-align: center
-  
+
 [class*='__description']
   font-size: $font--14-18
   text-align: center
@@ -32,4 +35,3 @@ h4
   &--accent
     color: $secondary
     font-weight: 600
-    

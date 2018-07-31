@@ -1,11 +1,10 @@
-$primaryLight:    hsla(212, 40%, 72%, 1);
+$primaryLight:    hsla(212, 48%, 80%, 1);
 $primary:         hsla(212, 48%, 64%, 1);
-$primaryDark:     hsla(212, 40%, 40%, 1);
+$primaryDark:     hsla(212, 48%, 32%, 1);
 
 $secondaryLight:  hsla(330, 32%, 50%, 1);
 $secondary:       hsla(330, 48%, 32%, 1);
 $secondaryDark:   hsla(330, 88%, 15%, 1);
-
 // $secondaryLight:  #de7b9e;
 // $secondary:       #aa4c70;
 // $secondaryDark:   #781c45;
@@ -36,7 +35,9 @@ $linksDark:     #a21733;
 
 $headingsColor: #303030;
 $textColor:   #616161;
-$whitesmoky:  #f5f5f5;
+$whitesmoky:  #f5f6f7;
 $white:       rgba(255, 255, 255, 1);
+
+$sectionBgColor: hsl(250, 43%, 97%);
 $bgColor:     hsl(212, 20%, 97%);
 $headerColor: hsl(212, 52%, 96%);

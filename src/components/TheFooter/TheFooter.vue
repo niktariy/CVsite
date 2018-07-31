@@ -8,7 +8,7 @@
           <a :href="item.link"
              class="follow-list__link"
              target="_blank">
-            <img :src="'./src/img/socials/'+item.name.toLowerCase()+'.svg'"
+            <img :src="'/static/img/socials/'+item.name.toLowerCase()+'.svg'"
                  class="follow-list__icon" />
           </a>
         </li>

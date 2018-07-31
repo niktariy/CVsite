@@ -32,8 +32,11 @@ a
 a, button
   cursor: pointer
   text-decoration: none
+  outline-color: $primaryLight
   opacity: 0.9
-  transition: color .28s cubic-bezier(.4, 0, .2, 1), box-shadow .28s cubic-bezier(.4, 0, .2, 1), background .28s cubic-bezier(.4, 0, .2, 1), opacity .28s cubic-bezier(.4, 0, .2, 1)
+  transition-property: color, box-shadow, background-color, opacity
+  transition-duration: .28s
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
   &:hover
     opacity: 1
 
@@ -41,9 +44,9 @@ h1, h2, h3, h4, h5, h6
   font-family: "Avenir Next LT Pro", "Open Sans", sans-serif
 
 hr
-  width: 112px
+  width: 88px
   height: 3px
-  background-color: $primary
+  background-color: $secondary
   border: 0
   margin-top: 8px
   margin-bottom: 48px
@@ -60,11 +63,15 @@ hr
       border-bottom-color: $secondaryLight
 
 .btn-group
+  $button-gap: 8px
   display: flex
   margin: -8px
   [class*="btn"]
-    margin: 8px
-
+    margin: $button-gap
+  +xs-only
+    flex-direction: column
+    [class*="btn"]
+      width: calc(100% - #{$button-gap * 2})
 .toTop
   position: fixed
   font-size: xx-large

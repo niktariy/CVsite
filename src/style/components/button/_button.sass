@@ -1,21 +1,7 @@
 @import "../../base/colors"
 
-button
-  &.btn, &.btn--plain
-    border-radius: 2px
-    min-width: 88px
-    height: 36px
-    padding: 0 16px
-  &.btn
-    @import "type/big"
-  &.btn--send
-    margin: 0.5em auto
-    width: 60%
-  &.fab, &.fab--plain
-    border-radius: 50%
-    height: 48px
-    width: 48px
-
+.btn, .fab
+  display: block
   border: none
   font:
     family: "Avenir Next LT Pro", "Open Sans", sans-serif
@@ -29,15 +15,32 @@ button
   &:disabled
     cursor: not-allowed
 
+.btn, .btn--plain
+  border-radius: 2px
+  min-width: 88px
+  height: 36px
+  padding: 0 16px
+.btn
+  @import "type/big"
+.btn--send
+  margin: 0.5em auto
+  width: 60%
+.fab, .fab--plain
+  border-radius: 50%
+  height: 48px
+  width: 48px
+
+
+
 @each $status, $color in $component-colors
   .component--#{$status}
     .btn, .fab
-      background-color: map_get($color, 'base')
+      background-color: map_get($color, 'dark')
       color: $white
       &:hover
         box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
       &:focus
-        background-color: map_get($color, 'dark')
+        background-color: map_get($color, 'base')
         box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
       &:active
         box-shadow: 0 0 0 0 transparent

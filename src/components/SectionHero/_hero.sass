@@ -3,48 +3,54 @@
 @import "./src/style/base/media"
 
 .hero
-  display: flex
-  flex-direction: column
-  justify-content: center
   position: relative
-  min-height: 70vh
   padding-bottom: 48px
-  background: $bgColor
+  background: $sectionBgColor
   text-align: center
   overflow-x: hidden
   z-index: 202!important
   +md-up
-    min-height: 90vh
-    padding-bottom: 125px
+    padding-bottom: 96px
     text-align: left
 
   &__container
     overflow-y: visible
     position: relative
-    // padding-top: 170px
-
+    padding: 48px 0
     +md-up
-      // padding-top: 125px
+      display: flex
+      align-items: flex-start
 
-  &__image
-    $size: 60%
-    margin: 40px auto
+  &__header
+    +md-up
+      width: 45%
+
+    h1
+      +md-up
+        white-space: nowrap
+        max-width: 100%
+        overflow: visible
+
+  &__target
+    justify-content: center
+    margin-top: 32px
+    +sm-up
+      margin-top: 40px
+    +md-up
+      justify-content: flex-start
+
+  &__image-container
+    margin-top: 48px
     user-select: none
     pointer-events: none
     +md-up
-      position: absolute
-      top: 10%
+      margin-top: 8vh
       right: 0
-      width: $size
-  //   +xs-only
-  //     transform: translate(12vw, 12vw)
-  //   +sm-up
-  //     right: -24%
-  //     bottom: -10%
-  //     width: $size
-  //   +md-up
-  //     position: absolute
-  //     right: 5%
-  //     bottom: 0
-  //     width: $size
-  //     height: $size + 20
+      flex: 1
+
+  &__image
+    width: 90%
+    margin: 0 auto
+    +md-up
+      width: 110%
+      margin: 0 0 0 -10%

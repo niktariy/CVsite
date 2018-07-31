@@ -34,6 +34,7 @@
 
   @import "./src/style/base/index"
   @import "./src/style/components/button/button"
+  @import "./src/style/components/sections/sections"
 
 </style>
 

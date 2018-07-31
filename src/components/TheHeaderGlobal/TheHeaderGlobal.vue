@@ -3,7 +3,9 @@
     <div class="header__wrapper grid">
       <a href="top" class="header__logo">
         <img
-          width="60"
+          :src="siteLogo"
+          height="56"
+          width="auto"
           alt="Veronika"
           class="logo"
         />
@@ -39,6 +41,7 @@ export default {
   props: ['className'],
   data() {
     return {
+      siteLogo: "static/img/LetterV.svg",
       items: [
         { name: 'About' },
         { name: 'Projects' },
