@@ -16,6 +16,7 @@
   import sectionHeading from './TheSectionHeading/TheSectionHeading';
   import sectionHero from './SectionHero/SectionHero'
   import sectionProjects from './SectionProjects/SectionProjects'
+
   export default {
     name: 'app',
     components: {

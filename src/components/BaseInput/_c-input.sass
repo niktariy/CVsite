@@ -1,6 +1,9 @@
-.input
-  @extend .flex
-  +justify-content(flex-end)
+@import "./src/style/base/colors"
+@import "./src/style/base/media"
+
+.c-input
+  display: flex
+  justify-content: flex-end
   border-radius: 3px
   position: relative
   font-size: 16px
@@ -8,17 +11,17 @@
   margin: 1.5em 0 .5em auto
   width: 100%
   z-index: 1
-  +transition(box-shadow .28s cubic-bezier(0.68, -0.55, 0.27, 1.55))
+  transition: box-shadow .28s cubic-bezier(0.68, -0.55, 0.27, 1.55)
   &:last-of-type
     margin-bottom: 1em
   &:hover
-    +box-shadow(0,2px,6px,0,rgba(#000,.1))
-  
+    box-shadow: 0 2px 6px 0 rgba(#000,.1)
+
   +md-up
     margin: .5em .5em 0
     max-width: calc(100% - 1em)
     width: 100%
-  
+
   &__field
     position: relative
     display: block
@@ -34,7 +37,7 @@
     -moz-appearance: none
     appearance: none
     resize: none
-    +transition(box-shadow .2s cubic-bezier(0.4, 0, 1, 1), background-color .2s)
+    transition: box-shadow .2s cubic-bezier(0.4, 0, 1, 1), background-color .2s
     &:focus
       outline: none
   &__label
@@ -54,7 +57,7 @@
     -moz-user-select: none
     -ms-user-select: none
     user-select: none
-    
+
     &_content
       position: relative
       display: block
@@ -62,7 +65,5 @@
       width: 100%
       font-size: 1em
       line-height: inherit
-  
-  @import "type/fabian"
 
-@import "type/upload"
+  @import "type/fabian"

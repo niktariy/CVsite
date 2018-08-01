@@ -1,3 +1,5 @@
+@import "./src/style/base/media"
+
 .footer
   // position: fixed
   bottom: 0
@@ -15,7 +17,7 @@
     height: 100%
     padding: 3% 0
 
-    @media screen and (min-width: 560px) // +breakpoint(560px)
+    +breakpoint(560px)
       padding: 25px 0
       flex-direction: row
       justify-content: space-between
@@ -26,12 +28,12 @@
   width: 100%
   margin: 0 -8px
 
-  @media screen and (min-width: 560px)  // +breakpoint( 560px)
+  +breakpoint(560px)
     width: auto
 
   &__item
     margin: 10px 0
-    @media screen and (min-width: 560px)  // +breakpoint( 560px)
+    +breakpoint(560px)
       margin: 0
 
   &__link
@@ -40,7 +42,7 @@
     height: 48px
     padding: 8px
 
-    @media screen and (min-width: 560px)  // +breakpoint( 560px)
+    +breakpoint(560px)
       width: 56px
       height: 56px
 
