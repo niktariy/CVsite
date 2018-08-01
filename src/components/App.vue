@@ -5,6 +5,7 @@
     <main>
       <sectionHero/>
       <sectionProjects/>
+      <sectionContacts/>
     </main>
     <lFooter/>
   </div>
@@ -16,6 +17,7 @@
   import sectionHeading from './TheSectionHeading/TheSectionHeading';
   import sectionHero from './SectionHero/SectionHero'
   import sectionProjects from './SectionProjects/SectionProjects'
+  import sectionContacts from './SectionContacts/SectionContacts'
 
   export default {
     name: 'app',
@@ -25,6 +27,7 @@
       sectionHeading,
       sectionHero,
       sectionProjects,
+      sectionContacts,
     }
   }
 

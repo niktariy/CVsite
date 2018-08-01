@@ -41,7 +41,7 @@ export default {
   props: ['className'],
   data() {
     return {
-      siteLogo: "static/img/LetterV.svg",
+      siteLogo: "/img/LetterV.svg",
       items: [
         { name: 'About' },
         { name: 'Projects' },

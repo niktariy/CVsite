@@ -15,16 +15,20 @@
   user-select: $prop
 
 // Стилизация placeholder
-// пример: @include place($red);
-=place($cl)
+// пример:
+// @include placeholder {
+//   color: grey;
+//   font-size: 14px;
+// };
+=placeholder
   &::-webkit-input-placeholder
-    color: $cl
+    @content
   &::-moz-placeholder
-    color: $cl
+    @content
   &:-moz-placeholder
-    color: $cl
+    @content
   &:-ms-input-placeholder
-    color: $cl
+    @content
 
 =circle($w,$h,$r)
   +br($r)

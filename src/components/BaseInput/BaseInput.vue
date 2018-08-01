@@ -15,10 +15,10 @@
     <label
       class="c-input__label"
       :class="'c-input--' + inputModifier + '__label'">
-      <span class="c-input__label-text">{{ inputLabel }}</span>
+      <span class="c-input__label_content">{{ inputLabel }}</span>
     </label>
     <span class="msg-validation"
-          :class="{ visible: !isValid }">
+          v-show="!isValid">
           {{ validationText }}
     </span>
   </div>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'baseInput',
+  name: 'c-input',
   props: {
     inputModifier: String,
     inputType: String,
@@ -83,4 +83,8 @@ export default {
 </script>
 <style lang="sass" scoped>
   @import "c-input"
+
+  .msg-validation
+    position: absolute
+
 </style>

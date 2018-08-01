@@ -1,34 +1,40 @@
 @import "./src/style/base/colors"
 @import "./src/style/base/media"
 
+%inputLabel--filled
+  color: $textColor
+  font-size: 14px
+  transform: translateY(-80%)
+  +md-up
+    font-size: 1em
+    transform: translateX(-100%)
+
 // c-input--fabian
 &--fabian
   &::after
     content: ''
     display: block
     background: $secondaryLight
+    border-radius: 0 0 2px 2px
     position: absolute
     width: 100%
     height: 0
     bottom: 0
+    left: 0
     right: 0
     z-index: 22
-    transition: heigth 0.3s ease-in-out, box-shadow 0.18s linear
-  &__field:focus, &.c-input--filled
-    .c-input--fabian::after
-      height: 2px
-    + .c-input__label, .c-input__label
-      color: $textColor
-      font-size: 14px
-      transform: translateY(-80%)
-
-      +md-up
-        font-size: 1em
-        transform: translateX(-100%)
+    transition: height 0.18s cubic-bezier(0, 0.25, 0.5, 1)
 
   &__label
     position: absolute
-    color: $secondaryLight
     width: auto
     transform: translateX(0)
-    transition: -webkit-transform 0.25s cubic-bezier(0, 0.25, 0.5, 1), transform 0.25s cubic-bezier(0, 0.25, 0.5, 1), opacity 0.25s, color 1s ease-out
+    transition: transform 0.24s cubic-bezier(0, 0.25, 0.5, 1), opacity 0.25s, color 1s ease-out
+
+  &__field:focus + .c-input--fabian__label,
+  &__field:not(:placeholder-shown) + .c-input--fabian__label
+    @extend %inputLabel--filled
+
+  // &.focused, &.filled
+  //   &::after
+  //     height: 2px

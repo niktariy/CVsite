@@ -20,7 +20,7 @@
             <figure class="card__img-container">
               <img class="card__img"
                    alt="project.name"
-                   :src="'/static/img/projects/'+project.image"/>
+                   :src="'/img/projects/'+project.image"/>
             </figure>
             <h4 class="card__title">{{ project.name }}</h4>
             <p class="card__description">{{ project.description }}</p>
@@ -30,8 +30,8 @@
         <!-- TODO -->
       </div>
       <div class="grid__row">
-        <div class="component component--secondary">
-          <button class="btn component__centered" type="button">View all projects</button>
+        <div class="component component--secondary m-l-auto m-r-auto">
+          <button class="btn" type="button">View all projects</button>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
 import sectionHeading from '../TheSectionHeading/TheSectionHeading';
 
 export default {
-  name: 'projects-section',
+  name: 'section--projects',
   components: {
     sectionHeading,
   },

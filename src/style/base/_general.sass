@@ -100,3 +100,14 @@ svg
 ::-moz-selection
   background-color: $secondaryLight
   color: #ffffff
+
+input
+  +placeholder
+    color: transparent
+    transition: color 0.1s
+
+
+.focused input
+  +placeholder
+    color: lighten($textColor, 10%)
+    transition: color 0.18s ease 0.24s

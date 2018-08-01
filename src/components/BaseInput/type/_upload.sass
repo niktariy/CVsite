@@ -1,6 +1,10 @@
+@import "./src/style/base/colors"
+@import "./src/style/base/media"
+
 .input-upload
-  &:hover
-    box-shadow: 0 0 2px 0 $input-upload__shadow-color
+  display: flex
+  flex-direction: column
+  box-shadow: none !important
 
   .input__label
     text-align: left
@@ -8,8 +12,11 @@
   &__wrapper
     border: 2px dashed $white
     padding: 16px
+    &:hover
+      box-shadow: 0 0 2px 0 $input-upload__shadow-color
 
   &__content
+    display: flex
     align-items: center
     justify-content: space-between
 

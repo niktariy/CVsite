@@ -17,7 +17,7 @@
         </header>
         <div class="hero__image-container">
           <img class="hero__image"
-               src="/static/img/Veronika.svg"/>
+               src="/img/Veronika.svg"/>
         </div>
       </div>
     </div>
@@ -32,5 +32,5 @@
 
 <style lang="sass" scoped>
   @import "hero"
-  
+
 </style>
