@@ -4,8 +4,9 @@
 
     <main>
       <sectionHero/>
+      <sectionAbout/>
       <sectionProjects/>
-      <sectionContacts/>
+      <!-- <sectionContacts/> -->
     </main>
     <lFooter/>
   </div>
@@ -16,6 +17,7 @@
   import lFooter from './TheFooter/TheFooter';
   import sectionHeading from './TheSectionHeading/TheSectionHeading';
   import sectionHero from './SectionHero/SectionHero'
+  import sectionAbout from './SectionAbout/SectionAbout'
   import sectionProjects from './SectionProjects/SectionProjects'
   import sectionContacts from './SectionContacts/SectionContacts'
 
@@ -26,6 +28,7 @@
       lFooter,
       sectionHeading,
       sectionHero,
+      sectionAbout,
       sectionProjects,
       sectionContacts,
     }

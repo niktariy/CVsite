@@ -8,5 +8,7 @@
     display: grid
     grid-template-columns: repeat(auto-fit, minmax(98%, 1fr))
     grid-gap: 16px 8px
+    +sm-only
+      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr))
     +md-up
       grid-template-columns: repeat(auto-fit, minmax(480px, 1fr))

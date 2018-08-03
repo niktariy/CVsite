@@ -31,6 +31,6 @@
 </script>
 
 <style lang="sass" scoped>
-  @import "hero"
+  @import "section-hero"
 
 </style>

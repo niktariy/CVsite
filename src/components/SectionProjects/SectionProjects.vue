@@ -97,7 +97,7 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-@import "projects-section"
+@import "section-projects"
 
 //TODO: create a single card component template
 @import "./src/style/components/card"

@@ -23,17 +23,18 @@
     background-color: rgba($whitesmoky, .4)
     &:hover, &:focus
       box-shadow: 0 8px 24px 0 rgba(0,0,0,0.16)
+    +xs-only
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.16)
 
   &__img-container
     margin-bottom: 16px
-    height: 60%
     overflow: hidden
     +xs-only
-      max-height: 168px
+      max-height: 400px
   &__img
     object-fit: contain
     object-position: top
-    height: 100%
+    height: auto
     width: 100%
   &__title
     text-align: center
