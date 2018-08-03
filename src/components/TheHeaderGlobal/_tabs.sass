@@ -19,7 +19,7 @@
         style: solid
         color: transparent
         width: 0 48px
-      // display: none
+      display: none
       left: 0
       top: 100%
       height: 2px
@@ -37,7 +37,6 @@
         border-radius: 0 2px
 
   &__link
-    font-size: 18px
     display: block
     padding: 16px
     cursor: pointer
@@ -46,6 +45,9 @@
     width: 130px
     vertical-align: middle
     text-align: center
+    font:
+      size: 18px
+      weight: 600
     color: $textColor
     will-change: color, font-size
     user-select: none
@@ -94,7 +96,6 @@
         visibility: hidden
     &__link
       text-transform: uppercase
-      font-weight: 500
       width: auto
     &__item
       position: relative

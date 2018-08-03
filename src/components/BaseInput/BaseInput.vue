@@ -2,16 +2,26 @@
   <div
     class="c-input"
     :class="'c-input--' + inputModifier">
-    <input
+    <!-- <input
       class="c-input__field"
-      :class="'c-input--' + inputModifier + '__field'"
-      :type="inputType"
-      :value="inputValue"
+
+      :value="value"
       :placeholder="placeholderText"
       @keyup="setFilledClass()"
       @focus="setFocusClass()"
       @blur="removeFocusClass()"
-    >
+    > -->
+    <input
+      class="c-input__field"
+      v-model="content"
+      :class="'c-input--' + inputModifier + '__field'"
+      :type="inputType"
+      :placeholder="placeholderText"
+      @input="handleInput"
+      @keyup="setFilledClass()"
+      @focus="setFocusClass()"
+      @blur="removeFocusClass()"
+      />
     <label
       class="c-input__label"
       :class="'c-input--' + inputModifier + '__label'">
@@ -31,7 +41,7 @@ export default {
   props: {
     inputModifier: String,
     inputType: String,
-    inputValue: String,
+    value: String,
     inputLabel: String,
     placeholderText: String,
     validationText: String,
@@ -40,10 +50,13 @@ export default {
   },
   data() {
     return {
-
+      content: this.value,
     }
   },
   methods: {
+    handleInput (e) {
+      this.$emit('input', this.content)
+    },
     setFilledClass() {
       const that = event.target;
       const parent = that.parentElement;

@@ -6,7 +6,7 @@
       <sectionHero/>
       <sectionAbout/>
       <sectionProjects/>
-      <!-- <sectionContacts/> -->
+      <sectionContacts/>
     </main>
     <lFooter/>
   </div>
@@ -31,6 +31,11 @@
       sectionAbout,
       sectionProjects,
       sectionContacts,
+    },
+    data () {
+      return {
+
+      }
     }
   }
 

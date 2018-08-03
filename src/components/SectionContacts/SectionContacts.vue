@@ -3,28 +3,51 @@
     <div class="grid">
       <div class="grid__row">
         <div class="col-xs-12 col-md-6 m-l-auto m-r-auto">
-          <h2 class="section__title">Contact me</h2>
-          <h5>to get personal consultation or mentoring </h5>
+          <sectionHeading
+            sectionTitle="Get in touch"
+            sectionDescription="to receive the personal consultation or mentoring">
+          </sectionHeading>
           <form>
-            <div v-for="field in fields" :key="field.id">
-              <template v-if="field.type=='text' || field.type=='email'">
-                <baseInput
-                  inputModifier="fabian"
-                  :inputModel="field.inputModel"
-                  :inputType="field.type"
-                  :inputLabel="field.label"
-                  :placeholderText="field.placeholderText"
-                  :validationText="field.validationText"
-                  :isValid="field.isValid"
-                  >
-                </baseInput>
-              </template>
-              <template v-if="field.type=='file'">
-                <baseInputUpload
-                  inputModifier="fabian"
-                  inputLabel="Attach specification or design">
-                </baseInputUpload>
-              </template>
+            <baseInput
+              inputModifier="fabian"
+              v-model="model.UserName"
+              :inputType="fields[0].type"
+              :inputLabel="fields[0].label"
+              :placeholderText="fields[0].placeholderText"
+              :validationText="fields[0].validationText"
+              :isValid="fields[0].isValid"
+              @change="validateName()"
+              >
+            </baseInput>
+            <baseInput
+              inputModifier="fabian"
+              v-model="model.Email"
+              :inputType="fields[1].type"
+              :inputLabel="fields[1].label"
+              :placeholderText="fields[1].placeholderText"
+              :validationText="fields[1].validationText"
+              :isValid="fields[1].isValid"
+              @change="validateEmail()"
+              >
+            </baseInput>
+            <template v-if="model.UserName">Hi, {{model.UserName}}!</template>
+            <baseInputUpload
+              inputModifier="fabian"
+              inputLabel="Attach specification or design"
+              v-model="model.FileUploader">
+            </baseInputUpload>
+            <div class="grid__row">
+              <div class="col-xs-12 col-sm-6">
+                <a
+                  href="#"
+                  class="link link--external"
+                  data-text="Available for hiring">
+                  Available for hiring
+                </a>
+              </div>
+              <div class="component component--secondary col-xs-12 col-sm-6">
+                <button class="btn" type="submit" @click="validate">Send</button>
+              </div>
             </div>
           </form>
         </div>
@@ -48,42 +71,31 @@
     data () {
       return {
         msg: 'Contact Me',
-        model: {
-          userName: '',
-          email: '',
-          message: '',
-          files: '',
-          // 9zY-qCa-BzC-Kd4
-        },
         invalidName: false,
         invalidEmail: false,
+        model: {
+          UserName: '',
+          Email: '',
+          FileUploader: ''
+        },
         fields: [
           {
-            inputModel: '',
             label: 'Name',
             placeholderText: 'Enter Your Name',
             type: 'text',
             validationText: 'Name must contain at least 2 simbols',
             isValid: !this.invalidName,
-            // onChange: this.validateName(),
           }, {
-            // inputModel: this.model.email,
-            inputModel: '',
             label: 'Email',
             placeholderText: 'Enter email address',
             type: 'email',
             validationText: 'Incorrect Email address',
             isValid: !this.invalidEmail,
-            // onChange: this.validateEmail(),
           }, {
-            // inputModel: this.model.message,
-            inputModel: '',
             label: 'Message',
             type: 'textarea',
             isValid: true,
           }, {
-            // inputModel: this.model.files,
-            inputModel: '',
             label: 'Attach specification or design',
             type: 'file',
             placeholderText: '',
@@ -92,7 +104,7 @@
       };
     },
     methods: {
-      login() {
+      validate() {
         //  Validate
         this.validateName();
         this.validateEmail();
@@ -115,7 +127,7 @@
       },
       validateName() {
         // Validation Checks
-        if (!this.model.userName.value) {
+        if (!this.model.UserName.value) {
           this.invalidName = false;
           this.removeError(event.target);
         } else {
@@ -126,7 +138,7 @@
       validateEmail() {
         // Validation Checks
         const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (regex.test(this.model.email)) {
+        if (regex.test(this.model.Email)) {
           this.invalidEmail = false;
           this.removeError(event.target);
         } else {
@@ -139,6 +151,8 @@
         el.classList.add('error');
         el.parentElement.classList.add('error');
       },
+    },
+    watch: {
     },
   };
 </script>

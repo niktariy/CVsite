@@ -56,13 +56,13 @@ export default {
           link: ''
         },
         { name: 'Vendor Portal',
-          description: '',
+          description: 'Vendor Portal description',
           image: 'VendorPortal.png',
           date: '2017-06-06T18:00:00.000Z',
           link: ''
         },
         { name: 'TicketBird',
-          description: '',
+          description: 'TicketBird description',
           image: 'agentConcept.png',
           date: '2017-06-06T18:00:00.000Z',
           link: ''
@@ -84,6 +84,12 @@ export default {
           image: 'terhi_next_lesson.png',
           date: '2017-06-06T18:00:00.000Z',
           link: ''
+        },
+        { name: 'Schedule',
+          description: 'Schedule description',
+          image: 'Schedule.png',
+          date: '2017-06-06T18:00:00.000Z',
+          link: 'projects/project/4'
         },
         // { name: 'Project Name',
         //   description: 'Project description',

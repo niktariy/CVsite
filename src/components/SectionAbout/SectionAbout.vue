@@ -2,12 +2,15 @@
   <section class="about section--about section">
     <sectionHeading
       sectionTitle="About me"
-      sectionDescription="Experience and Skills"></sectionHeading>
+      sectionDescription="Experience and Skills">
+    </sectionHeading>
     <div class="grid">
-      <div class="about__info">
-        <p v-for="info in about">
-          {{ info.item }}
-        </p>
+      <div class="grid__row">
+        <div class="about__info">
+          <p v-for="info in about">
+            {{ info.item }}
+          </p>
+        </div>
       </div>
       <div class="about__skills-list">
 
