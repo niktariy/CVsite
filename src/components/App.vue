@@ -1,14 +1,7 @@
 <template>
   <div id="app">
     <lHeader/>
-
-    <main>
-      <sectionHero/>
-      <sectionAbout/>
-      <sectionProjects/>
-      <sectionContacts/>
-    </main>
-    
+    <router-view/>
     <lFooter/>
   </div>
 </template>
@@ -16,28 +9,27 @@
 <script>
   import lHeader from './TheHeaderGlobal/TheHeaderGlobal';
   import lFooter from './TheFooter/TheFooter';
-  import sectionHeading from './TheSectionHeading/TheSectionHeading';
-  import sectionHero from './SectionHero/SectionHero'
-  import sectionAbout from './SectionAbout/SectionAbout'
-  import sectionProjects from './SectionProjects/SectionProjects'
-  import sectionContacts from './SectionContacts/SectionContacts'
 
   export default {
     name: 'app',
     components: {
       lHeader,
       lFooter,
-      sectionHeading,
-      sectionHero,
-      sectionAbout,
-      sectionProjects,
-      sectionContacts,
     },
     data () {
       return {
 
       }
-    }
+    },
+    methods: {
+      // goBack() {
+      //   if (window.history.length > 1) {
+      //     this.$router.go(-1);
+      //   } else {
+      //     this.$router.push('/');
+      //   }
+      // },
+    },
   }
 
 </script>
