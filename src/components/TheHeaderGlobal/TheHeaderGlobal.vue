@@ -12,12 +12,10 @@
       </a>
       <div class="section section--tab">
         <div class="burger" @click="openMobileMenu()">
-            <div class="burger__icon-container">
-              <div class="burger__icon">
-                  <span class="burger__icon__bun-top burger-bun-top"></span>
-                  <span class="burger__icon__filling burger-filling"></span>
-                  <span class="burger__icon__bun-bot burger-bun-bot"></span>
-              </div>
+            <div class="burger__buns">
+                <span class=" burger__bun bun bun--top"></span>
+                <span class=" burger__bun bun bun--mid"></span>
+                <span class=" burger__bun bun bun--bot"></span>
           </div>
         </div>
         <nav class="tab tab--valentine">
@@ -75,14 +73,17 @@ export default {
     },
 
     openMobileMenu() {
-      menuOpened = !menuOpened;
-      var tabListClasses = document.getElementsByClassName('.tab__list').classList;
+      var tabListClasses = document.getElementById('header-nav').classList;
 
-        if (menuOpened) {
-          tabListClasses.remove('slideOutRight').add('animated slideInRight');
-          return
+        if (this.menuOpened) {
+          tabListClasses.remove('slideOutRight');
+          tabListClasses.add('animated','slideInRight');
+          this.menuOpened = false;
+          return;
         }
-        tabListClasses.remove('slideInRight').add('slideOutRight');
+        tabListClasses.remove('animated','slideInRight')
+        tabListClasses.add('slideOutRight');
+        this.menuOpened = true;
     },
   },
 
@@ -95,4 +96,5 @@ export default {
 <style lang="sass" scoped>
   @import 'header'
   @import 'tabs'
+  @import './src/style/components/burger'
 </style>

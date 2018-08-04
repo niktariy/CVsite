@@ -8,6 +8,7 @@
       <sectionProjects/>
       <sectionContacts/>
     </main>
+    
     <lFooter/>
   </div>
 </template>
