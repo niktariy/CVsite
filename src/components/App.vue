@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <lHeader/>
+    <l-header/>
     <router-view/>
-    <lFooter/>
+    <l-footer/>
   </div>
 </template>
 
@@ -22,13 +22,13 @@
       }
     },
     methods: {
-      // goBack() {
-      //   if (window.history.length > 1) {
-      //     this.$router.go(-1);
-      //   } else {
-      //     this.$router.push('/');
-      //   }
-      // },
+      goBack() {
+        if (window.history.length > 1) {
+          this.$router.go(-1);
+        } else {
+          this.$router.push('/');
+        }
+      },
     },
   }
 
@@ -38,8 +38,7 @@
 <style lang="sass">
 
   @import "./src/style/base/index"
-  @import "./src/style/components/button/button"
-  @import "./src/style/components/sections/sections"
+  @import "./src/style/components/components"
 
 </style>
 

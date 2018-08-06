@@ -2,7 +2,7 @@ $primaryLight:    hsla(212, 48%, 80%, 1);
 $primary:         hsla(212, 48%, 64%, 1);
 $primaryDark:     hsla(212, 48%, 32%, 1);
 
-$secondaryLight:  hsla(330, 48%, 56%, 1);
+$secondaryLight:  hsla(330, 48%, 64%, 1);
 $secondary:       hsla(330, 40%, 40%, 1);
 $secondaryDark:   hsla(330, 56%, 24%, 1);
 // $secondaryLight:  #de7b9e;
@@ -33,16 +33,19 @@ $linksLight:    #ff829b;
 $links:         #d94e6a;
 $linksDark:     #a21733;
 
-$headingsColor: #303030;
-$textColor:   #616161;
-$whitesmoky:  #f5f6f7;
+$darkColor: #303030;
+$greyDark: #616161;
+$whitesmoky:  hsl(0, 0%, 97%);
 $white:       rgba(255, 255, 255, 1);
 
-$sectionBgColor: hsl(250, 43%, 97%);
-$bgColor:     hsl(212, 20%, 97%);
-$headerColor: hsl(212, 52%, 96%);
+$sectionBgColor:            hsl(250, 43%, 97%);
+$headerColor:               hsl(212, 52%, 96%);
+$additionalElement_bgColor: $whitesmoky;
 
+//typography
+$headingsColor: $darkColor;
+$textColor:   $greyDark;
 
 //inputs
 
-$input-upload__shadow-color: rgba($primaryDark, .18)
+$input-upload__shadow-color: rgba($primaryDark, .18);

@@ -1,7 +1,8 @@
 <template>
+
   <header class="header" id="header">
     <div class="header__wrapper grid">
-      <a href="top" class="header__logo">
+      <router-link to="/" class="header__logo">
         <img
           :src="siteLogo"
           height="56"
@@ -9,7 +10,7 @@
           alt="Veronika"
           class="logo"
         />
-      </a>
+      </router-link>
       <div class="section section--tab">
         <div class="burger" @click="openMobileMenu()">
             <div class="burger__buns">
@@ -21,9 +22,12 @@
         <nav class="tab tab--valentine">
           <ul class="tab__list" id="header-nav">
             <li class="tab__item" v-for="item in items" :key="item.id">
-              <a class="tab__link"
+              <router-link
+                class="tab__link"
+                :to="item.linkTo"
                 :class="'tab--'+item.name.toLowerCase()"
-              > {{ item.name }} </a>
+              > {{ item.name }}
+              </router-link>
             </li>
             <li class="menu__line"><span></span></li>
           </ul>
@@ -34,6 +38,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'l-header',
   props: ['className'],
@@ -41,11 +46,18 @@ export default {
     return {
       siteLogo: "/img/LetterV.svg",
       items: [
-        { name: 'About' },
-        { name: 'Projects' },
-        { name: 'Contacts' },
+        { name: 'About',
+          linkTo: '/'
+        },
+        { name: 'Projects',
+          linkTo: '/projects'
+        },
+        { name: 'Contacts',
+          linkTo: '/'
+        },
       ],
       menuOpened: false,
+      isFixed: false,
     }
   },
 

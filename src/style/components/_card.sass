@@ -5,8 +5,7 @@
 .card
   cursor: pointer
   position: relative
-  margin-bottom: 20px
-  height: calc(100% - 20px)
+  height: calc(100% - 8px)
   width: 100%
 
   &__link
@@ -18,7 +17,7 @@
     height: 100%
     opacity: 1
     will-change: background-color, box-shadow
-    transition: box-shadow 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28)
+    transition: box-shadow 0.24s $v--ease-in
     border-radius: 3px
     background-color: rgba($whitesmoky, .4)
     &:hover, &:focus

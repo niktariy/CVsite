@@ -52,16 +52,14 @@
 
   &__skill
     display: flex
+    +xs-only
+      flex-direction: column
+      align-items: center
     & figure
-      margin-right: 16px
-      min-width: 64px
-      max-width: 64px
-      +sm-only
-        min-width: 80px
-        max-width: 80px
-      +md-up
-        min-width: 104px
-        max-width: 104px
+      min-width: $skill__icon-size
+      max-width: $skill__icon-size
+      +sm-up
+        margin-right: 16px
       & img
         width: 100%
         height: auto
@@ -74,11 +72,13 @@
     & h4
       margin: 0 0 8px
       line-height: 1.25
+      +xs-only
+        text-align: center
     & p
-      font-size: $font--14-16
+      // font-size: $font--14-16
+      font-size: $font--16-20
       position: relative
       margin: 0
-      // text-align: left
 
     @media (max-width: 1000px)
       &:last-child

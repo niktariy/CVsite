@@ -30,14 +30,12 @@
   "dependencies": {
     "autoprefixer": "^9.0.1",
     "node": "^10.7.0",
-    "node-sass": "^4.9.2",
     "object-assign": "^4.1.1",
     "offline-plugin": "^4.8.0",
     "promise-polyfill": "^6.0.2",
-    "sass-loader": "^7.0.3",
-    "vue": "^2.5.16",
-    "vue-route": "^1.5.1",
-    "vue-template-compiler": "2.4.1"
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.4.1"
   },
   "devDependencies": {
     "poi": "^9.0.0",

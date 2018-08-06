@@ -1,14 +1,16 @@
-.grid-container
-  display: -ms-grid
+.grid__container
   display: grid
-  grid-template-columns: repeat(auto-fit, minmax(274px, 1fr))
-  grid-gap: 16px 24px
+  grid-gap: 20px 16px
+
+  &--three
+    grid-template-columns: repeat(auto-fit, minmax(274px, 1fr))
+    +sm-up
+      grid-gap: 20px 24px
   &--two
-    display: -ms-grid
-    display: grid
     grid-template-columns: repeat(auto-fit, minmax(98%, 1fr))
-    grid-gap: 16px 8px
-    +sm-only
-      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr))
     +md-up
-      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr))
+      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr))
+    +xl-up
+      grid-template-columns: 1fr 1fr 1fr 1fr
+    +lg-up
+      grid-gap: 20px 24px

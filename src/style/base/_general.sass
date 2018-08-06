@@ -36,7 +36,7 @@ a, button
   opacity: 0.9
   transition-property: color, box-shadow, background-color, opacity
   transition-duration: .28s
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+  transition-timing-function: $v--standard-easing
   &:hover
     opacity: 1
 
@@ -102,9 +102,9 @@ svg
 input
   +placeholder
     color: transparent
-    transition: color 0.1s
+    transition: color 0.1s $v--standard-easing
 
 .focused input
   +placeholder
     color: lighten($textColor, 10%)
-    transition: color 0.18s ease 0.24s
+    transition: color 0.18s $v--standard-easing 0.24s

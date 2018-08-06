@@ -14,18 +14,10 @@
   position: fixed
   width: 100%
   will-change: transform, padding, background-color
-  // background-color: transparent
   background-color: $sectionBgColor
   z-index: 999
   transform: translateY(0%)
   transition: all .28s ease-in
-
-  &__logo
-    font-size: 24px
-    a
-      color: $secondaryDark
-      &:hover, &:focus
-        color: $secondary
 
   .tab__item
     &:first-child
@@ -33,16 +25,11 @@
     &:last-child
       margin-right: 0
 
-  &:not(.smaller)
-    .tab__link
-      color: $textColor
-      &:hover
-        color: darken($textColor, 8%)
-
-  &.smaller
+  &--smaller
     padding-top: 8px
     padding-bottom: 8px
     background-size: cover
     background-color: $headerColor
+    box-shadow: 0 2px 16px 0 rgba($secondary, 0.2)
     @media screen and (min-width: 868px) //+breakpoint(868px)
       opacity: 0.9

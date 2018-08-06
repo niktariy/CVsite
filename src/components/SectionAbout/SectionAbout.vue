@@ -14,7 +14,7 @@
       </div>
       <div class="about__skills-list">
 
-        <div class="grid-container">
+        <div class="grid__container grid__container--two">
 
           <aside v-for="skill in skills" :key="skill.id"
                  class="about__skill">
@@ -68,8 +68,8 @@ export default {
         { name: 'Adaptive Development',
           description: [
             {item: 'Understanding principles of web & mobile development;'},
-            {item: 'Proficien in mobile-responsive sites.'},
-            {item: 'Properly structured code with appropriate semantic'},
+            {item: 'Proficien in mobile-responsive sites;'},
+            {item: 'Properly structured code with appropriate semantic.'},
           ],
           image: 'adaptive_development',
         },
@@ -77,6 +77,14 @@ export default {
           description: [
             {item: 'Have a good understanding of visual and UX design principles;'},
             {item: 'Support the design and development process through creation and improvement of style guides and pattern libraries.'},
+          ],
+          image: 'creative_process'
+        },
+        { name: 'Personal skills',
+          description: [
+            {item: 'Ability to solve both creative and logical issues;'},
+            {item: 'Working as a mentor on one cool web portal;'},
+            {item: 'Accurate, responsible, beauliful :)'},
           ],
           image: 'creative_process'
         },

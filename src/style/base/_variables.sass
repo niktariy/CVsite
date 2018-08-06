@@ -3,17 +3,26 @@ $font--14-18: calc(14px + (18 - 14) * ((100vw - 300px) / (1900 - 300)))
 $font--16-20: calc(16px + (20 - 16) * ((100vw - 320px) / (1900 - 320)))
 $font--17-22: calc(17px + (22 - 17) * ((100vw - 320px) / (1900 - 320)))
 
-$font--18-23: calc(18px + (23 - 18) * ((100vw - 400px) / (1600 - 320)))
-$font--23-28: calc(23px + (28 - 23) * ((100vw - 400px) / (1920 - 400)))
-$font--28-40: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)))
 $font--40-54: calc(40px + (54 - 40) * ((100vw - 400px) / (1920 - 320)))
+$font--28-40: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)))
+$font--23-28: calc(23px + (28 - 23) * ((100vw - 400px) / (1920 - 400)))
+$font--18-23: calc(18px + (23 - 18) * ((100vw - 400px) / (1600 - 320)))
 
 $font-h1: $font--40-54
 $font-h2: $font--28-40
 $font-h3: $font--23-28
 $font-h4: $font--18-23
+$font-h5: $font--17-22
+$font-h6: $font--16-20
 
 $photo-size: calc(150px + (270 - 150) * ((100vw - 320px) / (1900 - 320)))
+$skill__icon-size: calc(72px + (104 - 72) * ((100vw - 320px) / (1600 - 320)))
 
-$transitionEase: cubic-bezier(0, 0.25, 0.5, 1)
-$transitionOut: cubic-bezier(0.4, 0, 0.2, 1)
+$v--ease-in: cubic-bezier(0.18, 0.89, 0.32, 1.28) !global
+// for removing elements from the screen
+$v--ease-out: cubic-bezier(0, 0, 0.25, 1) !global
+// for changing on-screen states at a users's input.
+
+$v--standard-easing: cubic-bezier(0.4, 0, 0.2, 1) !global
+// majority
+//cubic-bezier(0.18, 0.89, 0.32, 1.28)
