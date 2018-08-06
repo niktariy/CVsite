@@ -81,5 +81,48 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-@import "./src/style/components/card"
+
+@import "./src/style/base/colors"
+@import "./src/style/base/media"
+@import "./src/style/base/variables"
+
+.card
+  cursor: pointer
+  position: relative
+  height: calc(100% - 8px)
+  width: 100%
+
+  &__link
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    position: relative
+    height: 100%
+    opacity: 1
+    will-change: background-color, box-shadow
+    transition: box-shadow 0.24s $v--ease-in
+    border-radius: 3px
+    background-color: rgba($white, .48)
+    &:hover, &:focus
+      box-shadow: 0 8px 24px 0 rgba($secondaryDark, 0.16)
+    +xs-only
+      box-shadow: 0 4px 8px 0 rgba($secondaryDark, 0.16)
+
+  &__img-container
+    margin-bottom: 16px
+    overflow: hidden
+    +xs-only
+      max-height: 400px
+  &__img
+    object-fit: contain
+    object-position: top
+    height: auto
+    width: 100%
+  &__title
+    text-align: center
+    margin-bottom: 8px
+  &__date
+    margin-bottom: 12px
+
 </style>

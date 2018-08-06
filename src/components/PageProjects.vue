@@ -1,12 +1,16 @@
 <template>
   <div class="layout">
-    <lSidebar className="layout__sidebar"/>
-    <main class="grid layout__main">
-      <h2>Projects</h2>
-      <router-view/>
-      <projects-list/>
-
-    </main>
+    <div class="grid layout__container">
+      <lSidebar className="layout__sidebar"/>
+      <main class="layout__main main grid__row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-11 section">
+          <h2 class="section__title">Projects</h2>
+          <router-view/>
+          <projects-list/>
+        </div>
+      </main>
+    </div>
   </div>
 
 </template>
@@ -30,8 +34,9 @@ export default {
     background: hsla(0, 0%, 98%, 1)
     position: relative
     padding-top: 94px
-    display: grid
-    grid-template-columns: 220px 1fr
+    &__container
+      display: grid
+      grid-template-columns: 220px 1fr
     &__sidebar
       padding-top: 48px
     &__main

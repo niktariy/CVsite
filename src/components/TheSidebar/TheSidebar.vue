@@ -90,17 +90,18 @@ export default {
   @import "./src/style/base/colors"
   @import "./src/style/base/variables"
   .sidebar
-    background: hsla(0, 0%, 97%, 1)
+    box-shadow: 3px 0 4px 0 rgba($primaryLight, 0.24)
     &__heading
       margin-bottom: 12px
-      padding-left: 24px
+      padding-left: $sidebar__padding_left
 
   .sidebar-nav
     margin-bottom: 24px
     &__link
       display: block
-      padding: 4px 16px 4px 24px
+      padding: 4px 16px
       background-color: transparent
+      border-radius: 2px 0 0 2px
       border-bottom: 2px solid transparent
       will-change: background-color, border
       transition: border 0.18s $v--ease-out, background-color 0.18s $v--ease-out

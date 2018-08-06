@@ -18,10 +18,15 @@ section
     padding: 125px 0
 
 .section
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+
   &__title
     color: darken($textColor, 18%)
     margin-bottom: 16px
-    text-align: center
     text-transform: capitalize
     text-shadow: 2px 1px 7px #fff
     font-weight: bold
@@ -31,7 +36,6 @@ section
     margin-bottom: 16px
     max-width: 600px
     padding: 0 16px
-    text-align: center
 
 section, #hero
   position: relative

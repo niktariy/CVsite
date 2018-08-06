@@ -1,6 +1,6 @@
 $grid-breakpoints: (sm: 620px, md: 900px, lg: 1200px, xl: 1550px)
 $column-gutter-breakpoints: (xs: 8px, sm: 16px)
-$grid-gutter-breakpoints: (xs: 4%, sm: 6%, xl: 8%)
+$grid-gutter-breakpoints: (xs: 4%, sm: 6%, xl: 'auto')
 
 $max-width: 1440px
 $columns: 12
@@ -41,9 +41,9 @@ $columns: 12
     margin-right: grid-gutter("sm")
     width: calc(100% - #{grid-gutter("sm") * 2})
   +xl-up
-    margin-left: grid-gutter("xl")
-    margin-right: grid-gutter("xl")
-    width: calc(100% - #{grid-gutter("xl") * 2})
+    margin-left: unquote(grid-gutter("xl"))
+    margin-right: unquote(grid-gutter("xl"))
+    width: 96%
 
 [class*='col-']
   position: relative

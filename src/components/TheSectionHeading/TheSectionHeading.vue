@@ -1,5 +1,5 @@
 <template>
-  <header class="section__header animate-box in-up grid">
+  <header class="section__header">
     <h2 class="section__title title" :class="sectionLink">{{ sectionTitle }}</h2>
     <p class="section__description" v-if="sectionDescription">{{ sectionDescription }}</p>
     <hr>
@@ -18,5 +18,4 @@ export default {
 </script>
 
 <style lang="sass">
-// @import "./src/style/components/sections/hero-section"
 </style>

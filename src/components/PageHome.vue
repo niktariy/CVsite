@@ -32,11 +32,5 @@
 
 </script>
 
-<!-- Global CSS -->
-<style lang="sass">
-
-  @import "./src/style/base/index"
-  @import "./src/style/components/button/button"
-  @import "./src/style/components/sections/sections"
-
+<style lang="sass" scoped>
 </style>
