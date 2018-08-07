@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import sectionHeading from '../TheSectionHeading/TheSectionHeading';
+import sectionHeading from '../Sections/TheSectionHeading';
 
 export default {
   name: 'section--about',

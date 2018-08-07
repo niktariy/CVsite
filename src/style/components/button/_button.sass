@@ -15,20 +15,32 @@
   &:disabled
     cursor: not-allowed
 
+.btn--send
+  margin: 0.5em auto
+  width: 60%
+
 .btn, .btn--plain
   border-radius: 2px
   min-width: 88px
   height: 36px
-  padding: 0 16px
+  padding: 2px 16px 0
+
 .btn
   @import "type/big"
-.btn--send
-  margin: 0.5em auto
-  width: 60%
+
 .fab, .fab--plain
-  border-radius: 50%
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 3px
   height: 48px
   width: 48px
+  padding: 12px
+  i, img
+    display: block
+    width: 100%
+    height: 100%
+    object-fit: contain
 
 @each $status, $color in $component-colors
   .component--#{$status}
@@ -59,3 +71,14 @@
       background: desaturate($disabled-btn, 55%) !important
       user-select: none
       pointer-events: none
+
+.btn-group
+  $button-gap: 8px
+  display: flex
+  margin: -8px
+  [class*="btn"], [class*="fab"]
+    margin: $button-gap
+  +xs-only
+    flex-direction: column
+    [class*="btn"]
+      width: calc(100% - #{$button-gap * 2})

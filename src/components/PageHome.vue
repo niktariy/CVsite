@@ -1,23 +1,21 @@
 <template>
     <main>
-      <sectionHero/>
-      <sectionAbout/>
-      <sectionProjects/>
-      <sectionContacts/>
+      <section-hero/>
+      <section-about/>
+      <section-projects/>
+      <section-contacts/>
     </main>
 </template>
 
 <script>
-  import sectionHeading from './TheSectionHeading/TheSectionHeading';
   import sectionHero from './SectionHero/SectionHero'
   import sectionAbout from './SectionAbout/SectionAbout'
   import sectionProjects from './SectionProjects/SectionProjects'
   import sectionContacts from './SectionContacts/SectionContacts'
 
   export default {
-    name: 'Home',
+    name: 'HomePage',
     components: {
-      sectionHeading,
       sectionHero,
       sectionAbout,
       sectionProjects,

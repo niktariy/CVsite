@@ -60,10 +60,14 @@
       max-width: $skill__icon-size
       +sm-up
         margin-right: 16px
+      +xl-up
+        min-width: 104px
+        max-width: 104px
       & img
         width: 100%
         height: auto
         object-fit: contain
+
     & i
       color: $primary
       font-size: 90px
@@ -74,6 +78,9 @@
       line-height: 1.25
       +xs-only
         text-align: center
+    & div
+      +xs-only
+        max-width: 350px
     & p
       // font-size: $font--14-16
       font-size: $font--16-20

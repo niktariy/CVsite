@@ -9,3 +9,8 @@ new Vue({
   el: '#app',
   render: h => h(App),
 }).$mount('#app')
+
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
+})

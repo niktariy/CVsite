@@ -7,7 +7,7 @@
       </label>
       <div class="input-upload__wrapper flex-column">
           <div class="input-upload__content flex">
-              <div class="input-upload__button component__secondary">
+              <div class="input-upload__button component--primary">
                   <button type="button"
                           class="btn btn--plain"
                           style="position: relative;">
@@ -25,8 +25,7 @@
           <div class="input-upload__files js-uploadedFilesContainer">
             <template v-if="Files.length">
               <div
-                class="input-upload__file uploaded-file"
-                v-for="">
+                class="input-upload__file uploaded-file">
                 <div class="uploaded-file__preview">
                   <!-- <img
                     v-if="fileType.startsWith('image')"
@@ -90,7 +89,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import "c-input"
   @import "type/upload"
 
   .msg-validation

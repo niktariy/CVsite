@@ -22,8 +22,9 @@
 </template>
 
 <script>
+
 export default {
-  name: 'projects-list',
+  name: 'projectsList',
   data() {
     return {
       projects: [

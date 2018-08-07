@@ -6,15 +6,16 @@ import Projects from '@/components/PageProjects.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'V About',
       component: Home
     },
     {
       path: '/projects',
-      name: 'projects',
+      name: 'V Projects',
       component: Projects
     }
   ]

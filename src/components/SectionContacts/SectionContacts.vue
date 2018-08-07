@@ -57,12 +57,14 @@
 </template>
 
 <script>
-  import sectionHeading from '../TheSectionHeading/TheSectionHeading';
-  import baseInput from '../BaseInput/BaseInput';
-  import baseInputUpload from '../BaseInput/BaseInputUpload';
+  let inputPath = '@/components/UI/BaseInput';
+
+  import sectionHeading from '../Sections/TheSectionHeading';
+  import baseInput from '../UI/BaseInput/BaseInput';
+  import baseInputUpload from '../UI/BaseInput/BaseInputUpload';
 
   export default {
-    name: 'section--contacts',
+    name: 'section-contacts',
     components: {
       sectionHeading,
       baseInput,

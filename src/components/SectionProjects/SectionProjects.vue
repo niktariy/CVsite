@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import sectionHeading from '../TheSectionHeading/TheSectionHeading';
+import sectionHeading from '../Sections/TheSectionHeading';
 import projectsList from '../ListProjects';
 
 export default {
-  name: 'section--projects',
+  name: 'section-projects',
   components: {
     sectionHeading,
     projectsList,
