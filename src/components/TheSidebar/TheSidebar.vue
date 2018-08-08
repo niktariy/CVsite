@@ -4,10 +4,14 @@
       <h5 class="sidebar__heading">Projects</h5>
       <nav class="sidebar-nav sidebar__nav">
         <ul class="sidebar-nav__list">
-          <li class="sidebar-nav__item" v-for="project in projects">
-            <router-link
+          <li
+            class="sidebar-nav__item"
+            v-for="(project, index) in projects"
+            :key="index"
+          >
+            <router-link :to="'/projects/project:'+index"
               class="sidebar-nav__link"
-              to="/projects">
+            >
               {{ project.name }}
             </router-link>
           </li>
@@ -39,7 +43,7 @@
             :for="item.value"
             :class="[item.isSelected ? selectedClass : '']"
             :key="item.id"
-            >
+          >
             <input
               type="checkbox"
               :id="item.value"
@@ -89,6 +93,7 @@ export default {
 <style lang="sass" scoped>
   @import "./src/style/base/colors"
   @import "./src/style/base/variables"
+  
   .sidebar
     box-shadow: 3px 0 4px 0 rgba($primaryLight, 0.24)
     &__heading
@@ -99,7 +104,8 @@ export default {
     margin-bottom: 24px
     &__link
       display: block
-      padding: 4px 16px
+      margin-bottom: 2px
+      padding: 8px 16px 4px
       background-color: transparent
       border-radius: 2px 0 0 2px
       border-bottom: 2px solid transparent
@@ -107,6 +113,9 @@ export default {
       transition: border 0.18s $v--ease-out, background-color 0.18s $v--ease-out
 
       &:hover
+        background-color: adjust_color($secondaryLight, $alpha: -0.8)
+        border-bottom-color: adjust_color($secondaryDark, $alpha: -0.8)
+      &.current
         background-color: adjust_color($secondaryLight, $alpha: -0.7)
         border-bottom-color: $secondaryDark
 </style>

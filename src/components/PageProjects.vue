@@ -7,29 +7,30 @@
         <div class="col-xs-11 section">
           <div class="grid__row">
             <h2 class="section__title col-xs-12 col-sm-6">{{ pageTitle }}</h2>
-            <div class="controls section__controls col-xs-12 col-sm-6">
+            <div class="controls section__controls col-xs-12 col-sm-6"
+              v-show="projectOpened">
               <div class="btn-group">
-                <!-- <router-link :to="{ name: '/projects', params: {} }" -->
-                  <!-- class="component component-/-primary"> -->
+                <router-link :to="{ name: 'Projects', params: {} }"
+                  class="component component-/-primary">
                   <button class="fab fab--plain fab--back">
                     <img src="/img/arrow/arrow-up.svg" />
                   </button>
-                <!-- </router-link> -->
-                <!-- <router-link :to="{ name: '/projects', params: {} }" -->
-                  <!-- class="component component-/-primary"> -->
+                </router-link>
+                <router-link :to="{ name: 'Projects', params: {} }"
+                  class="component component-/-primary">
                   <button class="fab fab--plain fab--prev">
                     <img src="/img/arrow/arrow-left.svg" />
                   </button>
-                <!-- </router-link> -->
+                </router-link>
                 <button class="fab fab--plain fab--link">
                   <img src="/img/arrow/link-icon.svg" />
                 </button>
-                <!-- <router-link :to="{ name: '/projects', params: {} }" -->
-                  <!-- class="component component-/-primary"> -->
+                <router-link :to="{ name: 'Projects', params: {} }"
+                  class="component component-/-primary">
                   <button class="fab fab--plain fab--next">
                     <img src="/img/arrow/arrow-right.svg" />
                   </button>
-                <!-- </router-link> -->
+                </router-link>
               </div>
             </div>
           </div>
@@ -56,6 +57,7 @@ export default {
   data () {
     return {
       pageTitle: 'Projects',
+      projectOpened: false,
     }
   },
   computed: {

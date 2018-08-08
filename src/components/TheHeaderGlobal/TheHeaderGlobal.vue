@@ -2,7 +2,7 @@
 
   <header class="header" id="header">
     <div class="header__wrapper grid">
-      <router-link to="/" class="header__logo">
+      <router-link to="/" class="header__logo" exact>
         <img
           :src="siteLogo"
           height="56"
@@ -21,15 +21,15 @@
         </div>
         <nav class="tab tab--valentine">
           <ul class="tab__list" id="header-nav">
-            <li class="tab__item" v-for="item in items" :key="item.id">
-              <router-link
-                class="tab__link"
-                :to="item.linkTo"
-                :class="'tab--'+item.name.toLowerCase()"
-              > {{ item.name }}
-              </router-link>
-            </li>
-            <li class="menu__line"><span></span></li>
+            <router-link
+              tag="li"
+              class="tab__item"
+              v-for="item in items"
+              :to="item.linkTo"
+              :key="item.id"
+            > {{ item.name }}
+            </router-link>
+            <li class="tab__line"><span></span></li>
           </ul>
         </nav>
       </div>
@@ -87,15 +87,15 @@ export default {
     openMobileMenu() {
       var tabListClasses = document.getElementById('header-nav').classList;
 
-        if (this.menuOpened) {
+        if (!this.menuOpened) {
           tabListClasses.remove('slideOutRight');
           tabListClasses.add('animated','slideInRight');
-          this.menuOpened = false;
+          this.menuOpened = true;
           return;
         }
         tabListClasses.remove('animated','slideInRight')
         tabListClasses.add('slideOutRight');
-        this.menuOpened = true;
+        this.menuOpened = false;
     },
   },
 
@@ -107,6 +107,6 @@ export default {
 
 <style lang="sass" scoped>
   @import 'header'
-  @import 'tabs'
+  @import 'tab'
   @import './src/style/components/burger'
 </style>
