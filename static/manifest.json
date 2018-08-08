@@ -1,20 +1,20 @@
 {
-  "name": "cover",
-  "short_name": "cover",
+  "name": "Veronika CV page",
+  "short_name": "Veronika",
   "icons": [
     {
-      "src": "/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/icons/favicon-196x196.png",
+      "sizes": "196x196",
       "type": "image/png"
     },
     {
-      "src": "/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/icons/mstile-310x310.png",
+      "sizes": "310x310",
       "type": "image/png"
     }
   ],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#FFFFFF",
+  "theme_color": "#F0F5FA"
 }
