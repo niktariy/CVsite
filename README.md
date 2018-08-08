@@ -1,6 +1,6 @@
-# cover
+# Cover
 
-> My personal webpage
+> This webpage created to show my skills as Front-end developer and UI/UX developer.
 
 ## Commands
 
