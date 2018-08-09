@@ -53,7 +53,7 @@ export default {
           linkTo: '/projects'
         },
         { name: 'Contacts',
-          linkTo: '/'
+          linkTo: '/contacts'
         },
       ],
       menuOpened: false,

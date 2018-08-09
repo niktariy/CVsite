@@ -1,19 +1,26 @@
 <template>
   <section class="about section--about section">
-    <sectionHeading
-      sectionTitle="About me"
-      sectionDescription="Experience and Skills">
-    </sectionHeading>
+    <section-heading
+      :sectionTitle="sectionTitle"
+      :sectionDescription="sectionDescription">
+    </section-heading>
     <div class="grid">
       <div class="grid__row">
-        <div class="about__info">
-          <p v-for="info in about">
-            {{ info.item }}
-          </p>
+        <div
+          class="about__experience-container"
+          v-for="info in about"
+          :key="info.id"
+        >
+          <h5>{{ info.question }}?</h5>
+          <p class="about__experience-item"
+          >{{ info.answer }}</p>
         </div>
       </div>
-      <div class="about__skills-list">
 
+      <div class="about__skills-list">
+        <h3 class="about__subtitle">
+          {{ sectionSubTitle }} <em>{{ sectionSubTitle_emphasis }}</em>
+        </h3>
         <div class="grid__container grid__container--two">
 
           <aside v-for="skill in skills" :key="skill.id"
@@ -50,12 +57,19 @@ export default {
   data() {
     return {
       about: [
-        {item: 'In 2015 I graduated from the radio engineering college with the specialty of «technician programmer», and now I get higher education in the specialty «Economics of electronic business».'},
-        {item: 'I fell in love with Web development even in college, when we made sites on mock-ups, in fact, that’s how I came to this exorbitant world of IT.'},
-        {item: 'I really like what I’m doing.'},
-        {item: 'Also I have an account where I’m share my ideas and development tips with those who are interested.'},
-        // {item: '2+ years of software development experience'},
+        {question: 'How did you get into this field',
+         answer: 'I fell in love with Web development even in college, when we made sites on mock-ups, in fact, that’s how I came to this exorbitant world of IT.'},
+        {question: 'What skills do you think are most important for someone trying to break into this space',
+         answer: 'The most important skills are: problem solving and analytical scills, a passion for UI & UX,... That\'s why I really like what I’m doing.'},
+        {question: 'What is the best part about working in this field',
+         answer: 'Also I have an account where I’m share my ideas and development tips with those who are interested.'},
+        // {question: '',
+        //  answer: ''},
       ],
+      sectionTitle: 'About me',
+      sectionDescription: 'Experience and Skills',
+      sectionSubTitle: 'What I know how to do ',
+      sectionSubTitle_emphasis: 'well.',
       skills: [
         { name: 'App Development',
           description: [
@@ -76,6 +90,7 @@ export default {
         { name: 'Creative process',
           description: [
             {item: 'Have a good understanding of visual and UX design principles;'},
+            {item: 'Designer-like mindset which reflected through semantic HTML and CSS;'},
             {item: 'Support the design and development process through creation and improvement of style guides and pattern libraries.'},
           ],
           image: 'creative_process'

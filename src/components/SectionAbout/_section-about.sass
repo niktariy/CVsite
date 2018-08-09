@@ -5,50 +5,38 @@
 
 
 .about
-  &__info
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    padding: 0 21px
-    +sm-up
-      align-items: flex-start
-      flex-dir: row
+  background-color: hsla(249, 47%, 98%, 1)
+  &__subtitle
+    font-weight: 800
+    text-align: center
 
   &__experience-container
-    +breakpoint(480px)
-      max-width: 100%
-      padding-left: 32px
-  &__experience-item
-    font-size: $font--14-18
-    margin-bottom: 4px
-  &__photo-container
-    margin-bottom: 24px
+    max-width: 80%
     width: 100%
-    max-width: $photo-size
-    max-height: 272px
-    overflow: hidden
-    +breakpoint(480px)
-      width: 30%
-  &__photo
-    width: 100%
-    height: auto
-    object-fit: cover
-
+    margin: 0 auto
+    text-indent: 16px
   &__experience-item
+    font-size: $font--17-22
+    margin-bottom: 6px
     text-align: left
+    font-style: italic
+
   &__skills-list
-    margin-top: 32px
-    padding: 24px 16px
+    $sideSpacing: 16px
+    padding: 24px $sideSpacing
+    margin-top: ($sideSpacing * 2)
+    margin-left: ($sideSpacing * -1)
+    margin-right: ($sideSpacing * -1)
     background: $white
     box-shadow: 0 10px 24px 0 rgba($primaryDark, .2)
-    margin: 0 -16px
     +sm-up
-      padding: 24px
-      margin: 0 -24px
+      $sideSpacing: 24px
+      padding: $sideSpacing
+      margin-left: ($sideSpacing * -1)
+      margin-right: ($sideSpacing * -1)
 
     +md-up
-      padding: 32px
+      padding: ($sideSpacing * 2)
 
   &__skill
     display: flex
@@ -82,7 +70,6 @@
       +xs-only
         max-width: 350px
     & p
-      // font-size: $font--14-16
       font-size: $font--16-20
       position: relative
       margin: 0

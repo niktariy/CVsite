@@ -15,7 +15,7 @@
     &:nth-child(1)
       grid-column: span 3
     &:nth-child(2)
-      grid-area: 3 / span 3 / auto / -1
+      grid-area: 3 / span 5 / auto / -1
     &:nth-child(3)
       grid-row: 4
       grid-column: span 5
@@ -42,17 +42,16 @@ $fifthStripe: hsl(254, 64%, 97%)
     background-image: linear-gradient(100grad, #fff 80%, $fifthStripe)
   @media (min-width:670px)
     span:nth-child(2)
-      background-image: linear-gradient(100grad, rgba($secondStripe, .02), rgba($secondStripe, .05) 40%, $stripesColor)
+      background-image: linear-gradient(100grad, rgba($secondStripe, .0), rgba($secondStripe, .05) 40%, $stripesColor)
     span:nth-child(3)
       background-image: linear-gradient(100grad, rgba(#fff, 0.9) 44%, rgba(#fff, 0))
     span:nth-child(4)
       background-image: linear-gradient(100grad, rgba($secondStripe, 0) 10%, rgba($secondStripe, .1))
-
 
 .projects
   min-height: 100vh
   overflow: hidden
   background-color: $sectionBgColor
   &__view-more
-    margin-top: 48px
+    margin-top: 32px
     text-align: center

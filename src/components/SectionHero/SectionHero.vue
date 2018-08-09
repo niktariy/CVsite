@@ -7,11 +7,21 @@
           <h2 class="hero__subtitle">I am design-oriented <pre class="text--accent">front-end developer</pre>
           </h2>
           <div class="hero__target btn-group">
-            <div class="component component--primary">
-              <button class="btn btn--big">Contact me</button>
-            </div>
-            <div class="component component--secondary">
-              <button class="btn btn--big btn--plain">See my works</button>
+            <div
+              v-for="(button, index) in targetButtons"
+              class="component"
+              :key="index"
+              :class="'component--'+button.componentType"
+            >
+              <router-link
+                class="btn btn--big"
+                type="button"
+                tag="button"
+                :to="button.linkTo"
+                :class="button.className"
+              >
+                {{button.label}}
+              </router-link>
             </div>
           </div>
         </header>
@@ -27,6 +37,24 @@
 
   export default {
     name: 'section--hero',
+    data() {
+      return {
+        sectionTitle: "Hi! My name is Veronika",
+        targetButtons: [
+          {
+            label: 'Contact me',
+            componentType: 'primary',
+            linkTo: '/contacts',
+          },
+          {
+            label: 'See my works',
+            componentType: 'secondary',
+            className: 'btn--plain',
+            linkTo: '/projects',
+          },
+        ],
+      }
+    }
   }
 </script>
 

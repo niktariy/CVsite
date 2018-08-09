@@ -1,10 +1,10 @@
 <template>
-    <main>
-      <section-hero/>
-      <section-about/>
-      <section-projects/>
-      <section-contacts/>
-    </main>
+  <main>
+    <section-hero/>
+    <section-about/>
+    <section-projects/>
+    <section-contacts/>
+  </main>
 </template>
 
 <script>

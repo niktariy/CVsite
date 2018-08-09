@@ -7,7 +7,7 @@
       <span></span>
       <span></span>
     </div>
-    <sectionHeading sectionTitle="Projects"></sectionHeading>
+    <section-heading :sectionTitle="sectionTitle"></section-heading>
     <div class="grid">
       <projects-list/>
       <div class="grid__row projects__view-more">
@@ -16,8 +16,8 @@
             class="btn"
             type="button"
             tag="button"
-            :to="{name: 'Projects'}"
-          >View all projects</router-link>
+            :to="button.linkTo"
+          >{{button.label}}</router-link>
         </div>
       </div>
     </div>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import sectionHeading from '../Sections/TheSectionHeading';
-import projectsList from '../ListProjects';
+import sectionHeading from '@/components/Sections/TheSectionHeading';
+import projectsList from '@/components/ListProjects';
 
 export default {
   name: 'section-projects',
@@ -35,7 +35,13 @@ export default {
     projectsList,
   },
   data() {
-    return { }
+    return {
+      sectionTitle: 'My works',
+      button: {
+        label: 'View all projects',
+        linkTo: '/projects',
+      }
+    }
   },
 }
 </script>

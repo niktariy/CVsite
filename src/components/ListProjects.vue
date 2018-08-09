@@ -104,7 +104,7 @@ export default {
     will-change: background-color, box-shadow
     transition: box-shadow 0.24s $v--ease-in
     border-radius: 3px
-    background-color: rgba($white, .48)
+    background-color: rgba($white, .72)
     &:hover, &:focus
       box-shadow: 0 8px 24px 0 rgba($secondaryDark, 0.16)
     +xs-only

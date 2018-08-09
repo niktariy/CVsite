@@ -60,11 +60,6 @@ export default {
       projectOpened: false,
     }
   },
-  computed: {
-    setPageTitle: function() {
-      this.pageTitle = 'Projects';
-    }
-  }
 }
 //
 // router.beforeEach((to, from, next) => {
@@ -73,9 +68,11 @@ export default {
 // })
 
 </script>
-<style lang="sass">
+
+<style lang="sass" scoped="">
   .layout
-    background: hsla(0, 0%, 98%, 1)
+    // background: hsla(0, 0%, 98%, 1)
+    background: hsla(212, 16%, 99%, 1)
     position: relative
     padding-top: 94px
     &__container
