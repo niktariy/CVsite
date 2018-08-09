@@ -1,8 +1,7 @@
 <template>
   <div
-    class="c-input input-upload flex-column"
-    :class="'c-input--' + inputModifier">
-      <label for="files" class="c-input__label">
+    class="input-upload flex-column">
+      <label for="files" class="input-upload__label">
         {{ inputLabel }}
       </label>
       <div class="input-upload__wrapper flex-column">
@@ -89,7 +88,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import "type/upload"
+  @import "input-upload"
 
   .msg-validation
     position: absolute

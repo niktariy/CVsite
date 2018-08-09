@@ -1,13 +1,15 @@
 @import "./src/style/base/colors"
 @import "./src/style/base/media"
-@import "../c-input"
+
 .input-upload
   display: flex
   flex-direction: column
   box-shadow: none !important
-
-  .input__label
-    text-align: left
+  margin: 1.5em 0 .5em
+  width: 100%
+  max-width: 100%
+  +md-up
+    margin: .5em 0 0
 
   &__wrapper
     border: 2px dashed $white
@@ -15,11 +17,19 @@
     &:hover
       box-shadow: 0 0 2px 0 $input-upload__shadow-color
 
+  &__label
+    padding: 0 1em 0.4em
+    width: 100%
+    font-size: 1em
+    color: $secondary
+    font-weight: 400
+    +md-up
+      padding-top: 0.5em
+
   &__content
     display: flex
     align-items: center
     justify-content: space-between
-
     +xs-only
       flex-direction: column
 
