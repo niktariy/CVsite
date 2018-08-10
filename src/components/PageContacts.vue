@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="main">
     <section class="section contacts-page">
       <section-heading
         :sectionTitle="pageTitle"
@@ -20,7 +20,6 @@
       </div>
     </section>
   </main>
-
 </template>
 
 <script>

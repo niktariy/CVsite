@@ -29,9 +29,9 @@ $component-colors: (
 
 $gradientLight: hsla(212, 42%, 78%, 1);
 
-$linksLight:    #ff829b;
-$links:         #d94e6a;
-$linksDark:     #a21733;
+$linksLight:    $primaryLight;
+$links:         $primary;
+$linksDark:     $primaryDark;
 
 $darkColor: #303030;
 $greyDark: #616161;
@@ -43,8 +43,8 @@ $headerColor:               hsl(212, 52%, 96%);
 $additionalElement_bgColor: $whitesmoky;
 
 //typography
-$headingsColor: $darkColor;
-$textColor:   $greyDark;
+$headingsColor: $darkColor !global;
+$textColor:   $greyDark !global;
 
 //inputs
 

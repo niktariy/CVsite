@@ -6,36 +6,17 @@
   align-items: center
 
 section
+  $padding: 80px
   display: flex
   flex-direction: column
   align-items: center
-  padding: 80px 0
+  padding: $padding 0
   background: $sectionBgColor
 
   +sm-up
-    padding: 100px 0
+    padding: ($padding + 20px) 0
   +md-up
-    padding: 125px 0
-
-.section
-  &__header
-    display: flex
-    flex-direction: column
-    align-items: center
-    text-align: center
-
-  &__title
-    color: darken($textColor, 18%)
-    margin-bottom: 16px
-    text-transform: capitalize
-    text-shadow: 2px 1px 7px #fff
-    font-weight: bold
-  &__description
-    font-size: $font--16-20
-    line-height: 1.4
-    margin-bottom: 16px
-    max-width: 600px
-    padding: 0 16px
+    padding: ($padding + 45px) 0
 
 section, #hero
   position: relative

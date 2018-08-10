@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="main">
     <section-hero/>
     <section-about/>
     <section-projects/>

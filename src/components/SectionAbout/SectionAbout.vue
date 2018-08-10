@@ -60,7 +60,7 @@ export default {
         {question: 'How did you get into this field',
          answer: 'I fell in love with Web development even in college, when we made sites on mock-ups, in fact, that’s how I came to this exorbitant world of IT.'},
         {question: 'What skills do you think are most important for someone trying to break into this space',
-         answer: 'The most important skills are: problem solving and analytical scills, a passion for UI & UX,... That\'s why I really like what I’m doing.'},
+         answer: 'The most important skills are: problem solving and analytical scills, a passion for UI & UX, and stay calm under pressure. That\'s why I really like what I’m doing.'},
         {question: 'What is the best part about working in this field',
          answer: 'Also I have an account where I’m share my ideas and development tips with those who are interested.'},
         // {question: '',

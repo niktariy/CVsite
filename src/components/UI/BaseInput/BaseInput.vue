@@ -2,15 +2,6 @@
   <div
     class="c-input"
     :class="'c-input--' + inputModifier">
-    <!-- <input
-      class="c-input__field"
-
-      :value="value"
-      :placeholder="placeholderText"
-      @keyup="setFilledClass()"
-      @focus="setFocusClass()"
-      @blur="removeFocusClass()"
-    > -->
     <input
       class="c-input__field"
       v-model="content"

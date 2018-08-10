@@ -99,3 +99,10 @@ input
   +placeholder
     color: lighten($textColor, 10%)
     transition: color 0.18s $v--standard-easing 0.24s
+
+
+.header
+  $headerHeight: 94px
+  height: $headerHeight
+  & + .main
+    padding-top: $headerHeight
