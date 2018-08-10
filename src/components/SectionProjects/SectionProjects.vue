@@ -13,7 +13,7 @@
       <div class="grid__row projects__view-more">
         <div class="component component--secondary m-l-auto m-r-auto">
           <router-link
-            class="btn"
+            class="btn btn--raised"
             type="button"
             tag="button"
             :to="button.linkTo"

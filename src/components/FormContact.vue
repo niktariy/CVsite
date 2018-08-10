@@ -37,12 +37,12 @@
           Available for hiring
         </a>
       <div class="contact-form__button-send component component--secondary">
-        <button class="btn" type="submit" @click="validate">Send</button>
+        <button class="btn btn--raised" type="submit" @click="validate">Send</button>
       </div>
     </div>
     <div v-else class="contact-form__actions contact-form__actions--separate">
       <div class="component component--secondary">
-        <button class="btn" type="submit" @click="validate">Send</button>
+        <button class="btn btn--raised" type="submit" @click="validate">Send</button>
       </div>
     </div>
   </form>

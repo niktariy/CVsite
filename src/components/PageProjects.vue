@@ -12,22 +12,22 @@
               <div class="btn-group">
                 <router-link :to="{ name: 'Projects', params: {} }"
                   class="component component-/-primary">
-                  <button class="fab fab--plain fab--back">
+                  <button class="fab fab--flat fab--back">
                     <img src="/img/arrow/arrow-up.svg" />
                   </button>
                 </router-link>
                 <router-link :to="{ name: 'Projects', params: {} }"
                   class="component component-/-primary">
-                  <button class="fab fab--plain fab--prev">
+                  <button class="fab fab--flat fab--prev">
                     <img src="/img/arrow/arrow-left.svg" />
                   </button>
                 </router-link>
-                <button class="fab fab--plain fab--link">
+                <button class="fab fab--flat fab--link">
                   <img src="/img/arrow/link-icon.svg" />
                 </button>
                 <router-link :to="{ name: 'Projects', params: {} }"
                   class="component component-/-primary">
-                  <button class="fab fab--plain fab--next">
+                  <button class="fab fab--flat fab--next">
                     <img src="/img/arrow/arrow-right.svg" />
                   </button>
                 </router-link>

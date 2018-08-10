@@ -8,7 +8,7 @@
           <div class="input-upload__content flex">
               <div class="input-upload__button component--primary">
                   <button type="button"
-                          class="btn btn--plain"
+                          class="btn btn--flat"
                           style="position: relative;">
                       Upload files
                       <input type="file" id="files"

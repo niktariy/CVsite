@@ -19,7 +19,7 @@
   margin: 0.5em auto
   width: 60%
 
-.btn, .btn--plain
+.btn, .btn--flat
   border-radius: 2px
   min-width: 88px
   height: 36px
@@ -28,7 +28,7 @@
 .btn
   @import "type/big"
 
-.fab, .fab--plain
+.fab, .fab--flat
   display: flex
   justify-content: center
   align-items: center
@@ -44,7 +44,7 @@
 
 @each $status, $color in $component-colors
   .component--#{$status}
-    .btn, .fab
+    .btn--raised, .fab--raised
       background-color: map_get($color, 'dark')
       color: $white
       &:hover
@@ -55,11 +55,12 @@
       &:active
         box-shadow: 0 0 0 0 transparent
 
-    .btn--plain, .fab--plain
-      background-color: $white
+    .btn--flat, .fab--flat
+      background-color: rgba(map_get($color, 'base'), 0.08)
       color: map_get($color, 'dark')
       &:hover
-        box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
+        background-color: rgba(map_get($color, 'base'), 0.18)
+        box-shadow: 0 2px 16px 0 rgba(map_get($color, 'base'), .48)
       &:focus
         background-color: rgba(map_get($color, 'light'), .3)
         box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)

@@ -14,7 +14,7 @@
               :class="'component--'+button.componentType"
             >
               <router-link
-                class="btn btn--big"
+                class="btn btn--raised btn--big"
                 type="button"
                 tag="button"
                 :to="button.linkTo"
@@ -49,7 +49,7 @@
           {
             label: 'See my works',
             componentType: 'secondary',
-            className: 'btn--plain',
+            className: 'btn--flat',
             linkTo: '/projects',
           },
         ],
