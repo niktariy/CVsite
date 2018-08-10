@@ -62,6 +62,9 @@ export default {
         { name: 'Projects',
           linkTo: '/projects'
         },
+        { name: 'Prices',
+          linkTo: '/prices'
+        },
         { name: 'Contacts',
           linkTo: '/contacts'
         },
