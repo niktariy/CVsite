@@ -10,7 +10,6 @@
           <img
             :src="siteLogo"
             height="56"
-            width="auto"
             alt="Veronika"
             class="logo"
           />
@@ -23,8 +22,8 @@
                   <span class=" burger__bun bun bun--bot"></span>
             </div>
           </div>
-          <nav class="tab tab--valentine">
-            <ul class="tab__list" id="header-nav">
+          <nav class="tab">
+            <ul class="tab__list" id="header-nav" :data-count="getItemsLength">
               <router-link
                 tag="li"
                 class="tab__item"
@@ -77,26 +76,13 @@ export default {
   computed: {
     getItems(){
       return this.items;
-    }
+    },
+    getItemsLength(){
+      return this.items.length;
+    },
   },
 
   methods: {
-    stickyHeader() {
-      var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-          head = document.querySelector(".header"),
-          shrinkOn = head.clientHeight;
-      if (distanceY >= shrinkOn ) {
-        if (head.classList.contains("normal")) {
-          head.classList.remove("normal").add("smaller");
-        }
-      } else {
-        if (!head.classList.contains("smaller")) {
-          return;
-        }
-        head.classList.remove("smaller").add("normal");
-      }
-    },
-
     openMobileMenu() {
       var tabListClasses = document.getElementById('header-nav').classList;
 
@@ -110,10 +96,6 @@ export default {
         tabListClasses.add('slideOutRight');
         this.menuOpened = false;
     },
-  },
-
-  mounted: function () {
-    this.stickyHeader()
   },
 }
 </script>

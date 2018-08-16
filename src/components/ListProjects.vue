@@ -9,7 +9,7 @@
          tabindex="0">
         <figure class="card__img-container">
           <img class="card__img"
-               alt="project.name"
+               :alt="project.name"
                :src="'/img/projects/'+project.image"/>
         </figure>
         <h4 class="card__title">{{ project.name }}</h4>

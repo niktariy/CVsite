@@ -88,7 +88,4 @@ export default {
 <style lang="sass" scoped>
   @import "c-input"
 
-  .msg-validation
-    position: absolute
-
 </style>

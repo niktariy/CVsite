@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  import sectionHero from './SectionHero/SectionHero'
-  import sectionAbout from './SectionAbout/SectionAbout'
-  import sectionProjects from './SectionProjects/SectionProjects'
-  import sectionContacts from './SectionContacts/SectionContacts'
+  import sectionHero from './Sections/SectionHero'
+  import sectionAbout from './Sections/SectionAbout'
+  import sectionProjects from './Sections/SectionProjects'
+  import sectionContacts from './Sections/SectionContacts'
 
   export default {
     name: 'HomePage',

@@ -4,7 +4,7 @@
       <div class="hero__container">
         <header class="hero__header">
           <h1 class="hero__title">Hi! My name is Veronika</h1>
-          <h2 class="hero__subtitle">I am design-oriented <pre class="text--accent">front-end developer</pre>
+          <h2 class="hero__subtitle">I am design-oriented <span class="text--accent">front-end developer</span>
           </h2>
           <div class="hero__target btn-group">
             <div
@@ -27,7 +27,8 @@
         </header>
         <div class="hero__image-container">
           <img class="hero__image"
-               src="/img/Veronika.svg"/>
+               src="/img/Veronika.svg"
+               alt="Veronika"/>
         </div>
       </div>
     </div>
@@ -59,6 +60,68 @@
 </script>
 
 <style lang="sass" scoped>
-  @import "section-hero"
+/*---------------- Hero Section ----------------*/
+@import "./src/style/base/colors"
+@import "./src/style/base/media"
+
+.hero
+  position: relative
+  padding-bottom: 48px
+  background: $sectionBgColor
+  text-align: center
+  overflow-x: hidden
+  z-index: 202!important
+  padding-top: 4vw
+
+  +md-up
+    padding-bottom: 96px
+    text-align: left
+
+  &__container
+    overflow-y: visible
+    position: relative
+    padding: 48px 0
+    +md-up
+      display: flex
+      align-items: flex-start
+
+  &__header
+    +md-up
+      width: 45%
+
+    h1
+      +md-up
+        white-space: nowrap
+        max-width: 100%
+        overflow: visible
+    h2
+      font-weight: 400
+
+  &__target
+    justify-content: center
+    margin-top: 32px
+    +sm-up
+      margin-top: 40px
+    +md-up
+      justify-content: flex-start
+
+  &__image-container
+    margin-top: 48px
+    user-select: none
+    pointer-events: none
+    +md-up
+      margin-top: 8vh
+      right: 0
+      flex: 1
+
+  &__image
+    width: 90%
+    margin: 0 auto
+    +xs-only
+      width: 120%
+      transform: translateX(16%)
+    +md-up
+      width: 110%
+      margin: 0 0 0 -10%
 
 </style>

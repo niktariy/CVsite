@@ -30,12 +30,12 @@
       class="contact-form__actions"
       v-if="isAvailable"
     >
-        <a
-          href="#"
+        <router-link
+          to="/contacts"
           class="link link--external"
           data-text="Available for hiring">
           Available for hiring
-        </a>
+        </router-link>
       <div class="contact-form__button-send component component--secondary">
         <button class="btn btn--raised" type="submit" @click="validate">Send</button>
       </div>

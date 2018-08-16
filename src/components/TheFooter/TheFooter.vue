@@ -9,7 +9,8 @@
              class="follow-list__link"
              target="_blank">
             <img :src="'/img/socials/'+item.name.toLowerCase()+'.svg'"
-                 class="follow-list__icon" />
+                 class="follow-list__icon"
+                 :alt="item.name" />
           </a>
         </li>
       </ul>

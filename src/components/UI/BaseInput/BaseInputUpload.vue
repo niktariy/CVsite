@@ -1,19 +1,19 @@
 <template>
   <div
     class="input-upload flex-column">
-      <label for="files" class="input-upload__label">
+      <label :for="uploadId" class="input-upload__label">
         {{ inputLabel }}
       </label>
       <div class="input-upload__wrapper flex-column">
           <div class="input-upload__content flex">
-              <div class="input-upload__button component--primary">
+              <div class="component--primary">
                   <button type="button"
-                          class="btn btn--flat"
+                          class="btn btn--flat input-upload__button "
                           style="position: relative;">
                       Upload files
-                      <input type="file" id="files"
+                      <input type="file" :id="uploadId"
                              name="file" multiple
-                             @change="onFileChange($event)">
+                             @change="onFileChange($event)"/>
                   </button>
               </div>
               <div class="input-upload__additional">
@@ -22,7 +22,7 @@
               </div>
           </div>
           <div class="input-upload__files js-uploadedFilesContainer">
-            <template v-if="Files.length">
+            <template v-if="Attachments.length">
               <div
                 class="input-upload__file uploaded-file">
                 <div class="uploaded-file__preview">
@@ -53,25 +53,22 @@ export default {
   },
   data() {
     return {
+      uploadId: "attachments",
       model: {
-        files: '',
+        attachments: '',
       },
-      Files: [],
+      Attachments: [],
     };
   },
   methods: {
     onFileChange(event) {
-      console.log(event)
-      debugger;
       var fileList = event.target.files || event.dataTransfer.files;
       if (!fileList.length) return;
       for (var i = 0; i < fileList.length; i++) {
         var element = fileList[i];
-        debugger;
-
-        this.$set(this, 'Files[' + i + ']', element);
+        this.$set(this, 'Attachments[' + i + ']', element);
       }
-      console.log(this.Files, element)
+      console.log(this.Attachments, element)
       // this.createFile(files[0]);
     },
     createFile(file) {},
@@ -79,7 +76,6 @@ export default {
       if (string.length < 6) {
         return
       }
-
       return string.substr(0, 6) + '...' + string.substr(string.length - 5, string.length);
     },
     removeFile() {},
@@ -90,10 +86,7 @@ export default {
 <style lang="sass" scoped>
   @import "input-upload"
 
-  .msg-validation
-    position: absolute
-
-  input#files
+  input#attachments
    opacity: 0
    position: absolute
    top: 0

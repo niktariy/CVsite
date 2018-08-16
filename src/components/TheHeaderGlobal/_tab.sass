@@ -15,6 +15,12 @@ $tabs_brk: 868px
     transform: scale3d(1, 1, 0) translate3d(1, 1, 0)
     @media screen and (min-width: $tabs_brk)
       animation: none!important
+    $linkItems: attr(data-count) !global
+    // &::after
+    //   display: block
+    //   content: $linkItems
+    //   width: 30px
+    //   height: 20px
 
   &__line
     border:
@@ -63,12 +69,10 @@ $tabs_brk: 868px
     &.current
       color: $linksDark
       transition: color .5s
-    &:nth-child(1).current ~ .tab__line
-      transform: translate3d(0, 0, 0)
-    &:nth-child(2).current ~ .tab__line
-      transform: translate3d(100%, 0, 0)
-    &:nth-child(3).current ~ .tab__line
-      transform: translate3d(200%, 0, 0)
+
+  @for $i from 0 to 4
+    .tab__item:nth-child(#{$i + 1}).current ~ .tab__line
+      transform: translate3d(#{$i * 100 * 1%}, 0, 0)
 
   @media screen and (max-width: $tabs_brk)
     &__list
