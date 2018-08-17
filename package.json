@@ -30,9 +30,11 @@
   "dependencies": {
     "autoprefixer": "^9.0.1",
     "node": "^10.7.0",
+    "node-sass": "^4.9.3",
     "object-assign": "^4.1.1",
     "offline-plugin": "^4.8.0",
     "promise-polyfill": "^6.0.2",
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-fixed-header": "^1.0.4",
     "vue-router": "^3.0.1",
