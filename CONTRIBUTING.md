@@ -16,7 +16,7 @@
 ### Order
 * Order CSS declarations in first by display properties, then offsets, then other properties by alphabet.
   ```
-  .header__inner
+  .btn
     display: flex
     align-items: baseline
     justify-content: space-between
