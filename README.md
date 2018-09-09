@@ -39,8 +39,13 @@ Your app is now offline-ready (only in production bundle), which means you can v
 
 Here we use a default [manifest.json](./static/manifest.json) to configurure your pwa, for example, to enable *Add to Home Screen* feature on Android. It will be copied directly to `./dist/manifest.json`.
 
-
 For all the available options, please head to [poi-preset-offline](https://github.com/egoist/poi/tree/master/packages/poi-preset-offline#api).
+
+
+## Code style
+
+You can view style guide in [this file](https://github.com/niktariy/CVsite/blob/master/CONTRIBUTING.md).
+
 
 ---
 
