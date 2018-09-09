@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from '@/components/App.vue'
 import router from './router'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
+Vue.config.devtools = true
 
 new Vue({
   router,

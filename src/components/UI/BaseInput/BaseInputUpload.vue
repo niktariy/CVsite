@@ -23,18 +23,20 @@
           </div>
           <div class="input-upload__files js-uploadedFilesContainer">
             <template v-if="Attachments.length">
-              <div
-                class="input-upload__file uploaded-file">
+              <div class="uploaded-file input-upload__file"
+                   v-for="file in Attachments"
+                   :key="file.id">
                 <div class="uploaded-file__preview">
-                  <!-- <img
-                    v-if="fileType.startsWith('image')"
+                  <img
+                    v-if="file.type.startsWith('image')"
                     src="/img/input/image.svg">
                   <img
                     v-else
-                    src="/img/input/file.svg"> -->
+                    src="/img/input/file.svg">
                 </div>
-                <div class="uploaded-file__name"> ellipsisString(fileName) </div>
-                <span class="uploaded-file__remove" :click="removeFile()"></span>
+                <div class="uploaded-file__name">{{ ellipsisString(file.name) }}</div>
+                <button class="uploaded-file__remove"
+                        :click="removeFile(file.id)">x</button>
               </div>
             </template>
           </div>
@@ -66,19 +68,19 @@ export default {
       if (!fileList.length) return;
       for (var i = 0; i < fileList.length; i++) {
         var element = fileList[i];
-        this.$set(this, 'Attachments[' + i + ']', element);
+        this.$set(this.Attachments, i, element);
       }
       console.log(this.Attachments, element)
-      // this.createFile(files[0]);
     },
-    createFile(file) {},
     ellipsisString(string) {
-      if (string.length < 6) {
-        return
+      if (string.length < 12+3) {
+        return string;
       }
-      return string.substr(0, 6) + '...' + string.substr(string.length - 5, string.length);
+      return string.substr(0, 6) + '...' + string.substr(string.length - 6, string.length);
     },
-    removeFile() {},
+    removeFile(fileId) {
+      this.$set(this.Attachments, fileId);
+    },
   },
 }
 </script>

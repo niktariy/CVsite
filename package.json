@@ -29,22 +29,24 @@
   "homepage": "https://my-cv-project.com",
   "dependencies": {
     "autoprefixer": "^9.0.1",
-    "node": "^10.7.0",
-    "node-sass": "^4.9.3",
+    "node": "^8.7.0",
     "object-assign": "^4.1.1",
     "offline-plugin": "^4.8.0",
     "promise-polyfill": "^6.0.2",
-    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-fixed-header": "^1.0.4",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.4.1"
   },
   "devDependencies": {
+    "node-sass": "^4.9.3",
     "poi": "^9.0.0",
     "poi-preset-bundle-report": "^2.0.0",
     "poi-preset-offline": "^9.0.0",
-    "serve": "^6.1.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "serve": "^7.0.0",
     "tyu": "^1.0.4"
   }
 }

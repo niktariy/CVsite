@@ -11,6 +11,23 @@ module.exports = {
     description: pkg.description,
     template: path.join(__dirname, 'index.ejs')
   },
+  module: {
+    rules: [
+      {
+        test: /\.sass$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              indentedSyntax: true,
+            }
+          }
+        ]
+      }
+    ]
+  },
   postcss: {
     plugins: [
       // Your postcss plugins
