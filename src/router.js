@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/PageHome.vue'
-import Projects from '@/components/PageProjects.vue'
-import ProjectPage from '@/components/PageProjectSingle.vue'
-import Prices from '@/components/PagePrices.vue'
-import Contacts from '@/components/PageContacts.vue'
+import Home from '@/components/Pages/PageHome.vue'
+import ProjectsGeneral from '@/components/Pages/Projects/PageProjectsGeneral.vue'
+import Projects from '@/components/Pages/Projects/PageProjects.vue'
+import ProjectSingle from '@/components/Pages/Projects/PageProjectSingle.vue'
+import Prices from '@/components/Pages/PagePrices.vue'
+import Contacts from '@/components/Pages/PageContacts.vue'
 
 Vue.use(Router)
 
@@ -12,6 +13,13 @@ export default new Router({
   mode: 'history',
   linkExactActiveClass: 'current',
   linkActiveClass: '',
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {
       path: '/',
@@ -21,13 +29,19 @@ export default new Router({
     },
     {
       path: '/projects',
-      name: 'Projects',
+      name: 'ProjectsGeneral',
+      component: ProjectsGeneral,
       meta: {title: 'Veronika | Projects'},
-      component: Projects,
-      children: [{
-        path: 'project/:id',
-        component: ProjectPage,
-      }]
+      children: [
+        { path: '/',
+          name: 'Projects',
+          component: Projects,
+        },
+        { path: 'project/:id',
+          name: 'SingleProjectPage',
+          component: ProjectSingle,
+        },
+      ]
     },
     {
       path: '/prices',
