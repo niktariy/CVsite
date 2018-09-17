@@ -1,36 +1,37 @@
 <template>
   <fixed-header :fixed.sync="isFixed">
     <header
-      class="header" id="header"
-      :class="{ 'header--smaller': isFixed }"
-      :threshold="300"
+       class="header" id="header"
+       :class="{ 'header--smaller': isFixed }"
+       :threshold="300"
     >
       <div class="header__wrapper grid">
         <router-link to="/" class="header__logo" exact>
           <img
-            :src="siteLogo"
-            height="56"
-            alt="Veronika"
-            class="logo"
+             :src="siteLogo"
+             height="56"
+             alt="Veronika"
+             class="logo"
           />
         </router-link>
         <div class="section section--tab">
-          <div class="burger" @click="openMobileMenu()">
-              <div class="burger__buns">
-                  <span class=" burger__bun bun bun--top"></span>
-                  <span class=" burger__bun bun bun--mid"></span>
-                  <span class=" burger__bun bun bun--bot"></span>
+          <div class="burger" @click="toggleMobileMenu()" :class="menuOpened ? 'is-opened' : ''">
+            <div class="burger__buns">
+              <span class=" burger__bun bun bun--top"></span>
+              <span class=" burger__bun bun bun--mid"></span>
+              <span class=" burger__bun bun bun--bot"></span>
             </div>
           </div>
           <nav class="tab">
             <ul class="tab__list" id="header-nav" :data-count="getItemsLength">
               <router-link
-                tag="li"
-                class="tab__item"
-                v-for="item in items"
-                :to="item.linkTo"
-                :key="item.id"
-              > {{ item.name }}
+                 tag="li"
+                 class="tab__item"
+                 v-for="item in items"
+                 :to="item.linkTo"
+                 :key="item.id"
+              >
+                {{ item.name }}
               </router-link>
               <li class="tab__line"><span></span></li>
             </ul>
@@ -42,62 +43,67 @@
 </template>
 
 <script>
-import FixedHeader from 'vue-fixed-header'
+  import FixedHeader from 'vue-fixed-header'
 
-export default {
-  name: 'l-header',
-  props: ['className'],
-  components: {
-    FixedHeader
-  },
-  data() {
-    return {
-      isFixed: false,
-      siteLogo: "/img/LetterV.svg",
-      items: [
-        { name: 'About',
-          linkTo: '/'
-        },
-        { name: 'Projects',
-          linkTo: '/projects'
-        },
-        { name: 'Prices',
-          linkTo: '/prices'
-        },
-        { name: 'Contacts',
-          linkTo: '/contacts'
-        },
-      ],
-      menuOpened: false,
-      isFixed: false,
-    }
-  },
-
-  computed: {
-    getItems(){
-      return this.items;
+  export default {
+    name: 'l-header',
+    props: ['className'],
+    components: {
+      FixedHeader
     },
-    getItemsLength(){
-      return this.items.length;
+    data() {
+      return {
+        isFixed: false,
+        siteLogo: "/img/LetterV.svg",
+        items: [
+          {
+            name: 'About',
+            linkTo: '/'
+          },
+          {
+            name: 'Projects',
+            linkTo: '/projects'
+          },
+          {
+            name: 'Prices',
+            linkTo: '/prices'
+          },
+          {
+            name: 'Contacts',
+            linkTo: '/contacts'
+          },
+        ],
+        menuOpened: false,
+      }
     },
-  },
+    created() {
+      this.menuOpened = false;
+    },
+    computed: {
+      getItems(){
+        return this.items;
+      },
+      getItemsLength(){
+        return this.items.length;
+      },
+    },
 
-  methods: {
-    openMobileMenu() {
-      var tabListClasses = document.getElementById('header-nav').classList;
-
+    methods: {
+      toggleMobileMenu() {
+        let tabListClasses = document.getElementById('header-nav').classList;
         if (!this.menuOpened) {
+          document.documentElement.style.overflow = 'hidden';
           tabListClasses.remove('slideOutRight');
-          tabListClasses.add('animated','slideInRight');
-          this.menuOpened = true;
-          return;
+          tabListClasses.add('animated', 'slideInRight');
+          return this.menuOpened = true;
         }
-        tabListClasses.remove('slideInRight')
+        document.documentElement.style.overflow = 'auto';
+        tabListClasses.remove('slideInRight');
         tabListClasses.add('slideOutRight');
-        this.menuOpened = false;
+        return this.menuOpened = false;
+      },
     },
-  },
-}
+  }
 </script>
 
 <style lang="sass" scoped>

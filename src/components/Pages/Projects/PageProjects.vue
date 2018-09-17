@@ -1,9 +1,12 @@
 <template>
   <main class="layout__main main grid__row">
     <div class="col-xs-1"></div>
-    <div class="col-xs-11 section">
+    <header class="col-xs-11">
+      <h2 class="section__title">{{ pageTitle }}</h2>
+    </header>
+    <div class="col-xs-1"></div>
+    <section class="col-xs-11 section main__section">
       <div class="grid__row">
-        <h2 class="section__title col-xs-12 col-sm-6">{{ pageTitle }}</h2>
         <div class="controls section__controls col-xs-12 col-sm-6"
              v-show="projectOpened">
           <div class="btn-group">
@@ -37,11 +40,11 @@
                 <img src="/img/arrow/arrow-right.svg" />
               </button>
             </router-link>
+          </div>
         </div>
       </div>
-    </div>
-    <projects-list></projects-list>
-  </div>
+      <projects-list></projects-list>
+    </section>
   </main>
 </template>
 <script>
@@ -56,7 +59,7 @@ export default {
     lSidebar,
     projectsList,
   },
-  data () {
+  data() {
     return {
       pageTitle: 'Projects',
       projectOpened: false,
@@ -71,16 +74,11 @@ export default {
 
 </script>
 
-  <style lang="sass" scoped="">
-    .layout
-      background: hsla(212, 16%, 99%, 1)
-      position: relative
-      padding-top: 94px
-      &__container
-        display: grid
-        grid-template-columns: 220px 1fr
-        &__sidebar
-          padding-top: 48px
-          &__main
-            padding-top: 32px
-            </style>
+<style lang="sass" scoped="">
+
+  .main
+    &__section
+      padding-top: 16px
+      padding-bottom: 32px
+      background: transparent
+</style>

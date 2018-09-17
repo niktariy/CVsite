@@ -22,22 +22,24 @@ export default {
 @import "./src/style/base/variables"
 
 .section
+
   &__header
     display: flex
-    flex-direction: column
     align-items: center
+    flex-direction: column
     text-align: center
 
   &__title
-    color: darken($textColor, 18%)
     margin-bottom: 16px
+    color: darken($textColor, 18%)
     text-transform: capitalize
     text-shadow: 2px 1px 7px #fff
+
   &__description
-    font-size: $font--16-20
-    line-height: 1.4
+    padding: 0 16px
     margin-bottom: 16px
     max-width: 600px
-    padding: 0 16px
+    font-size: $font--16-20
+    line-height: 1.4
 
 </style>

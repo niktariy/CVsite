@@ -67,20 +67,20 @@
 .hero
   position: relative
   padding-bottom: 48px
+  padding-top: 4vw
   background: $sectionBgColor
   text-align: center
   overflow-x: hidden
   z-index: 202!important
-  padding-top: 4vw
 
   +md-up
     padding-bottom: 96px
     text-align: left
 
   &__container
-    overflow-y: visible
     position: relative
     padding: 48px 0
+    overflow-y: visible
     +md-up
       display: flex
       align-items: flex-start
@@ -115,13 +115,13 @@
       flex: 1
 
   &__image
-    width: 90%
     margin: 0 auto
+    width: 90%
     +xs-only
       width: 120%
       transform: translateX(16%)
     +md-up
-      width: 110%
       margin: 0 0 0 -10%
+      width: 110%
 
 </style>

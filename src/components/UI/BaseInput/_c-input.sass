@@ -4,15 +4,15 @@
 .c-input
   display: flex
   justify-content: flex-end
-  border-radius: 3px
-  background-color: #fff
   position: relative
-  font-size: 16px
-  line-height: 1.5
   margin: 1.5em 0 .5em
   width: 100%
-  z-index: 1
+  border-radius: 3px
+  background-color: #fff
+  font-size: 16px
+  line-height: 1.5
   transition: box-shadow .28s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+  z-index: 1
   &:last-of-type
     margin-bottom: 1em
   &:hover
@@ -26,13 +26,13 @@
     width: 100%
 
   &__field
-    position: relative
     display: block
+    position: relative
     padding: 0.75em 1em
     width: 100%
+    background: transparent
     border: none
     border-radius: 3px
-    background: transparent
     color: darken($textColor, 16%)
     font-size: 1em
     line-height: inherit
@@ -48,8 +48,8 @@
     left: 0
     padding: 0 1em
     width: 100%
-    font-size: 1em
     color: $secondary
+    font-size: 1em
     font-weight: 400
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
@@ -57,8 +57,8 @@
     user-select: none
     cursor: text
     &_content
-      position: relative
       display: block
+      position: relative
       padding: 0.85em 0 0.75em
       width: 100%
       font-size: 1em

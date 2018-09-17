@@ -7,7 +7,7 @@ import ProjectSingle from '@/components/Pages/Projects/PageProjectSingle.vue'
 import Prices from '@/components/Pages/PagePrices.vue'
 import Contacts from '@/components/Pages/PageContacts.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',

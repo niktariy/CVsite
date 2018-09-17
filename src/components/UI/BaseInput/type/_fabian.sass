@@ -14,16 +14,16 @@
   &::after
     content: ''
     display: block
-    background: $secondaryLight
-    border-radius: 0 0 2px 2px
     position: absolute
-    width: 100%
-    height: 0
-    bottom: 0
     left: 0
     right: 0
-    z-index: 22
+    bottom: 0
+    height: 0
+    width: 100%
+    background: $secondaryLight
+    border-radius: 0 0 2px 2px
     transition: height 0.18s cubic-bezier(0, 0.25, 0.5, 1)
+    z-index: 22
 
   &__label
     position: absolute
@@ -34,7 +34,3 @@
   &__field:focus + .c-input--fabian__label,
   &__field:not(:placeholder-shown) + .c-input--fabian__label
     @extend %inputLabel--filled
-
-  // &.focused, &.filled
-  //   &::after
-  //     height: 2px

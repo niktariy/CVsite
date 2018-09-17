@@ -62,9 +62,7 @@
 <script>
 export default {
   name: 'l-sidebar',
-  props: {
-    className: String,
-  },
+  props: ['className'],
   data() {
     return {
       selectedFilter: [],
@@ -95,17 +93,24 @@ export default {
   @import "./src/style/base/variables"
   
   .sidebar
-    box-shadow: 3px 0 4px 0 rgba($primaryLight, 0.24)
+    position: relative
+
     &__heading
-      margin-bottom: 12px
       padding-left: $sidebar__padding_left
+      margin-bottom: 12px
+    &__container
+      position: fixed
+      padding: 16px 0
+      max-width: 220px
+      border-right: 2px solid rgba($primaryLight, 0.24)
 
   .sidebar-nav
     margin-bottom: 24px
+
     &__link
       display: block
-      margin-bottom: 2px
       padding: 8px 16px 4px
+      margin-bottom: 2px
       background-color: transparent
       border-radius: 2px 0 0 2px
       border-bottom: 2px solid transparent

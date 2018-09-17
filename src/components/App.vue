@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <l-header/>
-    <router-view/>
-    <l-footer/>
+    <l-header></l-header>
+    <router-view></router-view>
+    <l-footer></l-footer>
   </div>
 </template>
 
@@ -15,11 +15,6 @@
     components: {
       lHeader,
       lFooter,
-    },
-    data () {
-      return {
-
-      }
     },
     methods: {
       goBack() {
@@ -42,12 +37,12 @@
 
 </style>
 
-<!-- Scoped component css -->
-<!-- It only affect current component -->
 <style scoped>
   #app {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     position: relative;
+    overflow: hidden;
   }
-
 </style>
