@@ -7,7 +7,7 @@
             :sectionTitle="sectionTitle"
             :sectionDescription="sectionDescription">
           </section-heading>
-          <contactForm/>
+          <contact-form></contact-form>
         </div>
       </div>
     </div>
@@ -17,15 +17,15 @@
 <script>
 
   import sectionHeading from '@/components/Sections/TheSectionHeading';
-  import formContact from '@/components/FormContact';
+  import FormContact from '@/components/FormContact';
 
   export default {
     name: 'section-contacts',
     components: {
       sectionHeading,
-      'contactForm': formContact,
+      'contactForm': FormContact,
     },
-    data () {
+    data() {
       return {
         sectionTitle: 'Get in touch',
         sectionDescription: 'If you are interested in working with me in a custom project, please let me know below!',

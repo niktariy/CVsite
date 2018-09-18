@@ -1,10 +1,12 @@
 <template>
-  <main class="main">
-    <section-hero/>
-    <section-about/>
-    <section-projects/>
-    <section-contacts/>
-  </main>
+  <transition name="fade">
+    <main class="main">
+      <section-hero></section-hero>
+      <section-about></section-about>
+      <section-projects></section-projects>
+      <section-contacts></section-contacts>
+    </main>
+  </transition>
 </template>
 
 <script>
@@ -21,11 +23,10 @@
       sectionProjects,
       sectionContacts,
     },
-    data () {
-      return {
-
-      }
-    },
+    beforeRouteEnter(to, from, next) {
+      console.log('Enter');
+      next()
+    }
   }
 
 </script>

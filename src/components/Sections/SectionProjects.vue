@@ -9,7 +9,7 @@
     </div>
     <section-heading :sectionTitle="sectionTitle"></section-heading>
     <div class="grid">
-      <projects-list/>
+      <projects-list></projects-list>
       <div class="grid__row projects__view-more">
         <div class="component component--secondary m-l-auto m-r-auto">
           <router-link
@@ -53,12 +53,12 @@ export default {
   display: grid
   grid: repeat(5, 20%)/repeat(10, 1fr)
   position: absolute
-  z-index: -1
-  width: 100%
-  height: 100%
-  transform: skewY(-12deg)
   top: 0
+  height: 100%
+  width: 100%
+  transform: skewY(-12deg)
   transform-origin: 0
+  z-index: -1
   span
     &:nth-child(1)
       grid-column: span 3

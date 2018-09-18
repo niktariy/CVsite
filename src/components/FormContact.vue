@@ -1,8 +1,10 @@
 <template>
-  <form class="contact-form">
+  <form class="contact-form" action="">
     <base-input
       inputModifier="fabian"
       v-model="model.UserName"
+      aria-required="true"
+      required="required"
       :inputType="fields[0].type"
       :inputLabel="fields[0].label"
       :placeholderText="fields[0].placeholderText"
@@ -13,6 +15,8 @@
     <base-input
       inputModifier="fabian"
       v-model="model.Email"
+      aria-required="true"
+      required="required"
       :inputType="fields[1].type"
       :inputLabel="fields[1].label"
       :placeholderText="fields[1].placeholderText"
@@ -20,7 +24,6 @@
       :isValid="fields[1].isValid"
       @change="validateEmail(), addError()"
     ></base-input>
-    <template v-if="model.UserName">Hi, {{model.UserName}}!</template>
     <base-input-upload
       inputModifier="fabian"
       inputLabel="Attach specification or design"
@@ -30,27 +33,24 @@
       class="contact-form__actions"
       v-if="isAvailable"
     >
-        <router-link
-          to="/contacts"
-          class="link link--external"
-          data-text="Available for hiring">
-          Available for hiring
-        </router-link>
+      <router-link to="/contacts"
+                   class="link link--external"
+                   data-text="Available for hiring">
+        Available for hiring
+      </router-link>
       <div class="contact-form__button-send component component--secondary">
         <button class="btn btn--raised" type="submit" @click="validate">Send</button>
       </div>
     </div>
-    <div v-else class="contact-form__actions contact-form__actions--separate">
+    <div class="contact-form__actions contact-form__actions--separate" v-else>
       <div class="component component--secondary">
-        <button class="btn btn--raised" type="submit" @click="validate">Send</button>
+        <button class="btn btn--raised" type="submit">Send</button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-
-  let inputPath = '@/components/UI/BaseInput';
 
   import baseInput from '@/components/UI/BaseInput/BaseInput';
   import baseInputUpload from '@/components/UI/BaseInput/BaseInputUpload';
@@ -61,11 +61,11 @@
       baseInput,
       baseInputUpload,
     },
-    data () {
+    data() {
       return {
         invalidName: false,
         invalidEmail: false,
-        isAvailable: true,
+        isAvailable: false,
         model: {
           UserName: '',
           Email: '',

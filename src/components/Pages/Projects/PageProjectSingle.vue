@@ -47,7 +47,7 @@
 
 export default {
   name: 'SingleProjectPage',
-  data () {
+  data() {
     return {
       pageTitle: 'Project',
       projectOpened: true,

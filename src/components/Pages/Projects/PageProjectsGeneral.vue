@@ -1,49 +1,51 @@
 <template>
-  <div class="layout">
-    <div class="grid layout__container">
-      <lSidebar className="layout__sidebar"/>
-      <router-view></router-view>
+  <transition name="fade">
+    <div class="layout">
+      <div class="grid layout__container">
+        <l-sidebar className="layout__sidebar"></l-sidebar>
+        <router-view></router-view>
+      </div>
     </div>
-  </div>
-
+  </transition>
 </template>
 <script>
 
-import lSidebar from '@/components/TheSidebar/TheSidebar';
-import projectsList from '@/components/ListProjects';
-import router from '@/router'
+  import lSidebar from '@/components/TheSidebar/TheSidebar';
+  import projectsList from '@/components/ListProjects';
+  import router from '@/router'
 
-export default {
-  name: 'ProjectsPage',
-  components: {
-    lSidebar,
-    projectsList,
-  },
-  data () {
-    return {
-      pageTitle: 'Projects',
-      projectOpened: false,
-    }
-  },
-}
-//
-// router.beforeEach((to, from, next) => {
-//   this.pageTitle = to.name;
-//   next();
-// })
+  export default {
+    name: 'ProjectsPage',
+    components: {
+      lSidebar,
+      projectsList,
+    },
+    beforeRouteEnter(to, from, next) {
+      console.log('Enter');
+      next()
+    },
+    data() {
+      return {
+        pageTitle: 'Projects',
+        projectOpened: false,
+      }
+    },
+  }
 
 </script>
 
 <style lang="sass">
+  @import "./src/style/base/colors"
+
   .layout
-    background: hsla(212, 16%, 99%, 1)
     position: relative
     padding-top: 94px
+    background-image: linear-gradient(161deg, $sectionBgColor 40%, change-color($headerColor, $saturation: 48%, $lightness: 88%) 100%)
+    background-attachment: fixed
     &__container
       display: grid
       grid-template-columns: 220px 1fr
-    &__sidebar
-      padding-top: 48px
-    &__main
+    &__sidebar, &__main
       padding-top: 32px
+
 </style>

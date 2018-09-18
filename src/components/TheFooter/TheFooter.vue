@@ -19,39 +19,35 @@
 </template>
 
 <script>
-export default {
-  name: 'l-footer',
-  props: ['className'],
-  data() {
-    return {
-      followList: [{
-        name: 'Instagram',
-        link: 'https://www.instagram.com/front_end_tips/',
-      }, {
-        name: 'Facebook',
-        link: 'https://www.facebook.com/Front-end-tips-173015509956433/',
-      }, {
-        name: 'Twitter',
-        link: 'https://www.twitter.com',
-      }, {
-        name: 'Linkedin',
-        link: 'https://www.linkedin.com/in/veronika-novikova-42524a144/',
-      }],
+  export default {
+    name: 'l-footer',
+    props: ['className'],
+    data() {
+      return {
+        followList: [
+          {
+            name: 'Instagram',
+            link: 'https://www.instagram.com/front_end_tips/',
+          }, {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/Front-end-tips-173015509956433/',
+          }, {
+            name: 'Twitter',
+            link: 'https://www.twitter.com',
+          }, {
+            name: 'Linkedin',
+            link: 'https://www.linkedin.com/in/veronika-novikova-42524a144/',
+          }
+        ],
+      }
+    },
+
+    computed: {
+      getItems(){
+        return this.followList;
+      }
     }
-  },
-
-  computed: {
-    getItems(){
-      return this.followList;
-    }
-  },
-
-  methods: {
-  },
-
-  mounted: function () {
-  },
-}
+  }
 </script>
 
 <style lang="sass" scoped>

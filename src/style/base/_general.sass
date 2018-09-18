@@ -5,20 +5,17 @@
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 html
-  font:
-    weight: normal
-    size: 16px
-    family: 'Avenir Next LT Pro', 'Open Sans', sans-serif
-  color: darken($textColor, 18%)
   cursor: default
   overflow-x: hidden
   min-width: 300px
 
-.body
-  &__content
-    height: 100%
-    position: relative
-    z-index: 2
+body
+  background-color: $sectionBgColor
+  color: darken($textColor, 18%)
+  font:
+    weight: normal
+    size: 16px
+    family: 'Avenir Next LT Pro', 'Open Sans', sans-serif
 
 ul, nav
   list-style: none
@@ -53,14 +50,30 @@ em
   font-family: cursive
 
 .link
-  font-weight: 600
-  line-height: 20px
+  line-height: 1.4
   &--external
+    display: block
     color: $secondaryDark
     text-decoration: underline
     transition: border
-    display: block
-
+    font-weight: 600
+  
+  &--primary
+    color: $secondary
+    &:hover
+      color: $secondaryLight
+    &:not(:last-of-type)::after
+      display: block
+      content: ''
+      position: absolute
+      margin: auto 16px
+      top: 50%
+      left: 100%
+      transform: translateY(-50%)
+      width: 16px
+      height: 2px
+      background-color: $secondary
+      
 .toTop
   position: fixed
   font-size: xx-large

@@ -2,18 +2,21 @@
 @import "../base/colors"
 @import "../base/media"
 @import "../base/variables"
+@import "../base/mixins"
+
+$spacing: 10px
+$height: 28px
+$width: 36px
+$burger_buns: ('top', 'mid', 'bot')
+$bun-height: ( length($burger_buns)*$spacing - $height ) * 2
 
 .burger
-  $spacing: 10px
-  $height: 28px
-  $width: 36px
-  $burger_buns: ('top', 'mid', 'bot')
+  display: none
   position: relative
   padding: 1.5*$spacing $spacing
   height: $height + 3*$spacing
   width: $width + 2*$spacing
   cursor: pointer
-  display: none
   transform: scale(1)
   transition: ease 0.001s
   z-index: 1000
@@ -29,11 +32,11 @@
     width: $width
 
   &__bun
-    height: ( 3*$spacing - $height ) *2
-    border-radius: 2px
-    position: absolute
     display: block
+    position: absolute
+    height: $bun-height
     width: $width
+    border-radius: 2px
 
   @each $burger_bun in $burger_buns
     $i: index($burger_buns, $burger_bun) - 1
@@ -41,10 +44,10 @@
       top: $i * $spacing
   .bun--top
     background-color: $primaryDark
-    transform-origin: 34px 2px
+    transform-origin: ($width - $bun-height) 2px
   .bun--bot
     background-color: $primaryLight
-    transform-origin: 34px 2px
+    transform-origin: ($width - $bun-height) 2px
   .bun--mid
     background-color: $primary
 
@@ -70,89 +73,63 @@
       animation: burger-fill-in 0.6s linear normal
       animation-fill-mode: forwards
 
-keyframes(bun-top-out)
++keyframes(bun-top-out)
   0%
-    left: 0
-    top: 0
     transform: rotate(0deg)
   20%
-    left: 0
-    top: 0
     transform: rotate(15deg)
   80%
-    left: -5px
-    top: 0
     transform: rotate(-60deg)
   100%
-    left: -5px
-    top: 1px
     transform: rotate(-45deg)
 
-keyframes(bun-top-in)
++keyframes(bun-top-in)
   0%
-    left: -5px
-    bottom: 0
     transform: rotate(-45deg)
   20%
-    left: -5px
-    bottom: 0
     transform: rotate(-60deg)
   80%
-    left: 0
-    bottom: 0
     transform: rotate(15deg)
   100%
-    left: 0
-    bottom: 1px
     transform: rotate(0deg)
 
-keyframes(bun-bot-out)
++keyframes(bun-bot-out)
   0%
-    left: 0
     transform: rotate(0deg)
   20%
-    left: 0
     transform: rotate(-15deg)
   80%
-    left: -5px
     transform: rotate(60deg)
   100%
-    left: -5px
     transform: rotate(45deg)
 
-keyframes(bun-bot-in)
++keyframes(bun-bot-in)
   0%
-    left: -5px
     transform: rotate(45deg)
   20%
-    left: -5px
-    bottom: 0
     transform: rotate(60deg)
   80%
-    left: 0
-    bottom: 0
     transform: rotate(-15deg)
   100%
-    left: 0
     transform: rotate(0deg)
 
-keyframes(burger-fill-in)
++keyframes(burger-fill-in)
   0%
     width: 0
-    left: 36px
+    left: ($width - $bun-height)
   40%
     width: 0
     left: 40px
   80%
-    width: 36px
+    width: ($width - $bun-height)
     left: -6px
   100%
-    width: 36px
+    width: ($width - $bun-height)
     left: 0
 
-keyframes(burger-fill-out)
++keyframes(burger-fill-out)
   0%
-    width: 36px
+    width: ($width - $bun-height)
     left: 0
   20%
     width: 42px
@@ -162,4 +139,4 @@ keyframes(burger-fill-out)
     left: 40px
   100%
     width: 0
-    left: 36px
+    left: ($width - $bun-height)

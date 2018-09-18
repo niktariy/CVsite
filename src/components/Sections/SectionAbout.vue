@@ -117,18 +117,20 @@ export default {
 
 .about
   background-color: hsla(249, 47%, 98%, 1)
+
   &__subtitle
     font-weight: 800
     text-align: center
 
   &__experience-container
+    margin: 0 auto
     max-width: 80%
     width: 100%
-    margin: 0 auto
     text-indent: 16px
+
   &__experience-item
-    font-size: $font--17-22
     margin-bottom: 6px
+    font-size: $font--17-22
     text-align: left
     font-style: italic
 
@@ -152,8 +154,8 @@ export default {
   &__skill
     display: flex
     +xs-only
-      flex-direction: column
       align-items: center
+      flex-direction: column
     & figure
       min-width: $skill__icon-size
       max-width: $skill__icon-size
@@ -163,15 +165,15 @@ export default {
         min-width: 104px
         max-width: 104px
       & img
-        width: 100%
         height: auto
+        width: 100%
         object-fit: contain
 
     & i
-      color: $primary
-      font-size: 90px
       height: 90px
       width: 90px
+      color: $primary
+      font-size: 90px
     & h4
       margin: 0 0 8px
       line-height: 1.25
@@ -181,9 +183,9 @@ export default {
       +xs-only
         max-width: 350px
     & p
-      font-size: $font--16-20
       position: relative
       margin: 0
+      font-size: $font--16-20
 
     @media (max-width: 1000px)
       &:last-child
