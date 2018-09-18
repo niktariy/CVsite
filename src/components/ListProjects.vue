@@ -95,16 +95,16 @@ export default {
 
   &__link
     display: flex
-    flex-direction: column
     align-items: center
+    flex-direction: column
     justify-content: space-between
     position: relative
     height: 100%
+    background-color: rgba($White, .72)
+    border-radius: 3px
     opacity: 1
     will-change: background-color, box-shadow
     transition: box-shadow 0.24s $v--ease-in
-    border-radius: 3px
-    background-color: rgba($white, .72)
     &:hover, &:focus
       box-shadow: 0 8px 24px 0 rgba($secondaryDark, 0.16)
     +xs-only
@@ -116,13 +116,13 @@ export default {
     +xs-only
       max-height: 400px
   &__img
-    object-fit: contain
-    object-position: top
     height: auto
     width: 100%
+    object-fit: contain
+    object-position: top
   &__title
-    text-align: center
     margin-bottom: 8px
+    text-align: center
   &__date
     margin-bottom: 12px
 

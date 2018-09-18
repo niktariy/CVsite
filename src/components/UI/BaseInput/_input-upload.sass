@@ -14,14 +14,14 @@
 
   &__wrapper
     padding: 16px
-    border: 2px dashed $white
+    border: 2px dashed $input-upload__border-color
     &:hover
       box-shadow: 0 0 2px 0 $input-upload__shadow-color
 
   &__label
     padding: 0 1em 0.4em
     width: 100%
-    color: $secondary
+    color: $input-upload__label-color
     font-size: 1em
     font-weight: 400
     +md-up
@@ -35,7 +35,7 @@
       flex-direction: column
 
   &__button
-    background-color: $white
+    background-color: $input-upload__button-bg-color
     +xs-only
       margin-bottom: 16px
 
@@ -58,7 +58,7 @@
   transition: box-shadow .28s ease
 
   &:hover
-    box-shadow: 0 0 4px 0 rgba($whitesmoky, .4)
+    box-shadow: 0 0 4px 0 rgba($uploaded-file__box-shadow-color, .4)
 
   &__name
     font-size: 12px
@@ -83,5 +83,5 @@
     text-align: center
     cursor: pointer
     &:hover
-      background-color: $secondaryLight
-      color: $white
+      background-color: $uploaded-file__remove-bg-color
+      color: $uploaded-file__remove-color

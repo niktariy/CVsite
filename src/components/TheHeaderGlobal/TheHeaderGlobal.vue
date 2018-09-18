@@ -15,7 +15,7 @@
           />
         </router-link>
         <div class="section section--tab">
-          <div class="burger" @click="toggleMobileMenu()" :class="menuOpened ? 'is-opened' : ''">
+          <div class="burger" @click="toggle_menu">
             <div class="burger__buns">
               <span class=" burger__bun bun bun--top"></span>
               <span class=" burger__bun bun bun--mid"></span>
@@ -30,6 +30,7 @@
                  v-for="item in items"
                  :to="item.linkTo"
                  :key="item.id"
+                 @click="_route($event, item.linkTo)"
               >
                 {{ item.name }}
               </router-link>
@@ -44,10 +45,12 @@
 
 <script>
   import FixedHeader from 'vue-fixed-header'
+  import toggle_sidebar from "@/mixins/toggle_sidebar";
 
   export default {
     name: 'l-header',
     props: ['className'],
+    mixins: [toggle_sidebar],
     components: {
       FixedHeader
     },
@@ -73,11 +76,7 @@
             linkTo: '/contacts'
           },
         ],
-        menuOpened: false,
       }
-    },
-    created() {
-      this.menuOpened = false;
     },
     computed: {
       getItems(){
@@ -87,22 +86,13 @@
         return this.items.length;
       },
     },
-
     methods: {
-      toggleMobileMenu() {
-        let tabListClasses = document.getElementById('header-nav').classList;
-        if (!this.menuOpened) {
-          document.documentElement.style.overflow = 'hidden';
-          tabListClasses.remove('slideOutRight');
-          tabListClasses.add('animated', 'slideInRight');
-          return this.menuOpened = true;
-        }
-        document.documentElement.style.overflow = 'auto';
-        tabListClasses.remove('slideInRight');
-        tabListClasses.add('slideOutRight');
-        return this.menuOpened = false;
-      },
-    },
+      _route(e, route) {
+        e.preventDefault();
+        this.toggle_menu();
+        this.$router.push({path: route});
+      }
+    }
   }
 </script>
 

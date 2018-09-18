@@ -46,7 +46,7 @@
   .component--#{$status}
     .btn--raised, .fab--raised
       background-color: map_get($color, 'dark')
-      color: $white
+      color: $White
       &:hover
         box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
       &:focus
@@ -68,7 +68,7 @@
         box-shadow: 0 0 0 0 transparent
 
     button:disabled
-      $disabled-btn: mix(map_get($color, 'dark'), $whitesmoky, 10%)
+      $disabled-btn: mix(map_get($color, 'dark'), $WhiteSmoke, 10%)
       background: desaturate($disabled-btn, 55%) !important
       user-select: none
       pointer-events: none

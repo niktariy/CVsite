@@ -68,7 +68,7 @@
   position: relative
   padding-bottom: 48px
   padding-top: 4vw
-  background: $sectionBgColor
+  background: $section_bgColor
   text-align: center
   overflow-x: hidden
   z-index: 202!important

@@ -140,7 +140,7 @@ export default {
     margin-top: ($sideSpacing * 2)
     margin-left: ($sideSpacing * -1)
     margin-right: ($sideSpacing * -1)
-    background: $white
+    background: $White
     box-shadow: 0 10px 24px 0 rgba($primaryDark, .2)
     +sm-up
       $sideSpacing: 24px

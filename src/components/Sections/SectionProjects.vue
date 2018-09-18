@@ -75,7 +75,7 @@ export default {
 .projects
   min-height: 100vh
   overflow: hidden
-  background-color: $sectionBgColor
+  background-color: $section_bgColor
   &__view-more
     margin-top: 32px
     text-align: center

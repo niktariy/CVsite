@@ -3,49 +3,59 @@ $primary:         hsla(212, 48%, 64%, 1);
 $primaryDark:     hsla(212, 48%, 32%, 1);
 
 $secondaryLight:  hsla(330, 48%, 64%, 1);
-$secondary:       hsla(330, 40%, 40%, 1);
+$secondary:       hsla(330, 44%, 40%, 1);
 $secondaryDark:   hsla(330, 56%, 24%, 1);
-// $secondaryLight:  #de7b9e;
-// $secondary:       #aa4c70;
-// $secondaryDark:   #781c45;
+//$Hopbush:   #CF77A3;
+//$VinRouge:  #aa4c70;
+//$WineBerry: #5F1B3D;
 
 $primary-colors: (
-        base:    $primary,
-        light:   $primaryLight,
-        dark:    $primaryDark
+  base:  $primary,
+  light: $primaryLight,
+  dark:  $primaryDark
 );
 $secondary-colors: (
-        base:    $secondary,
-        light:   $secondaryLight,
-        dark:    $secondaryDark
+  base:  $secondary,
+  light: $secondaryLight,
+  dark:  $secondaryDark
 );
 
 $components: (primary, secondary);
 
 $component-colors: (
-        primary: $primary-colors,
-        secondary: $secondary-colors
+  primary:   $primary-colors,
+  secondary: $secondary-colors
 );
 
-$gradientLight: hsla(212, 42%, 78%, 1);
+$MineShaft:     #303030 !global;
+$DoveGray:      #696969;
+$Gainsboro:     #DCDCDC;
+$WhiteSmoke:    #F5F5F5;
+$White:         #FFFFFF;
+
+// theme colors
+$section_bgColor:              hsl(250, 43%, 97%);
+$header_bgColor:               hsl(212, 52%, 96%);
+$footer_bgColor:               hsl(302, 32%, 18%);
+$additional-element_bgColor:   $WhiteSmoke;
 
 $linksLight:    $primaryLight;
 $links:         $primary;
 $linksDark:     $primaryDark;
 
-$darkColor: #303030;
-$greyDark: #616161;
-$whitesmoky:  hsl(0, 0%, 97%);
-$white:       rgba(255, 255, 255, 1);
+$gradient--light: hsla(212, 42%, 78%, 1);
 
-$sectionBgColor:            hsl(250, 43%, 97%);
-$headerColor:               hsl(212, 52%, 96%);
-$additionalElement_bgColor: $whitesmoky;
 
 //typography
-$headingsColor: $darkColor !global;
-$textColor:   $greyDark !global;
+$headingsColor: $MineShaft !global;
+$textColor:   $DoveGray !global;
 
 //inputs
 
 $input-upload__shadow-color: rgba($primaryDark, .18);
+$input-upload__button-bg-color: $White;
+$input-upload__border-color: $White;
+$input-upload__label-color: $secondary;
+$uploaded-file__box-shadow-color: $WhiteSmoke;
+$uploaded-file__remove-color: $White;
+$uploaded-file__remove-bg-color: $secondaryLight

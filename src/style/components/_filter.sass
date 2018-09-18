@@ -1,13 +1,13 @@
 //filter item
-$filter__text: adjust_color($headingsColor, $alpha: -0.2)
-$filter_hover__text: $headingsColor
-$filter_selected__text: $white
+$filter_text-color: adjust_color($headingsColor, $alpha: -0.2)
+$filter--hover_text-color: $headingsColor
+$filter--selected_text-color: $White
 
-$filter__bg: $white
-$filter_selected__bg: mix($secondaryLight, $textColor, 80%)
+$filter_bg-color: $White
+$filter--selected_bg-color: mix($secondaryLight, $textColor, 80%)
 
-$filter__interactive-shadow: 0 2px 10px 0 rgba($darkColor, 0.32)
-$filter_selected__interactive-shadow: 0 2px 8px 0 rgba($darkColor, 0.18)
+$filter_interactive-shadow: 0 2px 10px 0 rgba($MineShaft, 0.32)
+$filter--selected_interactive-shadow: 0 2px 8px 0 rgba($MineShaft, 0.18)
 
 .filter
   $spacing: 4px
@@ -40,28 +40,28 @@ $filter_selected__interactive-shadow: 0 2px 8px 0 rgba($darkColor, 0.18)
     display: block
     margin: $spacing
     padding: $spacing ($spacing * 2)
-    background-color: $filter__bg
+    background-color: $filter_bg-color
     border-radius: 2px
     font-size: 14px
     cursor: pointer
-    color: $filter__text
+    color: $filter_text-color
     will-change: background-color, color, box-shadow
     transition-property: background-color, color, box-shadow
     transition-timing-function: $v--standard-easing
     transition-duration: .18s
 
     &:hover, &:focus
-      box-shadow: $filter__interactive-shadow
-      color: $filter_hover__text
+      box-shadow: $filter_interactive-shadow
+      color: $filter--hover_text-color
 
     &--selected
-      background-color: $filter_selected__bg
-      box-shadow: $filter_selected__interactive-shadow
-      color: $filter_selected__text
+      background-color: $filter--selected_bg-color
+      box-shadow: $filter--selected_interactive-shadow
+      color: $filter--selected_text-color
       &:hover
         background-color: $secondaryLight
-        box-shadow: $filter_selected__interactive-shadow
-        color: $filter_selected__text
+        box-shadow: $filter--selected_interactive-shadow
+        color: $filter--selected_text-color
 
     input[type="checkbox"]
       display: none
