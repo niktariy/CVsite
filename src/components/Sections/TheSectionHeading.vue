@@ -31,7 +31,7 @@ export default {
 
   &__title
     margin-bottom: 16px
-    color: darken($textColor, 18%)
+    color: darken($text-color--regular, 18%)
     text-transform: capitalize
     text-shadow: 2px 1px 7px #fff
 

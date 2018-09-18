@@ -2,12 +2,9 @@ $primaryLight:    hsla(212, 48%, 80%, 1);
 $primary:         hsla(212, 48%, 64%, 1);
 $primaryDark:     hsla(212, 48%, 32%, 1);
 
-$secondaryLight:  hsla(330, 48%, 64%, 1);
-$secondary:       hsla(330, 44%, 40%, 1);
-$secondaryDark:   hsla(330, 56%, 24%, 1);
-//$Hopbush:   #CF77A3;
-//$VinRouge:  #aa4c70;
-//$WineBerry: #5F1B3D;
+$secondaryLight:  hsla(330, 48%, 64%, 1); //$Hopbush
+$secondary:       hsla(330, 44%, 40%, 1); //$VinRouge
+$secondaryDark:   hsla(330, 56%, 24%, 1); //$WineBerry
 
 $primary-colors: (
   base:  $primary,
@@ -28,29 +25,35 @@ $component-colors: (
 );
 
 $MineShaft:     #303030 !global;
-$DoveGray:      #696969;
-$Gainsboro:     #DCDCDC;
-$WhiteSmoke:    #F5F5F5;
-$White:         #FFFFFF;
+$DoveGray:      #696969 !global;
+$Gainsboro:     #DCDCDC !global;
+$WhiteSmoke:    #F5F5F5 !global;
+$White:         #FFFFFF !global;
 
 // theme colors
-$section_bgColor:              hsl(250, 43%, 97%);
-$header_bgColor:               hsl(212, 52%, 96%);
-$footer_bgColor:               hsl(302, 32%, 18%);
+$outline-color: $primaryLight;
+
+$section_bg-color:              hsl(250, 43%, 97%);
+$header_bg-color:               hsl(250, 43%, 97%);
+$footer_bg-color:               hsl(330, 6%, 21%);
 $additional-element_bgColor:   $WhiteSmoke;
 
-$linksLight:    $primaryLight;
-$links:         $primary;
-$linksDark:     $primaryDark;
+$links-color--light:    $primaryLight;
+$links-color:           $primary;
+$links-color--dark:     $primaryDark;
 
 $gradient--light: hsla(212, 42%, 78%, 1);
 
-
 //typography
-$headingsColor: $MineShaft !global;
-$textColor:   $DoveGray !global;
+$headings-color:        $MineShaft !global;
+$text-color--regular:   $DoveGray !global;
+$text-color--accent:    $secondary !global;
 
 //inputs
+$input__text-color: $MineShaft;
+$input__placeholder-color: lighten($text-color--regular, 10%);
+$input__label-color: $secondary;
+$input--filled__label-color: $text-color--regular;
 
 $input-upload__shadow-color: rgba($primaryDark, .18);
 $input-upload__button-bg-color: $White;

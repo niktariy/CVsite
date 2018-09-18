@@ -40,3 +40,7 @@ $breakpoints: (xs: $extra_small, sm: $small, md: $medium, lg: $large, xl: $extra
 =breakpoint($point)
   @media screen and (min-width: $point)
     @content
+
+=breakpoint-max($point)
+  @media screen and (max-width: #{$point - 1})
+    @content

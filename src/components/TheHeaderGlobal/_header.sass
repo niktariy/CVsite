@@ -1,5 +1,7 @@
 @import "./src/style/base/colors"
 
+$tabs_brk: 868px
+
 .header
   &, &__wrapper
     display: flex
@@ -14,7 +16,7 @@
   position: fixed
   width: 100%
   will-change: transform, padding, background-color
-  background-color: $section_bgColor
+  background-color: $header_bg-color
   z-index: 999
   transform: translateY(0%)
   transition: all .28s ease-in

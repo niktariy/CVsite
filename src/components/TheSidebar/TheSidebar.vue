@@ -91,18 +91,29 @@ export default {
 <style lang="sass" scoped>
   @import "./src/style/base/colors"
   @import "./src/style/base/variables"
-  
+  @import "./src/style/base/media"
+
   .sidebar
     position: relative
+    +breakpoint-max($medium)
+      position: absolute
+      left: 0
+      right: 0
+      width: 100%
+      margin: 0 -6%
+      padding: 24px 6%
+      background: $WhiteSmoke
+      z-index: 333
 
     &__heading
       padding-left: $sidebar__padding_left
       margin-bottom: 12px
     &__container
-      position: fixed
       padding: 16px 0
       max-width: 220px
-      border-right: 2px solid rgba($primaryLight, 0.24)
+      +md-up
+        position: fixed
+        border-right: 2px solid rgba($primaryLight, 0.24)
 
   .sidebar-nav
     margin-bottom: 24px

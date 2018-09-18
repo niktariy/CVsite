@@ -10,8 +10,8 @@ html
   min-width: 300px
 
 body
-  background-color: $section_bgColor
-  color: darken($textColor, 18%)
+  background-color: $section_bg-color
+  color: darken($text-color--regular, 18%)
   font:
     weight: normal
     size: 16px
@@ -29,7 +29,7 @@ a
 a, button
   cursor: pointer
   text-decoration: none
-  outline-color: $primaryLight
+  outline-color: $outline-color
   opacity: 0.9
   transition-property: color, box-shadow, background-color, opacity
   transition-duration: .28s
@@ -53,15 +53,15 @@ em
   line-height: 1.4
   &--external
     display: block
-    color: $secondaryDark
+    color: $links-color--dark
     text-decoration: underline
     transition: border
     font-weight: 600
   
   &--primary
-    color: $secondary
+    color: $links-color--dark
     &:hover
-      color: $secondaryLight
+      color: $links-color
     &:not(:last-of-type)::after
       display: block
       content: ''
@@ -69,21 +69,21 @@ em
       margin: auto 16px
       top: 50%
       left: 100%
-      transform: translateY(-50%)
-      width: 16px
       height: 2px
-      background-color: $secondary
-      
+      width: 16px
+      transform: translateY(-50%)
+      background-color: $links-color--dark
+
 .toTop
   position: fixed
   font-size: xx-large
-  color: $links
+  color: $links-color
   padding: 5px
   bottom: 20px
   right: 20px
   z-index: 998
   &:hover, &:focus, &:active
-    color: $secondary
+    color: $links-color--light
 
 svg
   max-width: 100%
@@ -110,12 +110,12 @@ input
 
 .focused input
   +placeholder
-    color: lighten($textColor, 10%)
+    color: $input__placeholder-color
     transition: color 0.18s $v--standard-easing 0.24s
 
 
 .header
-  $headerHeight: 94px
-  height: $headerHeight
+  $header_height: 94px
+  height: $header_height
   & + .main
-    padding-top: $headerHeight
+    padding-top: $header_height

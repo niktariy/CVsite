@@ -2,7 +2,7 @@
 @import "./src/style/base/media"
 
 %inputLabel--filled
-  color: $textColor
+  color: $input--filled__label-color
   font-size: 14px
   transform: translateY(-75%)
   +md-up
@@ -34,3 +34,6 @@
   &__field:focus + .c-input--fabian__label,
   &__field:not(:placeholder-shown) + .c-input--fabian__label
     @extend %inputLabel--filled
+  &.filled, &.focused
+    &::after
+      height: 2px

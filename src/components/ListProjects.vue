@@ -28,24 +28,6 @@ export default {
   data() {
     return {
       projects: [
-        { name: 'NikiFilm',
-          description: 'Photographer portfolio',
-          image: 'NikiFilm.png',
-          date: '2017-06-06T18:00:00.000Z',
-          link: ''
-        },
-        { name: 'Vendor Portal',
-          description: 'Vendor Portal description',
-          image: 'VendorPortal.png',
-          date: '2017-06-06T18:00:00.000Z',
-          link: ''
-        },
-        { name: 'TicketBird',
-          description: 'TicketBird description',
-          image: 'agentConcept.png',
-          date: '2017-06-06T18:00:00.000Z',
-          link: ''
-        },
         { name: 'Project X',
           description: 'Project X description',
           image: 'project_x.png',
@@ -69,6 +51,24 @@ export default {
           image: 'Schedule.png',
           date: '2017-06-06T18:00:00.000Z',
           link: 'projects/project/4'
+        },
+        { name: 'NikiFilm',
+          description: 'Photographer portfolio',
+          image: 'NikiFilm.png',
+          date: '2017-06-06T18:00:00.000Z',
+          link: ''
+        },
+        { name: 'Vendor Portal',
+          description: 'Vendor Portal description',
+          image: 'VendorPortal.png',
+          date: '2017-06-06T18:00:00.000Z',
+          link: ''
+        },
+        { name: 'TicketBird',
+          description: 'TicketBird description',
+          image: 'agentConcept.png',
+          date: '2017-06-06T18:00:00.000Z',
+          link: ''
         },
         // { name: 'Project Name',
         //   description: 'Project description',

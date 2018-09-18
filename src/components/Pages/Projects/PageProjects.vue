@@ -1,11 +1,11 @@
 <template>
   <main class="layout__main main grid__row">
-    <div class="col-xs-1"></div>
-    <header class="col-xs-11">
+    <div class="col-md-1"></div>
+    <header class="col-xs-12 col-md-11">
       <h2 class="section__title">{{ pageTitle }}</h2>
     </header>
-    <div class="col-xs-1"></div>
-    <section class="col-xs-11 section main__section">
+    <div class="col-md-1"></div>
+    <section class="col-xs-12 col-md-11 section main__section">
       <div class="grid__row">
         <div class="controls section__controls col-xs-12 col-sm-6"
              v-show="projectOpened">
