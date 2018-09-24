@@ -1,12 +1,9 @@
 // stripes colors
+@import "../base/colors"
+
 =stripesBG($color)
   background-attachment: fixed
   background-image: linear-gradient($color, mix($color,#fff,80) 20%, mix($color,#fff,60) 38%, mix($color,#fff,40) 48%, mix($color,#fff,20) 62%)
-
-$stripesColor: hsl(254, 37%, 86%)
-$firstStripe: hsl(254, 100%, 97%)
-$secondStripe: hsl(254, 100%, 40%)
-$fifthStripe: hsl(254, 64%, 97%)
 
 .stripes
   +stripesBG($stripesColor)

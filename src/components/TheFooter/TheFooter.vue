@@ -51,5 +51,64 @@
 </script>
 
 <style lang="sass" scoped>
-  @import "footer"
+  @import "./src/style/base/colors"
+  @import "./src/style/base/media"
+
+  .footer
+    margin-top: auto
+    width: 100%
+    background: rgba($footer_bg-color, 0.64) no-repeat
+    background-position: center 30%
+    background-size: cover
+    color: invert($footer_bg-color)
+    overflow: hidden
+    z-index: 1
+
+    &__container
+      display: flex
+      align-items: center
+      flex-direction: column
+      justify-content: center
+      padding: 3% 0
+      height: 100%
+      background-size: 100%
+
+      +breakpoint(560px)
+        flex-direction: row
+        justify-content: space-between
+        padding: 25px 0
+
+  .follow-list
+    display: flex
+    justify-content: space-around
+    margin: 0 -8px
+    width: 100%
+
+    +breakpoint(560px)
+      width: auto
+
+    &__item
+      margin: 10px 0
+      +breakpoint(560px)
+        margin: 0
+
+    &__link
+      display: block
+      padding: 8px
+      height: 48px
+      width: 48px
+
+      +breakpoint(560px)
+        height: 56px
+        width: 56px
+
+      &:hover img
+        transform: translateY(-2px)
+
+    &__icon
+      border-radius: 2px
+      height: auto
+      width: 100%
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1)
+
 </style>

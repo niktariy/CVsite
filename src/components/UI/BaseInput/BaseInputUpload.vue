@@ -15,7 +15,8 @@
             Upload files
             <input type="file" :id="uploadId" id="attachments"
                    name="file" multiple
-                   @change="onFileChange($event)"/>
+                   ref="attachments"
+                   @change="onFileChange"/>
           </button>
         </div>
         <div class="input-upload__additional">
@@ -51,9 +52,9 @@
 </template>
 
 <script>
+  import _ from 'lodash';
 
-  const MAX_IMAGES_COUNT = 3;
-  const MAX_IMAGE_SIZE = 5242880;
+  const MAX_FILE_SIZE = 5242880;
 
   export default {
     name: 'input-upload',
@@ -74,9 +75,6 @@
     data() {
       return {
         uploadId: "attachments",
-        model: {
-          attachments: [],
-        },
         Attachments: [],
       };
     },
@@ -89,28 +87,21 @@
         let files = event.target.files || event.dataTransfer.files;
 
         if (!files.length) return;
+        files = [...files];
+        files = _.remove(files, file => {
+          return file.size <= MAX_FILE_SIZE && !_.find(this.Attachments, {name: file.name});
+        });
 
-//        files = [...files];
-//        files = _.remove(files, file => {
-//          return file.size <= MAX_IMAGE_SIZE && !_.find(this.Attachments, {name: file.name});
-//        });
-//
-//        this.Attachments = _.concat(this.Attachments, files);
-//        if (this.Attachments.length > MAX_IMAGES_COUNT) {
-//          this.Attachments = _.slice(this.Attachments, 0, MAX_IMAGES_COUNT);
-//        }
-
-        for (let i = 0; i < files.length; i++) {
-          let element = files[i];
-          this.$set(this.Attachments, i, element);
-        }
+        this.Attachments = _.concat(this.Attachments, files);
       },
+
       ellipsis_string(string) {
         if (string.length < 12 + 3) {
           return string;
         }
         return string.substr(0, 6) + '...' + string.substr(string.length - 6, string.length);
       },
+
       set_attachment_icon(fileType) {
         let image_url;
         if (fileType.startsWith('image')) {
@@ -118,10 +109,11 @@
         }
         return image_url = '/img/input/file.svg';
       },
+
       remove_file(fileID) {
-//        this.Attachments = [...this.Attachments].filter(item => {
-//          return !(item.name === this.Attachments[fileID].name);
-//        });
+        this.Attachments = [...this.Attachments].filter(item => {
+          return !(item.name === this.Attachments[fileID].name);
+        });
       },
     },
   }

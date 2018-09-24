@@ -30,7 +30,6 @@
                  v-for="item in items"
                  :to="item.linkTo"
                  :key="item.id"
-                 @click="_route($event, item.linkTo)"
               >
                 {{ item.name }}
               </router-link>
@@ -46,6 +45,7 @@
 <script>
   import FixedHeader from 'vue-fixed-header'
   import toggle_sidebar from "@/mixins/toggle_sidebar";
+  import {EventBus} from "@/services/EventBus";
 
   export default {
     name: 'l-header',
@@ -85,14 +85,8 @@
       getItemsLength(){
         return this.items.length;
       },
+
     },
-    methods: {
-      _route(e, route) {
-        e.preventDefault();
-        this.toggle_menu();
-        this.$router.push({path: route});
-      }
-    }
   }
 </script>
 

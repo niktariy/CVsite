@@ -31,11 +31,18 @@ $WhiteSmoke:    #F5F5F5 !global;
 $White:         #FFFFFF !global;
 
 // theme colors
+
+$stripesColor: hsl(254, 37%, 86%);
+$firstStripe: hsl(254, 100%, 97%);
+$secondStripe: hsl(254, 100%, 40%);
+$fifthStripe: hsl(254, 64%, 97%);
+
+
 $outline-color: $primaryLight;
 
 $section_bg-color:              hsl(250, 43%, 97%);
 $header_bg-color:               hsl(250, 43%, 97%);
-$footer_bg-color:               hsl(330, 6%, 21%);
+$footer_bg-color:               #ffffff;
 $additional-element_bgColor:   $WhiteSmoke;
 
 $links-color--light:    $primaryLight;
