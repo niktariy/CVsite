@@ -7,11 +7,13 @@
 </template>
 
 <script>
+  import events from "@/events/index";
   import lHeader from './TheHeaderGlobal/TheHeaderGlobal';
   import lFooter from './TheFooter/TheFooter';
 
   export default {
     name: 'app',
+    mixins: [events],
     components: {
       lHeader,
       lFooter,

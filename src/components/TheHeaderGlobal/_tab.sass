@@ -1,23 +1,24 @@
 @import "./src/style/base/colors"
 @import "./src/style/base/variables"
 
-$tabs_brk: 868px
+$tabs-brk: 868px
+$tab-spacing: 16px
+$items-count: 4 !global
 
 .tab
 
   &__list
     display: flex
     flex-wrap: wrap
-    margin: 0
+    margin: 0 -#{$tab-spacing}
     padding: 0
     position: relative
     list-style: none
     opacity: 1 !important
     transform: scale3d(1, 1, 0) translate3d(1, 1, 0)
-    @media screen and (min-width: $tabs_brk)
+    @media screen and (min-width: $tabs-brk)
       animation: none !important
-    $linkItems: attr(data-count) !global
-
+  
   &__line
     position: absolute
     left: 0
@@ -41,7 +42,7 @@ $tabs_brk: 868px
 
   &__item
     display: block
-    padding: 16px
+    padding: $tab-spacing
     width: 130px
     cursor: pointer
     -webkit-touch-callout: none
@@ -65,9 +66,9 @@ $tabs_brk: 868px
       color: $links-color--dark
       transition: color .5s
 
-  @for $i from 0 to 4
-    .tab__item:nth-child(#{$i + 1}).current ~ .tab__line
-      transform: translate3d(#{$i * 100 * 1%}, 0, 0)
+    @for $i from 0 to $items-count
+      &:nth-child(#{$i + 1}).current ~ .tab__line
+        transform: translate3d(#{$i * 100 * 1%}, 0, 0)
 
   @media screen and (max-width: $tabs_brk)
 

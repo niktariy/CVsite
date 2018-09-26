@@ -8,14 +8,14 @@ import _ from 'lodash';
 Vue.config.productionTip = true;
 Vue.config.devtools = true;
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
+  next();
+});
+
 new Vue({
   router,
   store,
   el: '#app',
   render: h => h(App),
 }).$mount('#app');
-
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  next();
-});

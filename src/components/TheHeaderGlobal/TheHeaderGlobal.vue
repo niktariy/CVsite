@@ -15,15 +15,17 @@
           />
         </router-link>
         <div class="section section--tab">
-          <div class="burger" @click="toggle_menu" tabindex="0">
+          <button class="burger" @click="toggle_menu">
             <div class="burger__buns">
               <span class=" burger__bun bun bun--top"></span>
               <span class=" burger__bun bun bun--mid"></span>
               <span class=" burger__bun bun bun--bot"></span>
             </div>
-          </div>
+          </button>
           <nav class="tab">
-            <div class="tab__list" id="header-nav" :data-count="getItemsLength">
+            <div class="tab__list"
+                 id="header-nav"
+                 :data-count="getItemsLength">
               <router-link
                  class="tab__item"
                  v-for="item in items"
@@ -57,6 +59,7 @@
       return {
         isFixed: false,
         siteLogo: "/img/LetterV.svg",
+        linksCountVarCSS: '--items-count',
         items: [
           {
             name: 'About',
@@ -81,10 +84,10 @@
       getItems(){
         return this.items;
       },
+
       getItemsLength(){
         return this.items.length;
-      },
-
+      }
     },
   }
 </script>

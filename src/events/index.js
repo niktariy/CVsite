@@ -12,14 +12,12 @@ export default {
       let tab_list_classes = tab_list.classList;
       let burger = document.querySelectorAll('.burger')[0];
 
-      debugger
-
       if (!tab_list_classes.contains(TABS_CLASS_OPENED)) {
-        debugger
         document.documentElement.style.overflow = 'hidden';
         burger.classList.add(BURGER_CLASS_OPENED);
         tab_list_classes.remove(TABS_CLASS_CLOSED);
         tab_list_classes.add(ANIMATED_CLASS, TABS_CLASS_OPENED);
+        return
       }
 
       document.documentElement.style.overflow = 'auto';

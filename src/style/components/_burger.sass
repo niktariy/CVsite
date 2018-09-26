@@ -16,13 +16,18 @@ $bun-height: ( length($burger_buns)*$spacing - $height ) * 2
   padding: 1.5*$spacing $spacing
   height: $height + 3*$spacing
   width: $width + 2*$spacing
+  background-color: transparent
+  border: none
   cursor: pointer
   transform: scale(1)
   transition: ease 0.001s
   z-index: 1000
   -webkit-touch-callout: none
   user-select: none
-
+  
+  //&:active, &:focus
+  //  outline: none
+  
   @media (max-width: 868px)
     display: block
 
