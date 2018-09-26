@@ -8,7 +8,7 @@
         ></section-heading>
 
         <div style="padding: 16px;text-align: center;">
-          <h5>Fell free to get in touch with me at:</h5>
+          <h6>Fell free to get in touch with me at:</h6>
           <ul class="contact-links">
             <li class="contact-links__item link link--primary"
                 v-for="item in contactList"
@@ -76,17 +76,5 @@
       position: relative
       margin: 0 24px
       font-size: 24px
-
-      &:not(:last-of-type)::after
-        display: block
-        content: ''
-        position: absolute
-        top: 50%
-        left: 100%
-        margin: auto 16px
-        height: 2px
-        width: 16px
-        transform: translateY(-50%)
-        background-color: hsla(330, 40%, 40%, 1)
 
 </style>

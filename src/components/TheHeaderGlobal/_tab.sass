@@ -36,7 +36,7 @@ $tabs_brk: 868px
       margin: 0 auto
       height: 3px
       width: 100%
-      background: $links
+      background: $links-color
       border-radius: 2px
 
   &__item
@@ -48,7 +48,7 @@ $tabs_brk: 868px
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
     vertical-align: middle
     text-align: center
-    color: $textColor
+    color: $text-color--regular
     font:
       size: 18px
       weight: 600
@@ -56,14 +56,13 @@ $tabs_brk: 868px
     transition: color 0.18s $v--standard-easing
     user-select: none
     &:hover, &:focus
-      color: $links
-      outline: none
+      color: $links-color
     @media screen and (max-width: 500px)
       font-size: 18px
     @media screen and (max-height: 500px) and (max-width: 500px)
       font-size: 14px
     &.current
-      color: $linksDark
+      color: $links-color--dark
       transition: color .5s
 
   @for $i from 0 to 4

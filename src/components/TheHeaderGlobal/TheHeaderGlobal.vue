@@ -15,7 +15,7 @@
           />
         </router-link>
         <div class="section section--tab">
-          <div class="burger" @click="toggleMobileMenu()" :class="menuOpened ? 'is-opened' : ''">
+          <div class="burger" @click="toggle_menu" tabindex="0">
             <div class="burger__buns">
               <span class=" burger__bun bun bun--top"></span>
               <span class=" burger__bun bun bun--mid"></span>
@@ -23,9 +23,8 @@
             </div>
           </div>
           <nav class="tab">
-            <ul class="tab__list" id="header-nav" :data-count="getItemsLength">
+            <div class="tab__list" id="header-nav" :data-count="getItemsLength">
               <router-link
-                 tag="li"
                  class="tab__item"
                  v-for="item in items"
                  :to="item.linkTo"
@@ -33,8 +32,8 @@
               >
                 {{ item.name }}
               </router-link>
-              <li class="tab__line"><span></span></li>
-            </ul>
+              <span class="tab__line"><span></span></span>
+            </div>
           </nav>
         </div>
       </div>
@@ -44,10 +43,13 @@
 
 <script>
   import FixedHeader from 'vue-fixed-header'
+  import toggle_sidebar from "@/mixins/toggle_sidebar";
+  import {EventBus} from "@/services/EventBus";
 
   export default {
     name: 'l-header',
     props: ['className'],
+    mixins: [toggle_sidebar],
     components: {
       FixedHeader
     },
@@ -73,11 +75,7 @@
             linkTo: '/contacts'
           },
         ],
-        menuOpened: false,
       }
-    },
-    created() {
-      this.menuOpened = false;
     },
     computed: {
       getItems(){
@@ -86,22 +84,7 @@
       getItemsLength(){
         return this.items.length;
       },
-    },
 
-    methods: {
-      toggleMobileMenu() {
-        let tabListClasses = document.getElementById('header-nav').classList;
-        if (!this.menuOpened) {
-          document.documentElement.style.overflow = 'hidden';
-          tabListClasses.remove('slideOutRight');
-          tabListClasses.add('animated', 'slideInRight');
-          return this.menuOpened = true;
-        }
-        document.documentElement.style.overflow = 'auto';
-        tabListClasses.remove('slideInRight');
-        tabListClasses.add('slideOutRight');
-        return this.menuOpened = false;
-      },
     },
   }
 </script>

@@ -62,7 +62,7 @@ export default {
         {question: 'What skills do you think are most important for someone trying to break into this space',
          answer: 'The most important skills are: problem solving and analytical scills, a passion for UI & UX, and stay calm under pressure. That\'s why I really like what I’m doing.'},
         {question: 'What is the best part about working in this field',
-         answer: 'Also I have an account where I’m share my ideas and development tips with those who are interested.'},
+         answer: 'For me, the best part of this filed is that all you do is depend on your skills and knowledge, without any probability or luck. Also, there are so many communities where you can find help in this field, and you can share ideas with those who are interested.'},
         // {question: '',
         //  answer: ''},
       ],
@@ -116,7 +116,6 @@ export default {
 @import "./src/style/base/variables"
 
 .about
-  background-color: hsla(249, 47%, 98%, 1)
 
   &__subtitle
     font-weight: 800
@@ -140,7 +139,7 @@ export default {
     margin-top: ($sideSpacing * 2)
     margin-left: ($sideSpacing * -1)
     margin-right: ($sideSpacing * -1)
-    background: $white
+    background: $White
     box-shadow: 0 10px 24px 0 rgba($primaryDark, .2)
     +sm-up
       $sideSpacing: 24px

@@ -52,14 +52,14 @@
 
 <script>
 
-  import baseInput from '@/components/UI/BaseInput/BaseInput';
-  import baseInputUpload from '@/components/UI/BaseInput/BaseInputUpload';
+  import BaseInput from '@/components/UI/BaseInput/BaseInput';
+  import BaseInputUpload from '@/components/UI/BaseInput/BaseInputUpload';
 
   export default {
     name: 'contact-form',
     components: {
-      baseInput,
-      baseInputUpload,
+      BaseInput,
+      BaseInputUpload,
     },
     data() {
       return {

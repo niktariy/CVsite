@@ -1,108 +1,96 @@
 <template>
   <aside class="sidebar" :class="className">
     <div class="sidebar__container">
-      <h5 class="sidebar__heading">Projects</h5>
-      <nav class="sidebar-nav sidebar__nav">
-        <ul class="sidebar-nav__list">
-          <li
-            class="sidebar-nav__item"
-            v-for="(project, index) in projects"
-            :key="index"
-          >
-            <router-link :to="'/projects/project:'+index"
-              class="sidebar-nav__link"
+      <div class="sidebar__list">
+        <h5 :class="headingClass">Projects</h5>
+        <nav class="sidebar-nav sidebar__nav sidebar__dropdown">
+          <ul class="sidebar-nav__list">
+            <li
+               class="sidebar-nav__item"
+               v-for="(project, index) in all_projects"
+               :key="index"
             >
-              {{ project.name }}
-            </router-link>
-          </li>
-        </ul>
-      </nav>
-      <form class="sidebar__filter filter">
-        <div class="filter__headline">
-          <h6 class="sidebar__heading">Filters
-            <span
-              class="filter__count"
-              v-show="selectedFilter.length !== 0"
-            >
-              ({{ selectedFilter.length }})
-            </span>
-          </h6>
-          <button
-            class="filter__clear"
-            v-show="selectedFilter.length !== 0"
-            type="reset"
-          >
-            clear all
-          </button>
-        </div>
-
-        <div class="filter__list">
-          <label
-            class="filter__item"
-            v-for="item in filterItems"
-            :for="item.value"
-            :class="[item.isSelected ? selectedClass : '']"
-            :key="item.id"
-          >
-            <input
-              type="checkbox"
-              :id="item.value"
-              :value="item.value"
-              v-model="selectedFilter"
-              @change="item.isSelected = !item.isSelected"
-            >
-            {{ item.value }}
-          </label>
-        </div>
-      </form>
+              <router-link :to="'/projects/project:'+index"
+                           class="sidebar-nav__link"
+              >
+                {{ project.name }}
+              </router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <projects-filter
+         :className="filterClass"
+         :headingClass="headingClass"
+         :listClassName="dropdownClass"
+      ></projects-filter>
     </div>
 
   </aside>
 </template>
+
 <script>
-export default {
-  name: 'l-sidebar',
-  props: ['className'],
-  data() {
-    return {
-      selectedFilter: [],
-      selectedClass: 'filter__item--selected',
-      projects: [
-        { name: 'NikiFilm' },
-        { name: 'Vendor Portal' },
-        { name: 'TicketBird' },
-        { name: 'Project X' },
-        { name: 'Lessons Dashboard' },
-        { name: 'Terhi Lesson' },
-        { name: 'Schedule' },
-      ],
-      filterItems: [
-        { value: 'design', isSelected: false },
-        { value: 'development', isSelected: false },
-        { value: 'portfolio', isSelected: false },
-        { value: 'widjet', isSelected: false },
-        { value: 'chat', isSelected: false },
-        { value: 'landing', isSelected: false },
-      ],
+  import ProjectsFilter from "@/components/UI/ProjectsFilter";
+
+  export default {
+    components: {
+      ProjectsFilter
+    },
+    name: 'l-sidebar',
+    props: ['className'],
+    data() {
+      return {
+        headingClass: 'sidebar__heading',
+        filterClass: 'sidebar__filter',
+        dropdownClass: 'sidebar__dropdown',
+      }
+    },
+    computed: {
+      all_projects() {
+        return this.$store.getters.load_projects;
+      }
     }
-  },
-}
+  }
 </script>
-<style lang="sass" scoped>
+
+<style lang="sass" >
   @import "./src/style/base/colors"
   @import "./src/style/base/variables"
-  
+  @import "./src/style/base/media"
+
   .sidebar
     position: relative
+    padding: 24px 6%
+    +breakpoint-max($medium)
+      position: absolute
+      top: 32px
+      right: 0
+      padding: 0
+      z-index: 333
+      &__list
+        display: none
 
     &__heading
+      display: flex
+      align-items: center
       padding-left: $sidebar__padding_left
-      margin-bottom: 12px
+      height: 100%
+
     &__container
-      position: fixed
-      padding: 16px 0
-      max-width: 220px
-      border-right: 2px solid rgba($primaryLight, 0.24)
+      display: flex
+      +md-up
+        flex-direction: column
+        position: fixed
+        padding: 16px 0
+        max-width: 220px
+        border-right: 2px solid rgba($primaryLight, 0.24)
+      & > *
+        flex: 1
+
+    &__dropdown
+      margin-top: 12px
+      +breakpoint-max($medium)
+        display: none
 
   .sidebar-nav
     margin-bottom: 24px

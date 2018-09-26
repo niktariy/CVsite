@@ -2,50 +2,70 @@ $primaryLight:    hsla(212, 48%, 80%, 1);
 $primary:         hsla(212, 48%, 64%, 1);
 $primaryDark:     hsla(212, 48%, 32%, 1);
 
-$secondaryLight:  hsla(330, 48%, 64%, 1);
-$secondary:       hsla(330, 40%, 40%, 1);
-$secondaryDark:   hsla(330, 56%, 24%, 1);
-// $secondaryLight:  #de7b9e;
-// $secondary:       #aa4c70;
-// $secondaryDark:   #781c45;
+$secondaryLight:  hsla(330, 48%, 64%, 1); //$Hopbush
+$secondary:       hsla(330, 44%, 40%, 1); //$VinRouge
+$secondaryDark:   hsla(330, 56%, 24%, 1); //$WineBerry
 
 $primary-colors: (
-        base:    $primary,
-        light:   $primaryLight,
-        dark:    $primaryDark
+  base:  $primary,
+  light: $primaryLight,
+  dark:  $primaryDark
 );
 $secondary-colors: (
-        base:    $secondary,
-        light:   $secondaryLight,
-        dark:    $secondaryDark
+  base:  $secondary,
+  light: $secondaryLight,
+  dark:  $secondaryDark
 );
 
 $components: (primary, secondary);
 
 $component-colors: (
-        primary: $primary-colors,
-        secondary: $secondary-colors
+  primary:   $primary-colors,
+  secondary: $secondary-colors
 );
 
-$gradientLight: hsla(212, 42%, 78%, 1);
+$MineShaft:     #303030 !global;
+$DoveGray:      #696969 !global;
+$Gainsboro:     #DCDCDC !global;
+$WhiteSmoke:    #F5F5F5 !global;
+$White:         #FFFFFF !global;
 
-$linksLight:    $primaryLight;
-$links:         $primary;
-$linksDark:     $primaryDark;
+// theme colors
 
-$darkColor: #303030;
-$greyDark: #616161;
-$whitesmoky:  hsl(0, 0%, 97%);
-$white:       rgba(255, 255, 255, 1);
+$stripesColor: hsl(254, 37%, 86%);
+$firstStripe: hsl(254, 100%, 97%);
+$secondStripe: hsl(254, 100%, 40%);
+$fifthStripe: hsl(254, 64%, 97%);
 
-$sectionBgColor:            hsl(250, 43%, 97%);
-$headerColor:               hsl(212, 52%, 96%);
-$additionalElement_bgColor: $whitesmoky;
+
+$outline-color: $primary;
+
+$section_bg-color:              hsl(250, 43%, 97%);
+$header_bg-color:               hsl(250, 43%, 97%);
+$footer_bg-color:               #ffffff;
+$additional-element_bgColor:   $WhiteSmoke;
+
+$links-color--light:    $primaryLight;
+$links-color:           $primary;
+$links-color--dark:     $primaryDark;
+
+$gradient--light: hsla(212, 42%, 78%, 1);
 
 //typography
-$headingsColor: $darkColor !global;
-$textColor:   $greyDark !global;
+$headings-color:        $MineShaft !global;
+$text-color--regular:   $DoveGray !global;
+$text-color--accent:    $secondary !global;
 
 //inputs
+$input__text-color: $MineShaft;
+$input__placeholder-color: lighten($text-color--regular, 10%);
+$input__label-color: $secondary;
+$input--filled__label-color: $text-color--regular;
 
 $input-upload__shadow-color: rgba($primaryDark, .18);
+$input-upload__button-bg-color: $White;
+$input-upload__border-color: $White;
+$input-upload__label-color: $secondary;
+$uploaded-file__box-shadow-color: $WhiteSmoke;
+$uploaded-file__remove-color: $White;
+$uploaded-file__remove-bg-color: $secondaryLight

@@ -17,7 +17,7 @@
 <script>
 
   import sectionHeading from '@/components/Sections/TheSectionHeading';
-  import FormContact from '@/components/FormContact';
+  import FormContact from '@/components/UI/Form/FormContact';
 
   export default {
     name: 'section-contacts',
