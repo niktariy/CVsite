@@ -7,7 +7,7 @@
           <ul class="sidebar-nav__list">
             <li
                class="sidebar-nav__item"
-               v-for="(project, index) in projects"
+               v-for="(project, index) in all_projects"
                :key="index"
             >
               <router-link :to="'/projects/project:'+index"
@@ -20,9 +20,9 @@
         </nav>
       </div>
       <projects-filter
-         className="sidebar__filter"
+         :className="filterClass"
          :headingClass="headingClass"
-         listClassName="sidebar__dropdown"
+         :listClassName="dropdownClass"
       ></projects-filter>
     </div>
 
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import ProjectsFilter from "../UI/Filter/ProjectsFilter";
+  import ProjectsFilter from "@/components/UI/ProjectsFilter";
 
   export default {
     components: {
@@ -41,17 +41,15 @@
     data() {
       return {
         headingClass: 'sidebar__heading',
-        projects: [
-          {name: 'NikiFilm'},
-          {name: 'Vendor Portal'},
-          {name: 'TicketBird'},
-          {name: 'Project X'},
-          {name: 'Lessons Dashboard'},
-          {name: 'Terhi Lesson'},
-          {name: 'Schedule'},
-        ],
+        filterClass: 'sidebar__filter',
+        dropdownClass: 'sidebar__dropdown',
       }
     },
+    computed: {
+      all_projects() {
+        return this.$store.getters.load_projects;
+      }
+    }
   }
 </script>
 

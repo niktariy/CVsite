@@ -15,7 +15,7 @@
           />
         </router-link>
         <div class="section section--tab">
-          <div class="burger" @click="toggle_menu">
+          <div class="burger" @click="toggle_menu" tabindex="0">
             <div class="burger__buns">
               <span class=" burger__bun bun bun--top"></span>
               <span class=" burger__bun bun bun--mid"></span>
@@ -23,9 +23,8 @@
             </div>
           </div>
           <nav class="tab">
-            <ul class="tab__list" id="header-nav" :data-count="getItemsLength">
+            <div class="tab__list" id="header-nav" :data-count="getItemsLength">
               <router-link
-                 tag="li"
                  class="tab__item"
                  v-for="item in items"
                  :to="item.linkTo"
@@ -33,8 +32,8 @@
               >
                 {{ item.name }}
               </router-link>
-              <li class="tab__line"><span></span></li>
-            </ul>
+              <span class="tab__line"><span></span></span>
+            </div>
           </nav>
         </div>
       </div>

@@ -1,38 +1,44 @@
 <template>
   <form class="filter" :class="className">
 
-    <h6 class="filter__headline" :class="headingClass" @click="toggle_dropdown" @keyup.space="toggle_dropdown" tabindex="0">
+    <h6 class="filter__headline"
+        :class="headingClass"
+        @click="toggleDropDown"
+        @keyup.space="toggleDropDown"
+    >
       <img class="filter__icon" src="/static/icons/filter.svg" />
-      {{ filter_heading }}
-      <template v-if="selectedFilter.length !== 0">
-        ({{ selectedFilter.length }})
+      {{ heading }}
+      <template v-if="isTagsSelected">
+        ({{ selected_tags.length }})
       </template>
-      <button
-         class="filter__clear"
-         tabindex="0"
-         v-if="selectedFilter.length !== 0"
-         type="reset" @click="clear_filter" @kyeup.enter="clear_filter">
-        clear</button>
+      <button v-if="isTagsSelected"
+              class="filter__clear"
+              type="reset"
+              tabindex="0"
+              @click="clearFilter"
+              @kyeup.enter="clearFilter">
+        clear
+      </button>
     </h6>
-
     <div class="filter__list js-dropdown-list" :class="listClassName">
       <label
          class="filter__item"
-         v-for="item in filterItems"
-         :for="item.value"
-         :class="[item.isSelected ? selectedClass : '']"
-         :key="item.id"
-         @keyup.space="select_filter_item"
-         tabindex="0"
+         v-for="tag in filterItems"
+         :for="tag.value"
+         :class="[tag.checked ? selectedClass : '']"
+         :key="tag.id"
       >
         <input
+           tabindex="0"
            type="checkbox"
-           :id="item.value"
-           :value="item.value"
-           v-model="selectedFilter"
-           @change="item.isSelected = !item.isSelected"
+           :id="tag.value"
+           :value="tag.value"
+           v-model="selected_tags"
+           @focus="addParentFocus"
+           @blur="removeParentFocus"
+           @change="tag.checked = !tag.checked"
         >
-        {{ item.value }}
+        {{ tag.value }}
       </label>
     </div>
   </form>
@@ -40,6 +46,12 @@
 
 <script>
   import _ from 'lodash';
+  import {createHelpers} from 'vuex-map-fields';
+
+  const {mapFields} = createHelpers({
+    getterType: 'get_selected_tags',
+    mutationType: 'update_selected_tags',
+  });
 
   export default {
     name: 'ProjectsFilter',
@@ -50,37 +62,53 @@
     },
     data() {
       return {
-        filter_heading: 'Filters',
-        selectedFilter: [],
+        heading: 'Filters',
         selectedClass: 'filter__item--selected',
         filterItems: [
-          { value: 'design', isSelected: false },
-          { value: 'development', isSelected: false },
-          { value: 'portfolio', isSelected: false },
-          { value: 'widjet', isSelected: false },
-          { value: 'chat', isSelected: false },
-          { value: 'landing', isSelected: false },
+          { value: 'chat', checked: false },
+          { value: 'design', checked: false },
+          { value: 'dashboard', checked: false },
+          { value: 'development', checked: false },
+          { value: 'landing', checked: false },
+          { value: 'portfolio', checked: false },
+          { value: 'widget', checked: false },
         ]
       }
     },
     methods: {
-      select_filter_item(e) {
-        e.target.children[0].click()
+      addParentFocus(e) {
+        let parentClass = e.target.parentNode.classList[0];
+        e.target.parentNode.classList.add(parentClass + '--focused')
       },
-      clear_filter(e) {
+
+      removeParentFocus(e) {
+        let parentClass = e.target.parentNode.classList[0];
+        e.target.parentNode.classList.remove(parentClass + '--focused')
+      },
+
+      clearFilter(e) {
         e.preventDefault();
-        this.selectedFilter = [];
-        _.forEach(this.filterItems, (item) => {
-          item.isSelected = false
+        _.forEach(this.filterItems, (tag) => {
+          tag.checked = false
         });
+        this.$store.dispatch('clear_filters');
       },
-      toggle_dropdown(e) {
+
+      toggleDropDown(e) {
         e.preventDefault();
         let opener = e.target;
-        let dropdown_list = document.querySelectorAll('.js-dropdown-list')[0];
+        let dropDownList = document.querySelectorAll('.js-dropdown-list')[0];
         if (opener.closest('.filter__clear')) return;
         opener.classList.toggle('filter__headline--opened');
-        dropdown_list.classList.toggle('filter__list--opened');
+        dropDownList.classList.toggle('filter__list--opened');
+      }
+    },
+    computed: {
+      ...mapFields([
+        'selected_tags'
+      ]),
+      isTagsSelected() {
+        return !_.isEmpty(this.selected_tags);
       }
     }
   }
@@ -112,6 +140,10 @@
         align-items: start
         padding: 10px ($spacing * 2)
         cursor: pointer
+        transition: all 0.18s $v--standard-easing
+        &:hover, &:focus
+          background: $filter_bg-color
+          box-shadow: $filter_interactive-shadow
         &--opened
           background: $filter_bg-color
 
@@ -178,19 +210,27 @@
       transition-timing-function: $v--standard-easing
       transition-duration: .18s
 
-      &:hover, &:focus
+      &:hover, &:focus, &--focused
         box-shadow: $filter_interactive-shadow
+
+      &--focused
+        outline: thin auto darken($outline-color, 8%)
 
       &--selected
         background-color: $filter--selected_bg-color
         box-shadow: $filter--selected_interactive-shadow
         color: $filter--selected_text-color
-        &:hover
+        &:hover, &:focus
           background-color: $secondaryLight
           box-shadow: $filter--selected_interactive-shadow
           color: $filter--selected_text-color
+        &.filter__item--focused
+          outline-offset: 1px
 
       input[type="checkbox"]
-        display: none
+        display: flex
+        opacity: 0
+        height: 0
+        width: 0
 
 </style>
