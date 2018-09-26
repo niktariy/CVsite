@@ -9,7 +9,7 @@
     </div>
     <section-heading :sectionTitle="sectionTitle"></section-heading>
     <div class="grid">
-      <projects-list></projects-list>
+      <projects-list :projects="allProjects"></projects-list>
       <div class="grid__row projects__view-more">
         <div class="component component--secondary m-l-auto m-r-auto">
           <router-link
@@ -43,6 +43,11 @@ export default {
       }
     }
   },
+  computed: {
+    allProjects() {
+      return this.$store.getters.load_projects;
+    },
+  }
 }
 </script>
 <style lang="sass" scoped>

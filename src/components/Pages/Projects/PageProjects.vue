@@ -6,7 +6,7 @@
     </header>
     <div class="col-md-1"></div>
     <section class="col-xs-12 col-md-11 section main__section">
-      <projects-list></projects-list>
+      <projects-list :projects="sortedProjects"></projects-list>
     </section>
   </main>
 </template>
@@ -28,12 +28,19 @@ export default {
       projectOpened: false,
     }
   },
+  computed: {
+    filteredProjects() {
+      return this.$store.getters.load_filtered_projects;
+    },
+    sortedProjects() {
+      return _.orderBy(this.filteredProjects, ['date'], ['desc'])
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.$store.dispatch('clear_filters');
+    next()
+  },
 }
-//
-// router.beforeEach((to, from, next) => {
-//   this.pageTitle = to.name;
-//   next();
-// })
 
 </script>
 

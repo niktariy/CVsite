@@ -1,9 +1,14 @@
 <template>
   <div class="grid__container grid__container--three">
-    <template v-for="project in sortedProjects" >
-      <c-card :item="project"
-              :key="project.id">
-      </c-card>
+    <template v-if="isProjectsExist">
+      <template v-for="project in projects" >
+        <c-card :item="project"
+                :key="project.id">
+        </c-card>
+      </template>
+    </template>
+    <template v-else>
+      <h5>Projects not found. Try another parameters :)</h5>
     </template>
   </div>
 </template>
@@ -16,13 +21,11 @@
     components: {
       'c-card': BaseCard
     },
+    props: ['projects'],
     name: 'ProjectsList',
     computed: {
-      allProjects() {
-        return this.$store.getters.load_filtered_projects;
-      },
-      sortedProjects() {
-        return _.orderBy(this.allProjects, ['date'], ['desc'])
+      isProjectsExist() {
+        return !_.isEmpty(this.projects);
       }
     }
   }

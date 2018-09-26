@@ -31,11 +31,11 @@ export default new Router({
       path: '/projects',
       name: 'ProjectsGeneral',
       component: ProjectsGeneral,
-      meta: {title: 'Veronika | Projects'},
       children: [
         { path: '/',
           name: 'Projects',
           component: Projects,
+          meta: {title: 'Veronika | Projects'},
         },
         { path: 'project/:id',
           name: 'SingleProjectPage',
