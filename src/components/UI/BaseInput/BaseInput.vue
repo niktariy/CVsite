@@ -3,18 +3,20 @@
      class="c-input"
      :class="'c-input--' + inputModifier">
     <input
+       id="id"
        class="c-input__field"
        v-model="content"
        :class="'c-input--' + inputModifier + '__field'"
        :type="inputType"
        :placeholder="placeholderText"
-       :required="required"
+       :required="isRequired"
        @input="handleInput"
        @keyup="setFilledClass()"
        @focus="setFocusClass()"
        @blur="removeFocusClass()"
     />
     <label
+       for="id"
        class="c-input__label"
        :class="'c-input--' + inputModifier + '__label'">
       <span class="c-input__label_content">{{ inputLabel }}</span>
@@ -39,7 +41,7 @@
         type: String,
         required: true
       },
-      required: {
+      isRequired: {
         type: String,
         required: false
       },
@@ -52,6 +54,7 @@
         required: true,
         default: 'text',
       },
+      id: String,
       value: String,
       validationText: String,
       isValid: Boolean,

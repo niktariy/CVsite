@@ -1,33 +1,35 @@
 <template>
   <form class="contact-form" action="">
     <base-input
-      inputModifier="fabian"
-      v-model="model.UserName"
-      aria-required="true"
-      required="required"
-      :inputType="fields[0].type"
-      :inputLabel="fields[0].label"
-      :placeholderText="fields[0].placeholderText"
-      :validationText="fields[0].validationText"
-      :isValid="fields[0].isValid"
-      @change="validateName(), addError()"
+       v-model="model.UserName"
+       aria-required="true"
+       isRequired="required"
+       id="user_name"
+       :inputType="fields[0].type"
+       :inputLabel="fields[0].label"
+       :inputModifier="inputModifier"
+       :placeholderText="fields[0].placeholderText"
+       :validationText="fields[0].validationText"
+       :isValid="fields[0].isValid"
+       @change="[validateName(), addError()]"
     ></base-input>
     <base-input
-      inputModifier="fabian"
-      v-model="model.Email"
-      aria-required="true"
-      required="required"
-      :inputType="fields[1].type"
-      :inputLabel="fields[1].label"
-      :placeholderText="fields[1].placeholderText"
-      :validationText="fields[1].validationText"
-      :isValid="fields[1].isValid"
-      @change="validateEmail(), addError()"
+       v-model="model.Email"
+       aria-required="true"
+       id="user_emali"
+       isRequired="required"
+       :inputType="fields[1].type"
+       :inputLabel="fields[1].label"
+       :inputModifier="inputModifier"
+       :placeholderText="fields[1].placeholderText"
+       :validationText="fields[1].validationText"
+       :isValid="fields[1].isValid"
+       @change="[validateEmail(), addError()]"
     ></base-input>
     <base-input-upload
-      inputModifier="fabian"
-      inputLabel="Attach specification or design"
-      v-model="model.FileUploader">
+       :inputModifier="inputModifier"
+       :inputLabel="fields[3].label"
+       v-model="model.FileUploader">
     </base-input-upload>
     <div
       class="contact-form__actions"
@@ -43,10 +45,14 @@
       </div>
     </div>
     <div class="contact-form__actions contact-form__actions--separate" v-else>
-      <div class="component component--secondary">
-        <button class="btn btn--raised" type="submit">Send</button>
-      </div>
+      <base-button
+         :type="button.type"
+         :componentType="button.componentType"
+         :modifier="button.modifier"
+         :label="button.label"
+      ></base-button>
     </div>
+
   </form>
 </template>
 
@@ -54,10 +60,12 @@
 
   import BaseInput from '@/components/UI/BaseInput/BaseInput';
   import BaseInputUpload from '@/components/UI/BaseInput/BaseInputUpload';
+  import BaseButton from "../BaseButton";
 
   export default {
     name: 'contact-form',
     components: {
+      BaseButton,
       BaseInput,
       BaseInputUpload,
     },
@@ -66,6 +74,7 @@
         invalidName: false,
         invalidEmail: false,
         isAvailable: false,
+        inputModifier: 'fabian',
         model: {
           UserName: '',
           Email: '',
@@ -90,10 +99,14 @@
             isValid: true,
           }, {
             label: 'Attach specification or design',
-            type: 'file',
-            placeholderText: '',
           },
         ],
+        button: {
+          componentType: '--secondary',
+          modifier: '--raised',
+          label: 'Send',
+          type: 'submit'
+        }
       };
     },
     methods: {
@@ -118,7 +131,7 @@
           console.log('Invalid Information');
         }
       },
-      validateName() {
+      validateName(event) {
         // Validation Checks
         if (!this.model.UserName.value) {
           this.invalidName = false;

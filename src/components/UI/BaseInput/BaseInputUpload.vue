@@ -5,9 +5,8 @@
     </label>
     <div class="input-upload__wrapper flex-column">
 
-      <div class="input-upload__content flex">
-
-        <div class="component--primary">
+      <div class="input-upload__content flex" v-if="!isMaxFilesUploaded">
+        <div class="component component--primary">
           <button type="button"
                   class="btn btn--flat input-upload__button "
                   style="position: relative;"
@@ -27,11 +26,10 @@
 
       <div class="input-upload__files js-uploadedFilesContainer"
            id="uploadedFiles"
-           v-if="Attachments.length">
+           v-if="isFilesUploaded">
         <div class="uploaded-file input-upload__file"
-             v-for="file in Attachments"
-             :key="file.id"
-             :title="file.name">
+             v-for="(file, index) in Attachments"
+             :key="index">
           <div class="uploaded-file__preview">
             <img :src="set_attachment_icon(file.type)" />
           </div>
@@ -42,7 +40,7 @@
           <span class="uploaded-file__remove"
                 title="remove file"
                 aria-label="Delete"
-                :click="remove_file(file.id)">x
+                @click="removeFile(index)">x
           </span>
         </div>
       </div>
@@ -55,6 +53,7 @@
   import _ from 'lodash';
 
   const MAX_FILE_SIZE = 5242880;
+  const MAX_FILES_COUNT = 10;
 
   export default {
     name: 'input-upload',
@@ -83,16 +82,20 @@
       next()
     },
     methods: {
-      onFileChange(event) {
-        let files = event.target.files || event.dataTransfer.files;
-
+      onFileChange(e) {
+        let files = e.target.files || e.dataTransfer.files;
         if (!files.length) return;
+
         files = [...files];
+
         files = _.remove(files, file => {
           return file.size <= MAX_FILE_SIZE && !_.find(this.Attachments, {name: file.name});
         });
+        this.Attachments =  _.concat(this.Attachments, files);
 
-        this.Attachments = _.concat(this.Attachments, files);
+        if (this.Attachments.length > MAX_FILES_COUNT) {
+          this.Attachments = _.slice(this.Attachments, 0, MAX_FILES_COUNT);
+        }
       },
 
       ellipsis_string(string) {
@@ -110,12 +113,20 @@
         return image_url = '/img/input/file.svg';
       },
 
-      remove_file(fileID) {
+      removeFile(fileID) {
         this.Attachments = [...this.Attachments].filter(item => {
           return !(item.name === this.Attachments[fileID].name);
         });
       },
     },
+    computed: {
+      isFilesUploaded(){
+        return !_.isEmpty(this.Attachments)
+      },
+      isMaxFilesUploaded(){
+        return this.Attachments.length === MAX_FILES_COUNT;
+      }
+    }
   }
 
 </script>

@@ -3,26 +3,20 @@
     <div class="grid">
       <div class="hero__container">
         <header class="hero__header">
-          <h1 class="hero__title">Hi! My name is Veronika</h1>
+          <h1 class="hero__title">{{sectionTitle}}</h1>
           <h2 class="hero__subtitle">I am design-oriented <span class="text--accent">front-end developer</span>
           </h2>
           <div class="hero__target btn-group">
-            <div
-              v-for="(button, index) in targetButtons"
-              class="component"
-              :key="index"
-              :class="'component--'+button.componentType"
-            >
-              <router-link
-                class="btn btn--raised btn--big"
-                type="button"
-                tag="button"
-                :to="button.linkTo"
-                :class="button.className"
-              >
-                {{button.label}}
-              </router-link>
-            </div>
+            <base-button
+               v-for="button in heroTargetButtons"
+               :key="button.id"
+               :isButtonLink="true"
+               :buttonLinkTo="button.linkTo"
+               :componentType="button.componentType"
+               :className="button.className"
+               :label="button.label"
+               :modifier="button.modifier"
+            ></base-button>
           </div>
         </header>
         <div class="hero__image-container">
@@ -34,23 +28,29 @@
     </div>
   </section>
 </template>
+
 <script>
+  import BaseButton from "../UI/BaseButton";
 
   export default {
+    components: {BaseButton},
     name: 'section--hero',
     data() {
       return {
         sectionTitle: "Hi! My name is Veronika",
-        targetButtons: [
+        heroTargetButtons: [
           {
             label: 'Contact me',
-            componentType: 'primary',
+            componentType: '--primary',
+            className: 'btn--big',
+            modifier: '--raised',
             linkTo: '/contacts',
           },
           {
             label: 'See my works',
-            componentType: 'secondary',
-            className: 'btn--flat',
+            componentType: '--secondary',
+            className: 'btn--big btn--flat',
+            modifier: '--raised',
             linkTo: '/projects',
           },
         ],

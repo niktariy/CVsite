@@ -9,16 +9,15 @@
     </div>
     <section-heading :sectionTitle="sectionTitle"></section-heading>
     <div class="grid">
-      <projects-list :projects="allProjects"></projects-list>
+      <projects-list :projects="sortedProjects"></projects-list>
       <div class="grid__row projects__view-more">
-        <div class="component component--secondary m-l-auto m-r-auto">
-          <router-link
-            class="btn btn--raised"
-            type="button"
-            tag="button"
-            :to="button.linkTo"
-          >{{button.label}}</router-link>
-        </div>
+        <base-button
+           :isButtonLink="true"
+           :buttonLinkTo="button.linkTo"
+           :componentType="button.componentType"
+           :label="button.label"
+           :modifier="button.modifier"
+        ></base-button>
       </div>
     </div>
   </section>
@@ -27,10 +26,12 @@
 <script>
 import sectionHeading from '@/components/Sections/TheSectionHeading';
 import projectsList from '@/components/ListProjects';
+import BaseButton from "../UI/BaseButton";
 
 export default {
   name: 'section-projects',
   components: {
+    BaseButton,
     sectionHeading,
     projectsList,
   },
@@ -38,8 +39,10 @@ export default {
     return {
       sectionTitle: 'My works',
       button: {
+        componentType: '--secondary',
         label: 'View all projects',
         linkTo: '/projects',
+        modifier: '--raised'
       }
     }
   },
@@ -47,6 +50,9 @@ export default {
     allProjects() {
       return this.$store.getters.load_projects;
     },
+    sortedProjects() {
+      return _.orderBy(this.allProjects, ['date'], ['desc'])
+    }
   }
 }
 </script>
@@ -84,5 +90,7 @@ export default {
   &__view-more
     margin-top: 32px
     text-align: center
+    display: flex
+    justify-content: center
 
 </style>
