@@ -57,6 +57,7 @@ $text-color--regular:   $DoveGray !global;
 $text-color--accent:    $secondary !global;
 
 //inputs
+$input__bg-color: $White;
 $input__text-color: $MineShaft;
 $input__placeholder-color: lighten($text-color--regular, 10%);
 $input__label-color: $secondary;

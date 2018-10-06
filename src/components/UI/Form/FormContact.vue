@@ -1,10 +1,11 @@
 <template>
-  <form class="contact-form" action="">
+  <form class="contact-form" action="" autocomplete="username">
     <base-input
        v-model="model.UserName"
        aria-required="true"
-       isRequired="required"
        id="user_name"
+       isRequired="required"
+       inputName="fname"
        :inputType="fields[0].type"
        :inputLabel="fields[0].label"
        :inputModifier="inputModifier"
@@ -18,6 +19,7 @@
        aria-required="true"
        id="user_emali"
        isRequired="required"
+       inputName="email"
        :inputType="fields[1].type"
        :inputLabel="fields[1].label"
        :inputModifier="inputModifier"
@@ -29,8 +31,8 @@
     <base-input-upload
        :inputModifier="inputModifier"
        :inputLabel="fields[3].label"
-       v-model="model.FileUploader">
-    </base-input-upload>
+       v-model="model.FileUploader"
+    ></base-input-upload>
     <div
       class="contact-form__actions"
       v-if="isAvailable"

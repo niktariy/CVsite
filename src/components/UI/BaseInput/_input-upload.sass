@@ -1,6 +1,8 @@
 @import "./src/style/base/colors"
 @import "./src/style/base/media"
 
+$input-upload__spacing: 16px
+
 .input-upload
   display: flex
   flex-direction: column
@@ -8,12 +10,11 @@
   max-width: 100%
   width: 100%
   box-shadow: none !important
-  
+
   +md-up
     margin: .5em 0 0
 
   &__wrapper
-    padding: 16px
     border: 2px dashed $input-upload__border-color
     &:hover
       box-shadow: 0 0 2px 0 $input-upload__shadow-color
@@ -31,25 +32,27 @@
     display: flex
     align-items: center
     justify-content: space-between
+    padding: $input-upload__spacing
     +xs-only
       flex-direction: column
 
   &__button
     background-color: $input-upload__button-bg-color
     +xs-only
-      margin-bottom: 16px
+      margin-bottom: $input-upload__spacing
 
   &__files
     display: flex
     flex-wrap: wrap
     margin: 0 auto
+    padding-bottom: $input-upload__spacing
 
 .uploaded-file
   display: flex
   align-items: center
   flex-direction: column
   position: relative
-  padding: 16px 24px
+  padding: $input-upload__spacing ($input-upload__spacing * 1.5)
   width: 25%
   border-radius: 2px
   will-change: box-shadow

@@ -6,6 +6,7 @@
        id="id"
        class="c-input__field"
        v-model="content"
+       :name="inputName"
        :class="'c-input--' + inputModifier + '__field'"
        :type="inputType"
        :placeholder="placeholderText"
@@ -37,6 +38,10 @@
         type: String,
         required: true
       },
+      inputName: {
+        type: String,
+        required: true
+      },
       placeholderText: {
         type: String,
         required: true
@@ -58,7 +63,7 @@
       value: String,
       validationText: String,
       isValid: Boolean,
-      onChange: Function,
+      onChange: Function
     },
     data() {
       return {

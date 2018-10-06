@@ -5,22 +5,27 @@
     </label>
     <div class="input-upload__wrapper flex-column">
 
-      <div class="input-upload__content flex" v-if="!isMaxFilesUploaded">
+      <div id="dropzone"
+           class="input-upload__content flex"
+           v-if="!isMaxFilesUploaded">
         <div class="component component--primary">
           <button type="button"
                   class="btn btn--flat input-upload__button "
                   style="position: relative;"
                   aria-label="add specs or design">
-            Upload files
-            <input type="file" :id="uploadId" id="attachments"
-                   name="file" multiple
+            {{uploadButtonTitle}}
+            <input :id="uploadId"
+                   type="file"
+                   name="file"
+                   multiple
                    ref="attachments"
-                   @change="onFileChange"/>
+                   @change="uploadFiles"
+            />
           </button>
         </div>
         <div class="input-upload__additional">
-          <p>or drag &amp; drop files here</p>
-          <p class="font__date">(file size less than 5MB)</p>
+          <p v-html="dropzoneTitle"></p>
+          <p class="font__date">({{dropzoneDescr}})</p>
         </div>
       </div>
 
@@ -34,7 +39,8 @@
             <img :src="set_attachment_icon(file.type)" />
           </div>
           <div class="uploaded-file__name"
-               aria-label="File name">
+               aria-label="File name"
+               :title="file.name">
             {{ ellipsis_string(file.name) }}
           </div>
           <span class="uploaded-file__remove"
@@ -73,8 +79,11 @@
     },
     data() {
       return {
-        uploadId: "attachments",
         Attachments: [],
+        uploadId: "attachments",
+        uploadButtonTitle: "Upload files",
+        dropzoneTitle: "or drag &amp; drop files here",
+        dropzoneDescr: "file size less than 5MB"
       };
     },
     beforeRouterUpdate(to, from, next) {
@@ -82,13 +91,13 @@
       next()
     },
     methods: {
-      onFileChange(e) {
+      uploadFiles(e) {
         let files = e.target.files || e.dataTransfer.files;
         if (!files.length) return;
 
         files = [...files];
 
-        files = _.remove(files, file => {
+        files = _.remove(files, (file) => {
           return file.size <= MAX_FILE_SIZE && !_.find(this.Attachments, {name: file.name});
         });
         this.Attachments =  _.concat(this.Attachments, files);
@@ -119,12 +128,41 @@
         });
       },
     },
+    mounted() {
+      let self = this;
+      let dropZone = document.getElementById("dropzone");
+
+      dropZone.addEventListener("dragenter", (e) => {
+        dropZone.style.opacity = 0.8;
+      });
+
+      dropZone.addEventListener("dragleave", (e) => {
+        e.preventDefault();
+        dropZone.style.opacity = 1;
+
+      });
+
+      dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.style.opacity = 0.6;
+      });
+
+      dropZone.addEventListener("drop", (e) => {
+        debugger
+        e.preventDefault();
+        dropZone.style.opacity = 1;
+
+        var files = e.dataTransfer.files;
+        console.log("Droped files:", files);
+        self.uploadFiles(e, files);
+      });
+    },
     computed: {
       isFilesUploaded(){
         return !_.isEmpty(this.Attachments)
       },
       isMaxFilesUploaded(){
-        return this.Attachments.length === MAX_FILES_COUNT;
+        return _.isEqual(this.Attachments.length, MAX_FILES_COUNT);
       }
     }
   }

@@ -16,10 +16,12 @@
 
 // Стилизация placeholder
 // пример:
-// @include placeholder {
-//   color: grey;
-//   font-size: 14px;
-// };
+// input {
+//   @include placeholder {
+//     color: grey;
+//     font-size: 14px;
+//   }
+// }
 =placeholder
   &::-webkit-input-placeholder
     @content
@@ -28,6 +30,13 @@
   &:-moz-placeholder
     @content
   &:-ms-input-placeholder
+    @content
+
+// Стилизация -webkit-autofill
+=autofill-style
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus
     @content
 
 =circle($w,$h,$r)

@@ -183,7 +183,7 @@ export default {
         max-width: 350px
     & p
       position: relative
-      margin: 0
+      margin: 0 0 4px
       font-size: $font--16-20
 
     @media (max-width: 1000px)

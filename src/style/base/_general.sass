@@ -57,7 +57,7 @@ em
     text-decoration: underline
     transition: border
     font-weight: 600
-  
+
   &--primary
     color: $links-color--dark
     &:hover
@@ -113,6 +113,11 @@ input
     color: $input__placeholder-color
     transition: color 0.18s $v--standard-easing 0.24s
 
+input, select, textarea
+  +autofill-style
+    -webkit-text-fill-color: inherit
+    -webkit-box-shadow: 0 0 0px 1000px $input__bg-color inset
+    transition: background-color 5000s ease-in-out 0s
 
 .header
   $header_height: 94px
