@@ -4,12 +4,12 @@
     <div class="col-xs-11 section">
       <div class="grid__row">
         <h2 class="section__title col-xs-12 col-sm-6">{{ pageTitle }}</h2>
+        <!--<h2 class="section__title col-xs-12 col-sm-6">{{ selectedProject.name }}</h2>-->
         <div class="controls section__controls col-xs-12 col-sm-6"
              v-show="projectOpened">
           <div class="btn-group">
             <router-link
               class="component component--primary"
-              :to="{ name: 'Projects', params: {} }"
             >
               <button class="fab fab--flat fab--back">
                 <img src="/img/arrow/arrow-up.svg" />
@@ -17,7 +17,6 @@
             </router-link>
             <router-link
               class="component component--primary"
-              :to="{ name: 'Projects', params: {} }"
             >
               <button class="fab fab--flat fab--prev">
                 <img src="/img/arrow/arrow-left.svg" />
@@ -31,7 +30,6 @@
             </a>
             <router-link
               class="component component--primary"
-              :to="{ name: 'Projects', params: {} }"
             >
               <button class="fab fab--flat fab--next">
                 <img src="/img/arrow/arrow-right.svg" />
@@ -53,6 +51,11 @@ export default {
       projectOpened: true,
     }
   },
+  computed: {
+    // selectedProject() {
+    //   return this.$store.getters.get_selected_project;
+    // },
+  }
 }</script>
 <style lang="sass">
 

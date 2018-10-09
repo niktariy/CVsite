@@ -14,7 +14,6 @@
 
 import lSidebar from '@/components/TheSidebar/TheSidebar';
 import projectsList from '@/components/ListProjects';
-import router from '@/router'
 
 export default {
   name: 'ProjectsPage',

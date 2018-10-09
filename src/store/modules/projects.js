@@ -2,7 +2,7 @@ import _ from 'lodash';
 import {getField, updateField} from "vuex-map-fields";
 
 const UPDATE_FILTER_PROJECTS = "UPDATE_FILTER_PROJECTS";
-const UPDATE_SELECTED_TAGS = "UPDATE_SELECTED_TAGS";
+const UPDATE_SELECTED_PROJECT = "UPDATE_SELECTED_PROJECT";
 const CLEAR_SELECTED_TAGS = "CLEAR_SELECTED_TAGS";
 
 const projects_init = [
@@ -62,18 +62,13 @@ const projects_init = [
     tags: ['widget', 'dashboard'],
     link: ''
   },
-  // { name: 'Project Name',
-  //   description: 'Project description',
-  //   image: 'desktop_hd.png',
-  //   date: '2017-06-06T18:00:00.000Z',
-  //   link: 'projects/project/4'
-  // },
 ];
 
 const state = {
   projects: projects_init,
   filtered_projects: projects_init,
-  selected_tags: []
+  selected_tags: [],
+  selected_project: null
 };
 
 // getters
@@ -87,6 +82,9 @@ const getters = {
   get_selected_tags: state => {
     return getField(state);
   },
+  get_selected_project: state => {
+    return state.selected_project;
+  }
 };
 
 // actions
@@ -108,11 +106,13 @@ const mutations = {
       return _.intersection(project.tags, state.selected_tags).length
     });
   },
+  [UPDATE_SELECTED_PROJECT](state, projectID) {
+    _.set(state, 'selected_project', state.projects[projectID])
+  },
   [CLEAR_SELECTED_TAGS](state) {
     _.set(state, 'selected_tags', []);
     state.filtered_projects = state.projects;
   }
-
 };
 
 export default {

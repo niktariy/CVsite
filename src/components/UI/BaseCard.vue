@@ -1,9 +1,11 @@
 <template>
   <aside class="card">
-    <a class="card__link"
-       rel="noopener"
-       target="_blank"
-       tabindex="0">
+    <router-link
+      :to="{path: '/products/'+index }"
+      class="card__link"
+      rel="noopener"
+      target="_parent"
+      tabindex="0">
       <figure class="card__img-container">
         <img class="card__img"
              :alt="item.name"
@@ -17,14 +19,14 @@
         </div>
       </slot>
       <span class="card__date" hidden>&ndash; {{ item.date }}</span>
-    </a>
+    </router-link>
   </aside>
 </template>
 
 <script>
   export default {
     name: 'c-card',
-    props: ['item']
+    props: ['item', 'index']
   }
 </script>
 

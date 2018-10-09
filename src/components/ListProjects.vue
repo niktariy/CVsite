@@ -1,9 +1,10 @@
 <template>
   <div class="grid__container grid__container--three">
     <template v-if="isProjectsExist">
-      <template v-for="project in projects" >
+      <template v-for="(project, index) in projects" >
         <c-card :item="project"
-                :key="project.id">
+                :index="index"
+                :key="index">
         </c-card>
       </template>
     </template>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-  import BaseCard from "./UI/BaseCard";
+  import BaseCard from "@/components/UI/BaseCard";
   import _ from 'lodash';
 
   export default {
