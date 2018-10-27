@@ -50,19 +50,19 @@
       &:hover
         box-shadow: 0 2px 16px 0 rgba(map_get($color, 'dark'), .48)
       &:focus
-        background-color: map_get($color, 'base')
+        background-color: mix(#000, map_get($color, 'dark'), 32%)
         box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
       &:active
         box-shadow: 0 0 0 0 transparent
 
     .btn--flat, .fab--flat
-      background-color: rgba(map_get($color, 'base'), 0.08)
+      background-color: rgba(map_get($color, 'light'), 0.16)
       color: map_get($color, 'dark')
       &:hover
-        background-color: rgba(map_get($color, 'base'), 0.18)
+        background-color: rgba(map_get($color, 'light'), 0.24)
         box-shadow: 0 2px 16px 0 rgba(map_get($color, 'base'), .48)
       &:focus
-        background-color: rgba(map_get($color, 'light'), .3)
+        background-color: rgba(map_get($color, 'light'), .32)
         box-shadow: 0 1px 8px 0 rgba(map_get($color, 'dark'), .6)
       &:active
         box-shadow: 0 0 0 0 transparent

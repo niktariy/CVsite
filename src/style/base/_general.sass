@@ -53,15 +53,15 @@ em
   line-height: 1.4
   &--external
     display: block
-    color: $links-color--dark
+    color: $link-color--dark
     text-decoration: underline
     transition: border
     font-weight: 600
   
   &--primary
-    color: $links-color--dark
+    color: $link-color--dark
     &:hover
-      color: $links-color
+      color: $link-color
     &:not(:last-of-type)::after
       display: block
       content: ''
@@ -72,18 +72,18 @@ em
       height: 2px
       width: 16px
       transform: translateY(-50%)
-      background-color: $links-color--dark
+      background-color: $link-color--dark
 
 .toTop
   position: fixed
   font-size: xx-large
-  color: $links-color
+  color: $link-color
   padding: 5px
   bottom: 20px
   right: 20px
   z-index: 998
   &:hover, &:focus, &:active
-    color: $links-color--light
+    color: $link-color--light
 
 svg
   max-width: 100%

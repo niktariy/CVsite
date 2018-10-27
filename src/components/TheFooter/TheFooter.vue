@@ -1,7 +1,7 @@
 <template>
   <footer class="footer" id="footer">
     <div class="footer__container grid">
-      <div class="footer__copy">&copy; All rights reserved</div>
+      <div class="footer__copy">&copy; 2018. All rights reserved</div>
       <ul class="footer__follow follow-list">
         <li v-for="item in followList" :key="item.id"
             class="follow-list__item">

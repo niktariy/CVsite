@@ -37,7 +37,7 @@ $items-count: 4 !global
       margin: 0 auto
       height: 3px
       width: 100%
-      background: $links-color
+      background: $link-color
       border-radius: 2px
 
   &__item
@@ -57,13 +57,13 @@ $items-count: 4 !global
     transition: color 0.18s $v--standard-easing
     user-select: none
     &:hover, &:focus
-      color: $links-color
+      color: $link-color
     @media screen and (max-width: 500px)
       font-size: 18px
     @media screen and (max-height: 500px) and (max-width: 500px)
       font-size: 14px
     &.current
-      color: $links-color--dark
+      color: $link-color--dark
       transition: color .5s
 
     @for $i from 0 to $items-count

@@ -25,8 +25,8 @@ $bun-height: ( length($burger_buns)*$spacing - $height ) * 2
   -webkit-touch-callout: none
   user-select: none
   
-  //&:active, &:focus
-  //  outline: none
+  &:active, &:focus
+   outline: none
   
   @media (max-width: 868px)
     display: block
@@ -56,7 +56,6 @@ $bun-height: ( length($burger_buns)*$spacing - $height ) * 2
   .bun--mid
     background-color: $primary
 
-.burger
   &.is-opened
     .bun--top
       animation: bun-top-out 0.6s linear normal

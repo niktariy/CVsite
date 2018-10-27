@@ -18,22 +18,21 @@
               </tr></thead>
               <tbody class="table__body">
 
-              <tr class="table__row--with-content"
-                  v-for="itemPrice in prices"
+              <tr v-for="itemPrice in prices"
                   :key="itemPrice.id">
 
                 <td class="table__cell"
-                    :colspan="itemPrice.colspan"
-                    valign="middle">
+                    valign="middle"
+                    :colspan="itemPrice.colspan">
 
                   <h4 class="table__cell_content">{{itemPrice.activity}}</h4>
-
                   <table class="table table--subtable"
                          v-if="itemPrice.subTable"
                          v-show="itemPrice.expanded"><tbody>
 
                     <tr v-for="sub in itemPrice.subTable"
-                        class="table__row">
+                        :key="sub.id"
+                        class="table__row table__row--with-content">
                       <td class="table__cell table__cell--body" valign="top">
                         {{sub.activity}}
                       </td>
@@ -63,7 +62,7 @@
   import sectionHeading from '@/components/Sections/TheSectionHeading';
 
   export default {
-    name: 'ContactsPage',
+    name: 'PricesPage',
     components: {
       sectionHeading,
     },
@@ -110,13 +109,21 @@
               price: '$30',
               description: 'Dropdown component with full accessibility from keyboard'
             }, {
+              activity: 'Sticky header',
+              price: '$30',
+              description: ''
+            }, {
+              activity: 'Mobile menu',
+              price: '$50',
+              description: 'Adaptive menu for your website width access from keyboard'
+            }, {
               activity: 'Data table',
               price: '$60',
               description: 'Fully responsive data table, with interactive elements if you need'
             }, {
               activity: 'Form components',
               price: '$15',
-              description: 'Include realization sinle form components as input fields, checkbox and radio button, file uploader and etc.'
+              description: 'Include realization single form components as input fields, checkbox and radio button, file uploader and etc.'
             }, {
               activity: 'Photo Gallery',
               price: '$120',
@@ -139,7 +146,7 @@
             }, {
               activity: 'Consulting',
               price: '$20',
-              description: 'Online chat with questions / answers'
+              description: 'Live chat with questions / answers'
             }, {
               activity: 'Phone call',
               price: '$30 per 30 minutes',
@@ -156,10 +163,8 @@
 <style lang="sass" scoped>
 
   .table
-    background: #fff
     width: 100%
     table-layout: fixed
-    border-collapse: collapse
     &__row
       &:nth-of-type(1n)
         background: #fff
@@ -168,12 +173,12 @@
 
       &--with-content
         position: relative
-        opacity: 0.9
+        opacity: 0.88
         transition: box-shadow .18s, opacity .18s
         z-index: 1
         &:hover
+          box-shadow: 0 4px 12px 0 rgba(#555, 0.16), inset 0 -2px 0 0 #88a9d1
           opacity: 1
-          box-shadow: 0 2px 12px 0 rgba(#000, 0.16)
           z-index: 2
 
     &__cell
