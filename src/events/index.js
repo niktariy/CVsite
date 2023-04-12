@@ -6,6 +6,7 @@ const TABS_CLASS_CLOSED = 'slideOutRight';
 const BURGER_CLASS_OPENED = 'is-opened';
 
 export default {
+
   mounted() {
     EventBus.$on('toggle_menu', () => {
       let tab_list = document.getElementById('header-nav');
@@ -26,4 +27,5 @@ export default {
       tab_list_classes.remove(TABS_CLASS_OPENED);
     });
   }
+  
 }

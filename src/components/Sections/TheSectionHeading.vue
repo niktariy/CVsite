@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style lang="sass">
+
 @import "./src/style/base/colors"
 @import "./src/style/base/variables"
 

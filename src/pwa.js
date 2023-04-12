@@ -4,4 +4,4 @@ runtime.install({
   onUpdateReady() {
     runtime.applyUpdate()
   }
-})
+});

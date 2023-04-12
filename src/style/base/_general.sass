@@ -57,7 +57,7 @@ em
     text-decoration: underline
     transition: border
     font-weight: 600
-  
+
   &--primary
     color: $links-color--dark
     &:hover
@@ -84,6 +84,24 @@ em
   z-index: 998
   &:hover, &:focus, &:active
     color: $links-color--light
+
+
+.colors
+
+  span
+    width: 50px
+    height: 50px
+    display: block
+
+  &.primary
+    @each $name, $color in $primary-colors
+      .color--#{$name}
+        background-color: $color
+
+  &.secondary
+    @each $name, $color in $secondary-colors
+      .color--#{$name}
+        background-color: $color
 
 svg
   max-width: 100%
